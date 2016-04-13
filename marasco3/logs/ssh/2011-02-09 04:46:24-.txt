@@ -1,0 +1,1 @@
+<pre> El código de salida fué: </pre>

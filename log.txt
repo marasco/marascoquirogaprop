@@ -1,0 +1,2 @@
+get -e -O ftp://webmaster.marasco:fran21@ftp.elserver.com/htdocs file:/var/www/marascoquirogaprop/index.php
+get -e -O ftp://webmaster.marasco:fran21@ftp.elserver.com/htdocs file:/var/www/marascoquirogaprop/log.txt

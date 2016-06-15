@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('www/home');
-});
+Route::get('/', 'HomeController@index');
+Route::get('/admin', 'AdminController@index');
 
-Route::get('/admin', function () {
-    return view('admin/index');
-});
+Route::auth();

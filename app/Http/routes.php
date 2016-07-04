@@ -10,8 +10,23 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+/*
+Route::group(['middleware' => 'guest'], function () {
 
+	Route::get('/', 'HomeController@index');
+});
+
+Route::group(['middleware' => 'auth'], function () {
+
+	Route::group(['prefix'=> 'admin'], function () {
+
+		Route::get('index', [
+    		'as' => 'adminIndex', 'uses' => 'AdminController@index'
+		]);
+	});
+});
+ */
 Route::get('/', 'HomeController@index');
-Route::get('/admin', 'AdminController@index');
+Route::controller('admin', 'AdminController');
 
 Route::auth();

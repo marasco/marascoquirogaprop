@@ -65,6 +65,7 @@
  * @constructor
  * @param {InfoBoxOptions} [opt_opts]
  */
+
 function InfoBox(opt_opts) {
     opt_opts = opt_opts || {};
     google.maps.OverlayView.apply(this, arguments);
@@ -93,7 +94,9 @@ function InfoBox(opt_opts) {
 }
     /* InfoBox extends OverlayView in the Google Maps API v3.
      */
+if (typeof google != 'undefined'){
     InfoBox.prototype = new google.maps.OverlayView();
+}
     /**
      * Creates the DIV representing the InfoBox.
      * @private

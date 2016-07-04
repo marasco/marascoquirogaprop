@@ -8,9 +8,7 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-
-Home page
-
+                Home page
                 </div>
             </div>
         </div>

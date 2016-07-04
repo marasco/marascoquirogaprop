@@ -16,7 +16,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+       
+
     }
 
     /**
@@ -26,11 +27,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        /*
+     /*)   $deleted = DB::delete('delete from users');
         DB::table('users')->insert([
             ['name'=>'Fran', 'email' => 'fran@marasco.com', 'password' => Hash::make('fran21'), 'created_at'=>gmdate('Y-m-d H:i:s')]
         ]);
-        */
+         */
         return view('home/index');
     }
 }

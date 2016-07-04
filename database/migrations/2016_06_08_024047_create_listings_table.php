@@ -12,9 +12,9 @@ class CreateListingsTable extends Migration
      */
     public function up()
     {
+
         Schema::create('listings', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->primary('id');  
             $table->increments('id');
             $table->string('title');
             $table->string('operation')->default('sale');

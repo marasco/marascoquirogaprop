@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.none')
 @section('title', 'Panel de Control - SignIn')
 @section('content')
 <div class="modal fade" id="signin" role="dialog" aria-labelledby="signinLabel" aria-hidden="true">

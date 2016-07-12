@@ -39,7 +39,11 @@
 
     var newMarker = null;
     var markers = [];
-    var initialLat = {lat:-34.6550036,lng:-58.6784542};
+    if (typeof _defaultLat == 'undefined'){
+        window._defaultLat = {lat:-34.6550036,lng:-58.6784542};
+    }
+    console.log(_defaultLat);
+    window.initialLat = _defaultLat;
     // json for properties markers on map
     var props = [{
         title : 'Modern Residence in New York',
@@ -246,16 +250,17 @@
                 animation: google.maps.Animation.DROP,
             });
             if ( $('input[with-coords]').length>0){
-                $('input[with-coords]').val(initialLat.lat + ',' + initialLat.lng);
                 $('#latitude').text(initialLat.lat);
                 $('#longitude').text(initialLat.lng);
+                $('input[with-coords]').val("{lat:" + initialLat.lat + ',' + "lng:" + initialLat.lng + "}");
             }
             google.maps.event.addListener(newMarker, "mouseup", function(event) {
                 var latitude = this.position.lat();
                 var longitude = this.position.lng();
                 $('#latitude').text(this.position.lat());
                 $('#longitude').text(this.position.lng());
-                $('input[with-coords]').val(this.position.lat()+ ',' +this.position.lng());
+                $('input[with-coords]').val("{lat:" + this.position.lat() + ',' + "lng:" + this.position.lng() + "}");
+
 
             });
 

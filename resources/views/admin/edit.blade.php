@@ -23,7 +23,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                         <div class="form-group">
                             <label>Titulo</label>
-                            <input type="text" name="title" class="form-control" value="{{ old('title') }}">
+                            <input type="text" name="title" class="form-control" value="{{ $listing->title }}">
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
@@ -31,18 +31,18 @@
                             <label>Precio</label>
                             <div class="input-group">
                                 <div class="input-group-addon">$</div>
-                                <input class="form-control" name="price" type="text" value="{{ old('price') }}" placeholder="A consultar">
+                                <input class="form-control" name="price" type="text" value="{{ $listing->price }}" placeholder="A consultar">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Descripción corta</label>
-                    <textarea class="form-control" name="short_desc" rows="2">{{ old('short_desc') }}</textarea>
+                    <textarea class="form-control" name="short_desc" rows="2">{{ $listing->short_desc }}</textarea>
                 </div>
                 <div class="form-group">
                     <label>Descripción Larga</label>
-                    <textarea class="form-control" name="long_desc" rows="4">{{ old('long_desc') }}</textarea>
+                    <textarea class="form-control" name="long_desc" rows="4">{{ $listing->long_desc }}</textarea>
                 </div>
                 <div class="form-group">
                     <label>Ubicación <span id="latitude" class="label label-default"></span> <span id="longitude" class="label label-default"></span></label>
@@ -58,8 +58,8 @@
                             </a>
                             <ul class="dropdown-menu dropdown-select">
                                 <li class="active">
-                                <input type="radio" value="sale" name="operation" <?php if ($operation == 'sale') { echo 'checked="checked"'; } ?>><a href="#">Venta</a></li>
-                                <li><input type="radio" value="rent" name="operation"  <?php if ($operation == 'rent') { echo 'checked="checked"'; } ?>><a href="#">Alquiler</a></li>
+                                <input type="radio" value="sale" name="operation" <?php if ($listing->operation == 'sale') { echo 'checked="checked"'; } ?>><a href="#">Venta</a></li>
+                                <li><input type="radio" value="rent" name="operation"  <?php if ($listing->operation == 'rent') { echo 'checked="checked"'; } ?>><a href="#">Alquiler</a></li>
                             </ul>
                         </div>
                 </div>
@@ -68,15 +68,21 @@
                             <label>Tipo de Propiedad</label>
                             <div class="clearfix"></div>
                             @if (count($listing_types))
+                                <?php 
+                                foreach ($listing_types as $i=>$listing_type):
+                                    if ($listing_type->id == $listing->type):
+                                        $selectedListing = $listing_type->name;
+                                    endif;
+                                endforeach; ?>
                             <a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle">
-                                <span class="dropdown-label">{{ $listing_types[0]->name }}</span>&nbsp;&nbsp;&nbsp;<span class="caret"></span>
+                                <span class="dropdown-label">{{ $selectedListing }}</span>&nbsp;&nbsp;&nbsp;<span class="caret"></span>
 
                             </a>
                             <ul class="dropdown-menu dropdown-select">
                                 @foreach ($listing_types as $i=>$listing_type)
                                 
                                     <li <?php if ($i==0) echo 'class="active"'; ?>>
-                                    <input type="radio" value="{{ $listing_type->id }}" name="type" <?php if ($listing_type_selected == $listing_type->id) { echo 'checked="checked"'; } ?>><a href="#">{{ $listing_type->name }}</a>
+                                    <input type="radio" value="{{ $listing_type->id }}" name="type" <?php if ($listing->type == $listing_type->id) { echo 'checked="checked"'; } ?>><a href="#">{{ $listing_type->name }}</a>
                                     </li>
                                 @endforeach
                                  
@@ -105,7 +111,7 @@
 </div>
 <script>
 
-window._defaultLat = {{ $location }}; 
+window._defaultLat = {{ $listing->location }}; 
 console.log(_defaultLat)
 </script>
 @endsection

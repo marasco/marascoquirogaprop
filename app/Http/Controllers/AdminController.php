@@ -1,12 +1,12 @@
 <?php
 
+use App\Listing;
 namespace App\Http\Controllers;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Validator;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use DB;
-use App\Listing;
 use Auth;
 
 class AdminController extends Controller
@@ -39,7 +39,18 @@ class AdminController extends Controller
         $listing_types = DB::table('listing_types')->get();
         $operation = !empty($request->old('operation'))?$request->old('operation'):'sale';
         $listing_type = !empty($request->old('listing_type'))?$request->old('listing_type'):1;
-        return view('admin/new', ['operation' => $operation,'listing_type_selected' => $listing_type, 'listing_types'=>$listing_types]);
+        $location = !empty($request->old('location'))?$request->old('location'):"{lat:-34.6550036,lng:-58.6784542}";
+        return view('admin/new', ['operation' => $operation,'listing_type_selected' => $listing_type, 'listing_types'=>$listing_types,'location'=>$location]);
+    }
+
+    public function getEdit(Request $request, $id)
+    {
+        $listing = \App\Listing::find($id);
+        if (empty($listing)){
+            return redirect('admin/index');
+        }
+        $listing_types = DB::table('listing_types')->get();
+        return view('admin/edit', ['listing' => $listing, 'listing_types'=>$listing_types]);
     }
     public function postNew(Request $request)
     {

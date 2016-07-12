@@ -53,14 +53,7 @@
                                         <td><span class="label label-success">ACTIVE</span></td>
                                         <td>
                                             <div class="btn-group">
-                                                <a class="btn btn-xs btn-round btn-o btn-green dropdown-toggle" data-toggle="dropdown"><span class="fa fa-pencil"></span> Edit</a>
-                                                <ul class="dropdown-menu pull-right" role="menu">
-                                                    <li><a href="#">Action</a></li>
-                                                    <li><a href="#">Another action</a></li>
-                                                    <li><a href="#">Something else here</a></li>
-                                                    <li class="divider"></li>
-                                                    <li><a href="#">Separated link</a></li>
-                                                </ul>
+                                                <a href="<?=URL::to('/')?>/admin/edit/{{ $listing->id }}" class="btn btn-xs btn-round btn-o btn-green"><span class="fa fa-pencil"></span> Edit</a> 
                                             </div>
                                         </td>
                                     </tr>

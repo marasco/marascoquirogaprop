@@ -27,13 +27,19 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function getDelete($id)
+    {
+        DB::table('listings')->delete($id);
+        return redirect('admin/index');
+    }
+
     public function getIndex()
     {
-        //DB::table('listings')->delete();
-
         $listings = DB::table('listings')->get();
         return view('admin/index', ['listings'=>$listings]);
     }
+
     public function getNew(Request $request)
     {
         $listing_types = DB::table('listing_types')->get();
@@ -52,6 +58,33 @@ class AdminController extends Controller
         $listing_types = DB::table('listing_types')->get();
         return view('admin/edit', ['listing' => $listing, 'listing_types'=>$listing_types]);
     }
+
+    public function postUploads(Request $request){
+        try {
+            if (!$request->hasFile('data')) {
+                throw new \Exception("Error Processing Request", 1);
+            }
+            if (!$request->data['file']->isValid()) {
+                throw new \Exception("Error Processing File", 1);
+            }
+            $id = (!empty($request->id))?$request->id:0;
+            $fileName = $this->getRandomString(20) . '.jpg';
+            $destinationPath = 'uploads';
+            $request->data['file']->move($destinationPath, $fileName);
+
+            $listingImages = new \App\listingImages;
+            if (!empty($listingImages->id)){
+                $listingImages->listing_id = $request->id;
+            }
+            $listingImages->filename = $fileName;
+            $listingImages->save();
+
+            return response()->json(['success' => 'true', 'message' => $fileName]);
+        } catch (\Exception $e){
+            return response()->json(['success' => 'false', 'message' => $e->getMessage()]);
+        }
+    }
+
     public function postNew(Request $request)
     {
          $validator = Validator::make($request->all(), [
@@ -65,8 +98,10 @@ class AdminController extends Controller
                         ->withErrors($validator)
                         ->withInput();
         }
-
-        $listing = new Listing;
+        $listing = new \App\Listing;
+        if (!empty($listing->id)){
+            $listing->id = $request->id;
+        }
         $listing->title = $request->title;
         $listing->short_desc = $request->short_desc;
         $listing->long_desc = $request->long_desc;

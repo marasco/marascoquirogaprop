@@ -28,6 +28,7 @@
                         <table class="table">
                             <thead>
                                 <tr>
+                                    <th>ID</th>
                                     <th>Titulo</th>
                                     <th>Descripción</th>
                                     <th>Rating</th>
@@ -39,6 +40,7 @@
                             <tbody class="table">
                                 @foreach ($listings as $listing)
                                     <tr>
+                                        <td><span class="userName">{{ $listing->id }}</span></td>
                                         <td><span class="userName">{{ $listing->title }}</span></td>
                                         <td>{{ $listing->short_desc }}</td>
                                          <td>
@@ -54,6 +56,7 @@
                                         <td>
                                             <div class="btn-group">
                                                 <a href="<?=URL::to('/')?>/admin/edit/{{ $listing->id }}" class="btn btn-xs btn-round btn-o btn-green"><span class="fa fa-pencil"></span> Edit</a> 
+                                                <a href="<?=URL::to('/')?>/admin/delete/{{ $listing->id }}" class="btn btn-xs btn-round btn-o btn-red"><span class="fa fa-trash"></span> Delete</a> 
                                             </div>
                                         </td>
                                     </tr>

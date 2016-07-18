@@ -19,6 +19,8 @@
             <h1>Agrega una nueva propiedad</h1>
                 <form action="{{ url('admin/new')}}" method="POST" class="form-horizontal">
                     {{ csrf_field() }}
+                    <input type="hidden" name="id" class="form-control" style="display:none" value="{{ $listing->id }}">
+
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                         <div class="form-group">
@@ -94,7 +96,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <div class="form-group">
                             <label>Galería de imágenes</label>
-                            <input type="file" class="file" multiple data-show-upload="false" data-show-caption="false" data-show-remove="false" accept="image/jpeg,image/png" data-browse-class="btn btn-o btn-default" data-browse-label="Browse Images">
+                            <input type="file" class="file" multiple data-show-upload="false" data-show-caption="false" data-show-remove="false" accept="image/jpeg,image/png" data-browse-class="btn btn-o btn-default" data-browse-label="+ Add Images">
                             <p class="help-block">Elige las imágenes de la propiedad</p>
                         </div>
                     </div>
@@ -114,4 +116,9 @@
 window._defaultLat = {{ $listing->location }}; 
 console.log(_defaultLat)
 </script>
+@endsection
+
+
+@section('scripts')
+    <script src="<?=URL::to('/')?>/js/multiimage.js"></script>
 @endsection

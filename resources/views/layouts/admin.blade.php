@@ -14,6 +14,7 @@
         <link href="<?=URL::to('/')?>/css/bootstrap.css" rel="stylesheet">
         <link href="<?=URL::to('/')?>/css/app.css" rel="stylesheet">
         <link href="<?=URL::to('/')?>/css/colors.css" rel="stylesheet">
+        <link href="<?=URL::to('/')?>/css/jquery.growl.css" rel="stylesheet">
 
         <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -111,6 +112,9 @@
         <script src="<?=URL::to('/')?>/js/bootstrap-datepicker.js"></script>
         <script src="<?=URL::to('/')?>/js/app.js" type="text/javascript"></script>
         <script src="<?=URL::to('/')?>/js/sortable.js"></script>
+        <script src="<?=URL::to('/')?>/js/jquery.growl.js"></script>
+        <script src="<?=URL::to('/')?>/js/bootstrap-filestyle.min.js"></script>
+        @yield('scripts')
 
     </body>
 </html>

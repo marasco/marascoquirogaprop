@@ -49,7 +49,7 @@
                     <input class="hidden form-control" type="text" name="location" id="location" with-coords placeholder="Ingresa coordenadas" autocomplete="on" >
                     <p class="help-block">Arrastra el mapa</p>
                 </div>
-                <div class="row">
+                <div class="form-group">
                         <div class="btn-group">
                             <label>Tipo de Operación</label>
                             <div class="clearfix"></div>
@@ -63,7 +63,7 @@
                             </ul>
                         </div>
                 </div>
-                 <div class="row">
+                 <div class="form-group">
                         <div class="btn-group">
                             <label>Tipo de Propiedad</label>
                             <div class="clearfix"></div>
@@ -84,13 +84,12 @@
                             @endif
                         </div>
                 </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <div class="form-group">
+                <div class="form-group">
+                    <div class="btn-group">
                             <label>Galería de imágenes</label>
-                            <input type="file" class="file" multiple data-show-upload="false" data-show-caption="false" data-show-remove="false" accept="image/jpeg,image/png" data-browse-class="btn btn-o btn-default" data-browse-label="Browse Images">
-                            <p class="help-block">Elige las imágenes de la propiedad</p>
-                        </div>
+                            <input type="file" class="filestyle" data-buttonText="+ Agregar Imágenes" data-badge="false" data-buttonName="btn-primary" data-input="false" with-previews multiple accept=".jpg,.jpeg,.png" multiupload-preview-object=".image-container" multiupload-server="<?=URL::to('/').'/admin/uploads'?>" multiupload-model-id="0" />
+                            <div class="image-container row">
+                            </div>
                     </div>
                 </div>
                  
@@ -108,4 +107,9 @@
 window._defaultLat = {{ $location }}; 
 console.log(_defaultLat)
 </script>
+
+@endsection
+
+@section('scripts')
+    <script src="<?=URL::to('/')?>/js/multiimage.js"></script>
 @endsection

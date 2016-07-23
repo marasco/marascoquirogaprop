@@ -51,12 +51,14 @@
                     <input class="hidden form-control" type="text" name="location" id="location" with-coords placeholder="Ingresa coordenadas" autocomplete="on" >
                     <p class="help-block">Arrastra el mapa</p>
                 </div>
-                <div class="row">
+                <div class="form-group">
                         <div class="btn-group">
                             <label>Tipo de Operación</label>
                             <div class="clearfix"></div>
                             <a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle">
-                                <span class="dropdown-label">Venta</span>&nbsp;&nbsp;&nbsp;<span class="caret"></span>
+                                <span class="dropdown-label">
+                                    <?php echo ($listing->operation == 'rent')?'Alquiler':'Venta'; ?>
+                                </span>&nbsp;&nbsp;&nbsp;<span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-select">
                                 <li class="active">
@@ -65,7 +67,7 @@
                             </ul>
                         </div>
                 </div>
-                 <div class="row">
+                 <div class="form-group">
                         <div class="btn-group">
                             <label>Tipo de Propiedad</label>
                             <div class="clearfix"></div>
@@ -96,8 +98,19 @@
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <div class="form-group">
                             <label>Galería de imágenes</label>
-                            <input type="file" class="file" multiple data-show-upload="false" data-show-caption="false" data-show-remove="false" accept="image/jpeg,image/png" data-browse-class="btn btn-o btn-default" data-browse-label="+ Add Images">
-                            <p class="help-block">Elige las imágenes de la propiedad</p>
+                            <input type="file" class="filestyle" data-buttonText="+ Agregar Imágenes" data-badge="false" data-buttonName="btn-primary" data-input="false" with-previews multiple accept=".jpg,.jpeg,.png" multiupload-preview-object=".image-container" multiupload-delete-server="<?=URL::to('/').'/admin/delete-upload'?>" multiupload-server="<?=URL::to('/').'/admin/uploads'?>" multiupload-model-id="{{ $listing->id }}" />
+                            <div class="image-container row">
+                                @foreach ($listing_images as $i=>$image)
+                                    <div class='col-xs-4 col-md-3 image-obj' containerId='{{ $image->id }}'>
+                                        <div class='deleteContainer' multiimage-delete-server="<?=URL::to('/').'/admin/delete-upload'?>" onclick='deleteContainer(this,{{ $image->id }})'>x</div>
+                                        <div class='image-space'><img class='maxheight100' src='<?=URL::to('/uploads')?>/{{ $image->filename }}' /></div>
+                                    </div>
+                                @endforeach
+                            </div>
+
+                          
+
+
                         </div>
                     </div>
                 </div>

@@ -65,6 +65,9 @@
                             </tbody>
                         </table>
                     </div>
+                    <div class="pull-right">
+                    {{ $listings->links() }}
+                    </div>
                     @endif
                 </div>
             </div>

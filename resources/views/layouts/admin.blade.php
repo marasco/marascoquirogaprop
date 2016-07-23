@@ -13,7 +13,7 @@
         <link href="<?=URL::to('/')?>/css/datepicker.css" rel="stylesheet">
         <link href="<?=URL::to('/')?>/css/bootstrap.css" rel="stylesheet">
         <link href="<?=URL::to('/')?>/css/app.css" rel="stylesheet">
-        <link href="<?=URL::to('/')?>/css/colors.css" rel="stylesheet">
+        <link href="<?=URL::to('/')?>/css/custom.css" rel="stylesheet">
         <link href="<?=URL::to('/')?>/css/jquery.growl.css" rel="stylesheet">
 
         <!--[if lt IE 9]>
@@ -29,16 +29,16 @@
 
         <div id="header">
             <div class="logo">
-                <a href="index.html">
+                <a href="/admin/">
                     <span class="fa fa-home marker"></span>
                     <span class="logoText">MQ</span>
                 </a>
             </div>
             <a href="#" class="navHandler"><span class="fa fa-bars"></span></a>
-            <div class="search">
+            <!--<div class="search">
                 <span class="searchIcon icon-magnifier"></span>
                 <input type="text" placeholder="Buscador de propiedades">
-            </div>
+            </div>-->
             <div class="headerUserWraper">
                  
                 <a href="#" class="headerUser dropdown-toggle" data-toggle="dropdown">

@@ -1,0 +1,41 @@
+.color-white{
+	color:white;
+}
+.color-black{
+	color:black;
+}
+.color-gray{
+	color:gray;
+}
+.margin10{
+	margin:10px;
+}
+.padding10{
+	padding:10px;
+}
+.margin20{
+	margin:20px;
+}
+.padding20{
+	padding:20px;
+}
+.deleteContainer{
+    float: right;
+    cursor: pointer;
+    background: #ff5858;
+    width: 20px;
+    position: absolute;
+    padding-left: 7px;
+    height: 20px;
+    color: white;
+}
+.image-container{
+	margin-top:20px;
+}
+.maxheight100{
+	width: auto;
+	max-width: 100%;
+}
+.image-space{
+	height: 100px;
+}

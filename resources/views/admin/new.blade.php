@@ -7,15 +7,15 @@
     <div id="content" class="mob-max">
         <div class="rightContainer">
         <div class="col-xs-12">
-        @if (count($errors) > 0)
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+            @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <h1>Agrega una nueva propiedad</h1>
                 <form action="{{ url('admin/new')}}" method="POST" class="form-horizontal">
                     {{ csrf_field() }}
@@ -70,16 +70,13 @@
                             @if (count($listing_types))
                             <a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle">
                                 <span class="dropdown-label">{{ $listing_types[0]->name }}</span>&nbsp;&nbsp;&nbsp;<span class="caret"></span>
-
                             </a>
                             <ul class="dropdown-menu dropdown-select">
-                                @foreach ($listing_types as $i=>$listing_type)
-                                
+                                @foreach ($listing_types as $i=>$listing_type) 
                                     <li <?php if ($i==0) echo 'class="active"'; ?>>
                                     <input type="radio" value="{{ $listing_type->id }}" name="type" <?php if ($listing_type_selected == $listing_type->id) { echo 'checked="checked"'; } ?>><a href="#">{{ $listing_type->name }}</a>
                                     </li>
                                 @endforeach
-                                 
                             </ul>
                             @endif
                         </div>
@@ -87,12 +84,11 @@
                 <div class="form-group">
                     <div class="btn-group">
                             <label>Galería de imágenes</label>
-                            <input type="file" class="filestyle" data-buttonText="+ Agregar Imágenes" data-badge="false" data-buttonName="btn-primary" data-input="false" with-previews multiple accept=".jpg,.jpeg,.png" multiupload-preview-object=".image-container" multiupload-server="<?=URL::to('/').'/admin/uploads'?>" multiupload-model-id="0" />
+                            <input type="file" class="filestyle" data-buttonText="+ Agregar Imágenes" data-badge="false" data-buttonName="btn-primary" data-input="false" with-previews multiple accept=".jpg,.jpeg,.png" multiupload-preview-object=".image-container" multiupload-delete-server="<?=URL::to('/').'/admin/delete-upload'?>" multiupload-server="<?=URL::to('/').'/admin/uploads'?>" multiupload-model-id="0" />
                             <div class="image-container row">
                             </div>
                     </div>
                 </div>
-                 
                 <div class="form-group">
                     <button type="submit"  class="btn btn-green btn-lg" value="Guardar">Guardar</button>
                 </div>
@@ -103,9 +99,8 @@
     <div class="clearfix"></div>
 </div>
 <script>
-
-window._defaultLat = {{ $location }}; 
-console.log(_defaultLat)
+    window._defaultLat = {{ $location }}; 
+    console.log(_defaultLat)
 </script>
 
 @endsection

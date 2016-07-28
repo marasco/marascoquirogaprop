@@ -144,4 +144,43 @@ class AdminController extends Controller
 
     }
 
+
+    public function getCategories()
+    {
+        $listing_types = DB::table('listing_types')->paginate(20);
+        return view('admin/categories', ['items'=>$listing_types]);
+    }
+
+
+    public function getNewCategory(Request $request)
+    {
+        return view('admin/categories-new');
+    }
+    public function getEditCategory(Request $request, $id)
+    {
+        $item = \App\ListingType::find($id);
+        if (empty($item)){
+            return redirect('admin/categories');
+        }
+        return view('admin/categories-edit', ['item'=>$item]);
+    }
+    public function postNewCategory(Request $request)
+    {
+        if (!empty($request->id)){
+            $item = \App\ListingType::find($request->id);
+        }else{
+            $item = new \App\ListingType;
+        } 
+        $item->name = $request->name;
+        $success = $item->save();
+         
+        return redirect('admin/categories');
+
+    }
+    public function getDeleteCategory($id)
+    {
+        DB::table('listing_types')->delete($id);
+        return redirect('admin/categories');
+    }
+
 }

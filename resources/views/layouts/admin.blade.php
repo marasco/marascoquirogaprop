@@ -76,11 +76,17 @@
                      
                    
                     <li class="hasSub">
-                        <a href="#"><span class="navIcon icon-layers"></span><span class="navLabel">Propiedades</span><span class="fa fa-angle-left arrowRight"></span></a>
+                        <a href="#"><span class="navIcon icon-home"></span><span class="navLabel">Propiedades</span><span class="fa fa-angle-left arrowRight"></span></a>
                         <ul>
                             <li><a href="<?=URL::to('/')?>/admin/?operation=sell">Ventas</a></li>
                             <li><a href="<?=URL::to('/')?>/admin/?operation=rent">Alquileres</a></li>
                         </ul>
+                    </li>
+                    <li class="hasSub">
+                        <a href="<?=URL::to('/')?>/admin/categories"><span class="navIcon icon-layers"></span><span class="navLabel">Categorías</span><span class="fa fa-angle-left arrowRight"></span></a>
+                    </li>
+                     <li class="hasSub">
+                        <a href="<?=URL::to('/')?>/"><span class="navIcon icon-eye"></span><span class="navLabel">Ir al Sitio</span><span class="fa fa-angle-left arrowRight"></span></a>
                     </li>
                      
                 </ul>

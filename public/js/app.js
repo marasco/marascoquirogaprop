@@ -1,3 +1,6 @@
+if (typeof _defaultLat == 'undefined'){
+    window._defaultLat = {lat:-34.6550036,lng:-58.6784542};
+}
 (function($) {
     "use strict";
 
@@ -38,11 +41,7 @@
     }];
 
     var newMarker = null;
-    var markers = [];
-    if (typeof _defaultLat == 'undefined'){
-        window._defaultLat = {lat:-34.6550036,lng:-58.6784542};
-    }
-    console.log(_defaultLat);
+    var markers = []; 
     window.initialLat = _defaultLat;
     // json for properties markers on map
     var props = [{
@@ -157,7 +156,8 @@
         $('#leftSide').height(contentHeight);
         $('.closeLeftSide').height(contentHeight);
         $('#wrapper').height(contentHeight);
-        $('#mapView').height(contentHeight);
+        if ($('#mapView').length>0)
+            $('#mapView').height(contentHeight);
         $('#content').height(contentHeight);
         setTimeout(function() {
             $('.commentsFormWrapper').width(contentWidth);
@@ -224,7 +224,7 @@
     if (typeof google != 'undefined'){
     setTimeout(function() {
         $('body').removeClass('notransition');
-        if (typeof google !='undefined'){
+        if (typeof google != 'undefined' && $('#mapView').length>0){
         map = new google.maps.Map(document.getElementById('mapView'), options);
         var styledMapType = new google.maps.StyledMapType(styles, {
             name : 'Styled'

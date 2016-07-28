@@ -19,6 +19,47 @@
 .padding20{
 	padding:20px;
 }
+.no-touch .propWidget-2 .fig div.blur {
+    -webkit-transition: -webkit-transform 0.35s, opacity 0.35s;
+    transition: transform 0.35s, opacity 0.35s;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 0;
+}
+.no-touch .propWidget-2 .fig div.blur {
+    display: block;
+}
+.propWidget-2 .fig div.blur {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    filter: url('../images/blur.svg#blur');
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+    -moz-filter: blur(2px);
+    display: none;
+}
+.propWidget-2 .fig div {
+    width: 100%;
+    position: relative;
+    display: block;
+    }
+.no-touch .propWidget-2:hover .fig > div.blur {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    opacity: 1;
+ }
+.listing-home{
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center center;
+	height:180px;
+	width:100%;
+}
 .deleteContainer{
     float: right;
     cursor: pointer;
@@ -37,5 +78,9 @@
 	max-width: 100%;
 }
 .image-space{
-	height: 100px;
+	height: auto;
+	min-height: 20px;
+}
+body {
+	overflow: scroll!important;
 }

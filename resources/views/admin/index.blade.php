@@ -5,7 +5,7 @@
 <!-- Content -->
 
 <div id="wrapper" class="full">
-    <div id="mapView" class="min"><div class="mapPlaceholder"><span class="fa fa-spin fa-spinner"></span> Loading map...</div></div>
+    <div id="mapView" class="min"><div class="mapPlaceholder"><span class="fa fa-spin fa-spinner"></span></div></div>
     <div id="content" class="max">
         <div class="tables">
             <div class="row">

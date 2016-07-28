@@ -27,11 +27,15 @@ class HomeController extends Controller
      */
     public function index()
     {
+      /*  
         DB::table('users')->delete();
         DB::table('users')->insert([
             ['name'=>'Fran', 'email' => 'fran@marasco.com', 'password' => Hash::make('fran21'), 'created_at'=>gmdate('Y-m-d H:i:s')]
         ]);
+        */
+        $listing_types = DB::table('listing_types')->get();
+        $listings = \App\Listing::all()->take(6);
          
-        return view('home/index');
+        return view('home/index',['listing_types' => $listing_types, 'listings' => $listings]);
     }
 }

@@ -27,5 +27,14 @@ Route::group(['middleware' => 'auth'], function () {
 });
  */
 Route::get('/', 'HomeController@index');
-Route::controller('admin', 'AdminController');
+Route::controller('admin', 'AdminController'); 
+
+
+Route::group(['middleware' => 'cors'], function () {
+
+    Route::controller('api', 'ApiController'); //, ['only' => ['store', 'update', 'show', 'index']]);
+
+});
+
+
 Route::auth();

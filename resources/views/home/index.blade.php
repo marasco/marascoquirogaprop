@@ -100,23 +100,24 @@
             @foreach ($listings as $i=>$item) 
             @if ($i<6)
                 <?php 
-                $showPrice = ($item->price==0)?'A consultar':'$ '.number_format($item->price,0,',','.'); 
+                $showPrice = ($item->price==0)?'Oportunidad':$item->currency.' '.number_format($item->price,0,',','.'); 
                 $imageToShow = URL::to('/'). "/images/prop/1-1.png";
                 $images = $item->Images()->get();
+                $operation = ($item->operation=='rent')?'VENTA':'ALQUILER';
                 if (!empty($images[0]) && !empty($images[0]['filename'])){
                     $imageToShow = URL::to('/').'/uploads/'.$images[0]['filename'];
                 }
                 ?>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                <a href="single.html" class="propWidget-2">
+                <a href="<?=URL::to('/home/view/'). '/'.$item->id?>" class="propWidget-2">
                     <div class="fig">
 
                         <div class="listing-home" style="background-image: url({{ $imageToShow }});" alt="{{ $item->title }} "></div>
-                        <div class="listing-home blur" style="background-image: url({{ $imageToShow }});"  alt="image"></div>
+                        <div class="listing-home blur" style="background: black"  alt="image"></div>
                         <div class="opac"></div>
 
                         <div class="priceCap osLight"><span>{{ $showPrice }}</span></div>
-                        <div class="figType">FOR SALE</div>
+                        <div class="figType">{{ $operation }}</div>
                         <h3 class="osLight">{{ $item->title }} </h3>
                         <div class="address">{{ $item->short_desc }} </div>
                         <ul class="rating">

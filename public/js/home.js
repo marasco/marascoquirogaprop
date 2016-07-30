@@ -9,37 +9,16 @@ window.infobox = false;
 window.markers = [];
 
 function loadMarkers(callback) {
-    var props = [{
-        title: 'House With a Lovely Glass-Roofed Pergola',
-        image: '4-1-thmb.png',
-        type: 'For Sale',
-        price: '$1,930,000',
-        address: 'Wunsch Bldg, Brooklyn, NY 11201, USA',
-        bedrooms: '3',
-        bathrooms: '2',
-        area: '2800 Sq Ft',
-        position: _defaultLat,
-        markerIcon: "marker-green.png"
-    }, {
-        title: 'Luxury Mansion',
-        image: '5-1-thmb.png',
-        type: 'For Rent',
-        price: '$2,350,000',
-        address: '95 Butler St, Brooklyn, NY 11231, USA',
-        bedrooms: '2',
-        bathrooms: '2',
-        area: '2750 Sq Ft',
-        position: {
-            lat: 40.682665,
-            lng: -74.000934
-        },
-        markerIcon: "marker-green.png"
-    }];
-    
-    callback(props);
+    callback(window._mapItems);
 }
 var addMarkers = function(props, map) {
     $.each(props, function(i, prop) {
+    try { 
+        prop.position = JSON.parse(prop.position);
+    } catch (e){
+        console.log(e)
+        return true;
+    }
         var latlng = new google.maps.LatLng(prop.position.lat, prop.position.lng);
         var marker = new google.maps.Marker({
             position: latlng,
@@ -50,7 +29,35 @@ var addMarkers = function(props, map) {
             draggable: false,
             animation: google.maps.Animation.DROP,
         });
-        var infoboxContent = '<div class="infoW">' + '<div class="propImg">' + '<img src="' + _baseUrl + 'images/prop/' + prop.image + '">' + '<div class="propBg">' + '<div class="propPrice">' + prop.price + '</div>' + '<div class="propType">' + prop.type + '</div>' + '</div>' + '</div>' + '<div class="paWrapper">' + '<div class="propTitle">' + prop.title + '</div>' + '<div class="propAddress">' + prop.address + '</div>' + '</div>' + '<div class="propRating">' + '<span class="fa fa-star"></span>' + '<span class="fa fa-star"></span>' + '<span class="fa fa-star"></span>' + '<span class="fa fa-star"></span>' + '<span class="fa fa-star-o"></span>' + '</div>' + '<ul class="propFeat">' + '<li><span class="fa fa-moon-o"></span> ' + prop.bedrooms + '</li>' + '<li><span class="icon-drop"></span> ' + prop.bathrooms + '</li>' + '<li><span class="icon-frame"></span> ' + prop.area + '</li>' + '</ul>' + '<div class="clearfix"></div>' + '<div class="infoButtons">' + '<a class="btn btn-sm btn-round btn-gray btn-o closeInfo">Close</a>' + '<a href="single.html" class="btn btn-sm btn-round btn-green viewInfo">View</a>' + '</div>' + '</div>';
+        console.log('addMarker '+i)
+        var infoboxContent = 
+        '<div class="infoW">' + 
+        '<div class="propImg">' + 
+        '<img src="' + _baseUrl + 'images/prop/' + prop.image + '">' + 
+        '<div class="propBg">' + 
+        '<div class="propPrice">' + prop.price + '</div>' + 
+        '<div class="propType">' + prop.type + '</div>' + 
+        '</div>' + '</div>' + 
+        '<div class="paWrapper">' + 
+        '<div class="propTitle">' + prop.title + '</div>' + 
+        '<div class="propAddress">' + prop.address + '</div>' + 
+        '</div>' + 
+        '<div class="propRating">' + 
+        '<span class="fa fa-star"></span>' + 
+        '<span class="fa fa-star"></span>' + 
+        '<span class="fa fa-star"></span>' + 
+        '<span class="fa fa-star"></span>' + 
+        '<span class="fa fa-star-o"></span>' + 
+        '</div>' + 
+        '<ul class="propFeat">' + 
+        '<li><span class="fa fa-moon-o"></span> 1</li>' + 
+        '<li><span class="icon-drop"></span> 2</li>' + 
+        '<li><span class="icon-frame"></span> 33</li>' + 
+        '</ul>' + '<div class="clearfix"></div>' + 
+        '<div class="infoButtons">' + 
+        '<a class="btn btn-sm btn-round btn-gray btn-o closeInfo">Close</a>' + 
+        '<a href="#l" class="btn btn-sm btn-round btn-green viewInfo">View</a>' + 
+        '</div>' + '</div>';
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
                 infobox.setContent(infoboxContent);

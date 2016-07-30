@@ -125,8 +125,7 @@
     <div class="clearfix"></div>
 </div>
 <script>
-
-window._defaultLat = {{ $listing->location }}; 
+window._defaultLat = <?=htmlspecialchars_decode($listing->location)?>; 
 console.log(_defaultLat)
 </script>
 @endsection

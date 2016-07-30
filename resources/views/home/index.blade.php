@@ -1,7 +1,32 @@
 @extends('layouts.app')
 
 @section('content')
+<?php 
+$map_listings = array(); 
+foreach ($listings as $item) {
+    $showPrice = ($item->price==0)?'Oportunidad':$item->currency.' '.number_format($item->price,0,',','.'); 
+    $imageToShow = URL::to('/'). "/images/prop/1-1.png";
+    $images = $item->Images()->get();
+    $operation = ($item->operation=='rent')?'VENTA':'ALQUILER';
+    if (!empty($images[0]) && !empty($images[0]['filename'])){
+        $imageToShow = URL::to('/').'/uploads/'.$images[0]['filename'];
+    }
 
+    $map_listings[] = array(
+        'title' => $item->title,
+        'image' => $imageToShow,
+        'type'  => $operation,
+        'price' => $showPrice,
+        'address' => $item->short_desc,
+        'position' => htmlspecialchars_decode($item->location),
+        'markerIcon' => 'marker-green.png'
+        );
+}
+$map_items = json_encode($map_listings);
+?>
+<script type="text/javascript">
+    window._mapItems = <?=$map_items?>;
+</script>
 <div id="hero-container-map">
     <div id="home-map"></div>
     <div class="home-header map">

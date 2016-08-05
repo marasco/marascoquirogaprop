@@ -91,3 +91,22 @@
 body {
 	overflow: scroll!important;
 }
+.see-more:hover{
+    background: #0eaaa6;
+     -webkit-transition: background-color 300ms linear;
+        -moz-transition: background-color 300ms linear;
+        -o-transition: background-color 300ms linear;
+        -ms-transition: background-color 300ms linear;
+        transition: background-color 300ms linear;
+    color:white;
+}
+.see-more{
+    margin:0 auto;
+    padding:10px;
+    width:100px;
+    cursor:pointer;
+    text-align: center;
+    text-transform: uppercase;
+    border: solid 1px #ccc;
+    color: #444;
+}

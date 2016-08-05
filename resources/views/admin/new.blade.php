@@ -19,11 +19,28 @@
             <h1>Agrega una nueva propiedad</h1>
                 <form action="{{ url('admin/new')}}" method="POST" class="form-horizontal">
                     {{ csrf_field() }}
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                 <div class="form-group">
+                    <label>Titulo</label>
+                    <input type="text" name="title" class="form-control" value="{{ old('title') }}">
+                </div>
+                <div class="row">                    
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
                         <div class="form-group">
-                            <label>Titulo</label>
-                            <input type="text" name="title" class="form-control" value="{{ old('title') }}">
+                           
+                           <div class="btn-group">
+                            <label>Moneda</label>
+                            <div class="clearfix"></div>
+                            <a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle">
+                                <span class="dropdown-label">U$S</span>&nbsp;&nbsp;&nbsp;<span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-select">
+                                <li class="active">
+                                <input type="radio" value="U$S" name="currency" <?php if ($currency == 'U$S') { echo 'checked="checked"'; } ?>><a href="#">U$S</a></li>
+                                <li><input type="radio" value="rent" name="currency"  <?php if ($operation == '$') { echo 'checked="checked"'; } ?>><a href="#">$</a></li>
+                            </ul>
+                        </div>
+
+
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">

@@ -123,17 +123,22 @@ $map_items = json_encode($map_listings);
         <h2 class="osLight">Últimas publicaciones</h2>
         <div class="row pb40">
             @foreach ($listings as $i=>$item) 
-            @if ($i<6)
                 <?php 
+                $show = ($i<6)?true:false;
+                $showclass=!$show?' style="display:none"':null;
                 $showPrice = ($item->price==0)?'Oportunidad':$item->currency.' '.number_format($item->price,0,',','.'); 
                 $imageToShow = URL::to('/'). "/images/prop/1-1.png";
                 $images = $item->Images()->get();
-                $operation = ($item->operation=='rent')?'VENTA':'ALQUILER';
+                $operation = ($item->operation=='sale')?'VENTA':'ALQUILER';
                 if (!empty($images[0]) && !empty($images[0]['filename'])){
                     $imageToShow = URL::to('/').'/uploads/'.$images[0]['filename'];
                 }
+                $page = intval(($i+1)/6);
+                if (intval(($i+1)%6)>0) $page+=1;
+
+                $cssItemPage = 'item-page-'. (string)$page;
                 ?>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 <?=$cssItemPage?>" <?=$showclass?>>
                 <a href="<?=URL::to('/home/view/'). '/'.$item->id?>" class="propWidget-2">
                     <div class="fig">
 
@@ -155,9 +160,19 @@ $map_items = json_encode($map_listings);
                     </div>
                 </a>
             </div>
-            @endif
-            @endforeach
 
+            
+            @endforeach
+            @if (count($listing_types)>6)
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="see-more" onclick="seeMoreItems()">
+                    See more
+                    </div>
+                </div>
+            </div>
+            @endif
         </div>
         
        

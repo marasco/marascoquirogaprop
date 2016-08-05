@@ -34,7 +34,7 @@ class HomeController extends Controller
         ]);
         */
         $listing_types = DB::table('listing_types')->get();
-        $listings = \App\Listing::all()->take(6);
+        $listings = \App\Listing::all();
          
         return view('home/index',['listing_types' => $listing_types, 'listings' => $listings]);
     }

@@ -49,9 +49,10 @@ class AdminController extends Controller
 
         $listing_types = DB::table('listing_types')->get();
         $operation = !empty($request->old('operation'))?$request->old('operation'):'sale';
+        $currency = !empty($request->old('currency'))?$request->old('currency'):'U$S';
         $listing_type = !empty($request->old('listing_type'))?$request->old('listing_type'):1;
         $location = !empty($request->old('location'))?$request->old('location'):"{lat:-34.6550036,lng:-58.6784542}";
-        return view('admin/new', ['operation' => $operation,'listing_type_selected' => $listing_type, 'listing_types'=>$listing_types,'location'=>$location]);
+        return view('admin/new', ['operation' => $operation,'listing_type_selected' => $listing_type, 'listing_types'=>$listing_types,'location'=>$location,'currency'=>$currency]);
     }
 
     public function getEdit(Request $request, $id)
@@ -130,6 +131,8 @@ class AdminController extends Controller
         $listing->long_desc = $request->long_desc;
         $listing->type = $request->type;
         $listing->operation = $request->operation;
+        $listing->likes = 0;
+        $listing->currency = $request->currency;
         $listing->price = $request->price;
         $listing->location = $request->location;
         $success = $listing->save();

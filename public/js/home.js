@@ -7,7 +7,15 @@ if (typeof _defaultLat == 'undefined') {
 window.map = false;
 window.infobox = false;
 window.markers = [];
+window.itemPage = 1;
+function seeMoreItems(){
+    window.itemPage++;
+    if ($('.item-page-'+(itemPage+1)).length==0){
+        $('.see-more').hide();
+    }
+    $('.item-page-'+itemPage).show();
 
+}
 function loadMarkers(callback) {
     callback(window._mapItems);
 }

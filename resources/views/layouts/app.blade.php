@@ -38,5 +38,6 @@
 
         <script src="<?=URL::to('/')?>/js/jquery.visible.js"></script>
         <script src="<?=URL::to('/')?>/js/home.js" type="text/javascript"></script>
+        @yield('scripts')
     </body>
 </html>

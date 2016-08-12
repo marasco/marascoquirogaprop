@@ -27,6 +27,7 @@ Route::group(['middleware' => 'auth'], function () {
 });
  */
 Route::get('/', 'HomeController@index');
+Route::get('/home/view/{id}', 'HomeController@view');
 Route::controller('admin', 'AdminController'); 
 
 

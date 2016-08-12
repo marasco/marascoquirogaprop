@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Listing;
+use App\ListingImage;
+
 use App\Http\Requests;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -37,5 +40,15 @@ class HomeController extends Controller
         $listings = \App\Listing::all();
          
         return view('home/index',['listing_types' => $listing_types, 'listings' => $listings]);
+    }
+    public function view($id)
+    {
+        $listing = \App\Listing::find($id);
+        if (empty($listing)){
+            return redirect('/');
+        }
+        $listing_types = DB::table('listing_types')->get();
+        $listing_images = DB::table('listing_images')->where('listing_id', $id)->get();
+        return view('home/view', ['listing' => $listing, 'listing_types'=>$listing_types, 'listing_images'=>$listing_images]);
     }
 }

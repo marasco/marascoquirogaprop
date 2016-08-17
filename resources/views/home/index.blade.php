@@ -168,7 +168,7 @@ $map_items = json_encode($map_listings);
             <div class="row">
                 <div class="col-xs-12">
                     <div class="see-more" onclick="seeMoreItems()">
-                    See more
+                    Ver más
                     </div>
                 </div>
             </div>

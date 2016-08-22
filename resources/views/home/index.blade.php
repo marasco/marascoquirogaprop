@@ -37,7 +37,7 @@ $map_items = json_encode($map_listings);
         <div class="home-nav">
             <ul>
                 <li><a href="#"><?=config('vars.sp.header')?></a></li>
-                <li><a href="#contact" class="btn btn-green">Contáctenos</a></li>
+                <li><a href="#contact" class="btn btn-green">Contactanos</a></li>
             </ul>
         </div>
     </div>
@@ -180,12 +180,10 @@ $map_items = json_encode($map_listings);
     </div>
 </div>
 @endsection
-
-
-
 @section('contact')
+    <a id="contact"></a>
     <div class="row pb40 highlight">
-        <h2 class="osLight color-white">Contactenos</h2>
+        <h2 class="osLight color-white">Contactanos</h2>
         <div class="col-xs-12 col-sm-offset-1 col-sm-10">
             <div class="panel-body">
                 <form class="form-horizontal" role="form">

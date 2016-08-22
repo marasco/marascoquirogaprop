@@ -18,8 +18,10 @@ function seeMoreItems(){
 }
 function loadMarkers(callback) {
     callback(window._mapItems);
+    console.log(_mapItems)
 }
 var addMarkers = function(props, map) {
+    var showed_coords = new Array();
     $.each(props, function(i, prop) {
     try { 
         prop.position = JSON.parse(prop.position);
@@ -27,7 +29,13 @@ var addMarkers = function(props, map) {
         console.log(e)
         return true;
     }
+    var offset = 0.00002;
         var latlng = new google.maps.LatLng(prop.position.lat, prop.position.lng);
+        if (showed_coords.indexOf({"lat":prop.position.lat,"lng":prop.position.lng}) > -1){
+            prop.position.lat = prop.position.lat - (1 * offset) + "";
+            prop.position.lng = prop.position.lng - (1 * offset) + "";
+        }
+
         var marker = new google.maps.Marker({
             position: latlng,
             map: map,
@@ -38,10 +46,12 @@ var addMarkers = function(props, map) {
             animation: google.maps.Animation.DROP,
         });
         console.log('addMarker '+i)
+        console.log( prop.image )
+
         var infoboxContent = 
         '<div class="infoW">' + 
         '<div class="propImg">' + 
-        '<img src="' + _baseUrl + 'images/prop/' + prop.image + '">' + 
+        '<img src="' + prop.image + '">' + 
         '<div class="propBg">' + 
         '<div class="propPrice">' + prop.price + '</div>' + 
         '<div class="propType">' + prop.type + '</div>' + 
@@ -55,13 +65,14 @@ var addMarkers = function(props, map) {
         '<span class="fa fa-star"></span>' + 
         '<span class="fa fa-star"></span>' + 
         '<span class="fa fa-star"></span>' + 
-        '<span class="fa fa-star-o"></span>' + 
+        '<span class="fa fa-star"></span>' + 
         '</div>' + 
-        '<ul class="propFeat">' + 
-        '<li><span class="fa fa-moon-o"></span> 1</li>' + 
-        '<li><span class="icon-drop"></span> 2</li>' + 
-        '<li><span class="icon-frame"></span> 33</li>' + 
-        '</ul>' + '<div class="clearfix"></div>' + 
+      //  '<ul class="propFeat">' + 
+       // '<li><span class="fa fa-moon-o"></span> 1</li>' + 
+      //  '<li><span class="icon-drop"></span> 2</li>' + 
+      //  '<li><span class="icon-frame"></span> 33</li>' + 
+       // '</ul>' + 
+       '<div class="clearfix"></div>' + 
         '<div class="infoButtons">' + 
         '<a class="btn btn-sm btn-round btn-gray btn-o closeInfo">Close</a>' + 
         '<a href="#l" class="btn btn-sm btn-round btn-green viewInfo">View</a>' + 

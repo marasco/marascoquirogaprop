@@ -18,7 +18,7 @@
             </li>
             <li>
                 <a class="btn btn-green" href="#contact">
-                    Contáctenos
+                    Contactanos
                 </a>
             </li>
         </ul>
@@ -26,6 +26,9 @@
 </div>
 <div class="publication container margintop100 ">
     <div class="row">
+    <div class="col-xs-12">
+    <a href="/?">Home</a> / {{ $listing->title }}
+    </div>
         <div class="col-xs-12">
             <h1>
                 {{ $listing->title }}
@@ -85,7 +88,12 @@
 
 		jQuery(document).ready(function(){
 
-			jQuery("#gallery").unitegallery();
+			jQuery("#gallery").unitegallery({
+              //  slider_control_zoom: false,
+                //    slider_control_swipe: false,
+             //       lightbox_slider_control_zoom:false, 
+                 //   lightbox_slider_control_swipe:false,
+            });
 
 		});
 		

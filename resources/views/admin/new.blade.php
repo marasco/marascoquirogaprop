@@ -36,7 +36,7 @@
                             <ul class="dropdown-menu dropdown-select">
                                 <li class="active">
                                 <input type="radio" value="U$S" name="currency" <?php if ($currency == 'U$S') { echo 'checked="checked"'; } ?>><a href="#">U$S</a></li>
-                                <li><input type="radio" value="rent" name="currency"  <?php if ($operation == '$') { echo 'checked="checked"'; } ?>><a href="#">$</a></li>
+                                <li><input type="radio" value="rent" name="currency"  <?php if ($currency == '$') { echo 'checked="checked"'; } ?>><a href="#">$</a></li>
                             </ul>
                         </div>
 

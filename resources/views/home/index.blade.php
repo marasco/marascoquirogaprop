@@ -3,6 +3,7 @@
 @section('content')
 <?php 
 $map_listings = array(); 
+$sliding = null;
 foreach ($listings as $item) {
     $showPrice = ($item->price==0)?'Oportunidad':$item->currency.' '.number_format($item->price,0,',','.'); 
     $imageToShow = URL::to('/'). "/images/prop/1-1.png";
@@ -10,6 +11,10 @@ foreach ($listings as $item) {
     $operation = ($item->operation=='rent')?'VENTA':'ALQUILER';
     if (!empty($images[0]) && !empty($images[0]['filename'])){
         $imageToShow = URL::to('/').'/uploads/'.$images[0]['filename'];
+        $sliding.= '
+        <li><div style="background-image:url('.$imageToShow.')"
+" alt="'.$item->title.'" title="'.$item->title.'" id="wows1_0">'.$item->short_desc.'</div<</li>
+';
     }
 
     $map_listings[] = array(
@@ -76,23 +81,16 @@ $map_items = json_encode($map_listings);
         </form>
     </div>-->
 </div>
- 
+ <!--
 <div id="wowslider-container1">
 <div class="ws_images"><ul>
-<li><img src="http://local.mqprop.com/uploads/6rLFrYXHlLRo3mJK3XDq.jpg"
-" alt="Edinburgh" title="Edinburgh" id="wows1_0"/>Scotland, Great Britain</li>
- <li><img src="http://local.mqprop.com/uploads/6rLFrYXHlLRo3mJK3XDq.jpg"
-" alt="Edinburgh" title="Edinburgh" id="wows1_1"/>Scotland, Great Britain</li>
-  <li><img src="http://local.mqprop.com/uploads/6rLFrYXHlLRo3mJK3XDq.jpg"
-" alt="Edinburgh" title="Edinburgh" id="wows1_2"/>Scotland, Great Britain</li>
-  <li><img src="http://local.mqprop.com/uploads/6rLFrYXHlLRo3mJK3XDq.jpg"
-" alt="Edinburgh" title="Edinburgh" id="wows1_3"/>Scotland, Great Britain</li>
+<?=$sliding?>
  
 </ul></div>
  
 <a href="#" class="ws_frame"></a>
 </div>
-
+-->
 <div class="highlight">
     <div class="h-title osLight">Encontrá tu nueva casa en Marasco Quiroga Propiedades</div>
     <div class="h-text osLight">Llamanos y buscaremos la mejor ubicación o proyecto para tu vivienda.</div>

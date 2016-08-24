@@ -22,10 +22,31 @@
                     <input type="hidden" name="id" class="form-control" style="display:none" value="{{ $listing->id }}">
 
                 <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                    <div class="col-xs-12">
                         <div class="form-group">
                             <label>Titulo</label>
                             <input type="text" name="title" class="form-control" value="{{ $listing->title }}">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">                    
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+                        <div class="form-group">
+                           
+                            <div class="btn-group">
+                                <label>Moneda</label>
+                                <div class="clearfix"></div>
+                                <a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle">
+                                    <span class="dropdown-label"><?php echo ($listing->currency == '$')?'$':'U$S'; ?></span>&nbsp;&nbsp;&nbsp;<span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-select">
+                                    <li class="active">
+                                    <input type="radio" value="U$S" name="currency" <?php if ($listing->currency == 'U$S') { echo 'checked="checked"'; } ?>><a href="#">U$S</a></li>
+                                    <li><input type="radio" value="rent" name="currency"  <?php if ($listing->currency == '$') { echo 'checked="checked"'; } ?>><a href="#">$</a></li>
+                                </ul>
+                            </div>
+
+
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
@@ -38,6 +59,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="form-group">
                     <label>Descripción corta</label>
                     <textarea class="form-control" name="short_desc" rows="2">{{ $listing->short_desc }}</textarea>

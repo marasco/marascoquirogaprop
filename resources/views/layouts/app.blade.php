@@ -11,6 +11,7 @@
         <link href="<?=URL::to('/')?>/css/fullscreen-slider.css" rel="stylesheet">
         <link href="<?=URL::to('/')?>/css/bootstrap.css" rel="stylesheet">
         <link href="<?=URL::to('/')?>/css/app.css" rel="stylesheet">
+        <link href="<?=URL::to('/')?>/css/wow.css" rel="stylesheet">
         <link href="<?=URL::to('/')?>/css/custom.css" rel="stylesheet">
 
         <!--[if lt IE 9]>
@@ -37,6 +38,7 @@
         <script src="<?=URL::to('/')?>/js/infobox.js"></script>
 
         <script src="<?=URL::to('/')?>/js/jquery.visible.js"></script>
+        <script src="<?=URL::to('/')?>/js/wowslider.js"></script>
         <script src="<?=URL::to('/')?>/js/home.js" type="text/javascript"></script>
         @yield('scripts')
     </body>

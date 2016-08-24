@@ -13,6 +13,7 @@ foreach ($listings as $item) {
     }
 
     $map_listings[] = array(
+        'id' => $item->id,
         'title' => $item->title,
         'image' => $imageToShow,
         'type'  => $operation,
@@ -41,7 +42,9 @@ $map_items = json_encode($map_listings);
             </ul>
         </div>
     </div>
-    <div class="search-panel">
+
+
+   <!-- <div class="search-panel">
         <form class="form-inline" role="form"> 
             <div class="form-group">
             @if (count($listing_types))
@@ -71,8 +74,25 @@ $map_items = json_encode($map_listings);
                 <a href="explore.html" class="btn btn-green">Buscar</a> 
             </div>
         </form>
-    </div>
+    </div>-->
 </div>
+ 
+<div id="wowslider-container1">
+<div class="ws_images"><ul>
+<li><img src="http://local.mqprop.com/uploads/6rLFrYXHlLRo3mJK3XDq.jpg"
+" alt="Edinburgh" title="Edinburgh" id="wows1_0"/>Scotland, Great Britain</li>
+ <li><img src="http://local.mqprop.com/uploads/6rLFrYXHlLRo3mJK3XDq.jpg"
+" alt="Edinburgh" title="Edinburgh" id="wows1_1"/>Scotland, Great Britain</li>
+  <li><img src="http://local.mqprop.com/uploads/6rLFrYXHlLRo3mJK3XDq.jpg"
+" alt="Edinburgh" title="Edinburgh" id="wows1_2"/>Scotland, Great Britain</li>
+  <li><img src="http://local.mqprop.com/uploads/6rLFrYXHlLRo3mJK3XDq.jpg"
+" alt="Edinburgh" title="Edinburgh" id="wows1_3"/>Scotland, Great Britain</li>
+ 
+</ul></div>
+ 
+<a href="#" class="ws_frame"></a>
+</div>
+
 <div class="highlight">
     <div class="h-title osLight">Encontrá tu nueva casa en Marasco Quiroga Propiedades</div>
     <div class="h-text osLight">Llamanos y buscaremos la mejor ubicación o proyecto para tu vivienda.</div>
@@ -81,7 +101,7 @@ $map_items = json_encode($map_listings);
 
 <div class="home-wrapper">
     <div class="home-content">
-        <h2 class="osLight">Servicios</h2>
+        <div class="col-xs-12 backTitle"><h1 class="osLight">Servicios</h1></div>
         <div class="row pb40">
             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 s-menu-item">
                 <a href="javascript:void(0)">
@@ -120,7 +140,7 @@ $map_items = json_encode($map_listings);
                 </a>
             </div>
         </div>
-        <h2 class="osLight">Últimas publicaciones</h2>
+                <div class="col-xs-12 backTitle"><h1 class="osLight">Últimas publicaciones</h1></div>
         <div class="row pb40">
             @foreach ($listings as $i=>$item) 
                 <?php 
@@ -183,7 +203,7 @@ $map_items = json_encode($map_listings);
 @section('contact')
     <a id="contact"></a>
     <div class="row pb40 highlight">
-        <h2 class="osLight color-white">Contactanos</h2>
+        <div class="col-xs-12 backTitle"><h1 class="osLight color-white">Contactanos</h1></div>
         <div class="col-xs-12 col-sm-offset-1 col-sm-10">
             <div class="panel-body">
                 <form class="form-horizontal" role="form">

@@ -91,6 +91,10 @@
 body {
 	overflow: scroll!important;
 }
+.parallax-window {
+    min-height: 400px;
+    background: transparent;
+}
 .see-more:hover{
     background: #0eaaa6;
      -webkit-transition: background-color 300ms linear;
@@ -99,6 +103,21 @@ body {
         -ms-transition: background-color 300ms linear;
         transition: background-color 300ms linear;
     color:white;
+}
+.backTitle {
+   float:none;
+   position: relative;
+   text-align: center;
+   width:100%;
+   clear:both;
+} 
+.backTitle h1{
+   text-align: center;
+   padding-bottom: 20px;
+   font-size: 30px; 
+   text-transform: uppercase;
+   border-bottom: solid 1px #ccc;
+    margin-bottom: 10px;
 }
 .see-more{
     margin:0 auto;

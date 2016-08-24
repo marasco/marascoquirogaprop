@@ -74,8 +74,8 @@ var addMarkers = function(props, map) {
        // '</ul>' + 
        '<div class="clearfix"></div>' + 
         '<div class="infoButtons">' + 
-        '<a class="btn btn-sm btn-round btn-gray btn-o closeInfo">Close</a>' + 
-        '<a href="#l" class="btn btn-sm btn-round btn-green viewInfo">View</a>' + 
+        '<a class="btn btn-sm btn-round btn-gray btn-o closeInfo">Cerrar</a>' + 
+        '<a href="'+_baseUrl+'home/view/'+prop.id+'" class="btn btn-sm btn-round btn-green viewInfo">Ver</a>' + 
         '</div>' + '</div>';
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
@@ -157,6 +157,7 @@ function loadHomeMap() {
     }
 }
 (function($) {
+    jQuery("#wowslider-container1").wowSlider({effect:"slices",prev:"",next:"",duration:20*100,delay:20*100,width:960,height:360,autoPlay:true,playPause:true,stopOnHover:false,loop:false,bullets:true,caption:true,captionEffect:"move",controls:true,onBeforeStep:0,images:0});
     "use strict";
     loadHomeMap();
     if (!(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch)) {

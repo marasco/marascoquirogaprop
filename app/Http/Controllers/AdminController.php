@@ -132,7 +132,7 @@ class AdminController extends Controller
         $listing->type = $request->type;
         $listing->operation = $request->operation;
         $listing->likes = 0;
-        $listing->currency = $request->currency;
+        $listing->currency = !empty($request->currency)?$request->currency:'$';
         $listing->price = $request->price;
         $listing->location = $request->location;
         $success = $listing->save();

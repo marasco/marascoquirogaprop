@@ -101,7 +101,7 @@
                 <div class="form-group">
                     <div class="btn-group">
                             <label>Galería de imágenes</label>
-                            <input type="file" class="filestyle" data-buttonText="+ Agregar Imágenes" data-badge="false" data-buttonName="btn-primary" data-input="false" with-previews multiple accept=".jpg,.jpeg,.png" multiupload-preview-object=".image-container" multiupload-delete-server="<?=URL::to('/').'/admin/delete-upload'?>" multiupload-server="<?=URL::to('/').'/admin/uploads'?>" multiupload-model-id="0" />
+                            <input type="file" class="filestyle" data-buttonText=" Agregar Imágenes" data-badge="false" data-buttonName="btn-primary" data-input="false" with-previews multiple accept=".jpg,.jpeg,.png" multiupload-preview-object=".image-container" multiupload-delete-server="<?=URL::to('/').'/admin/delete-upload'?>" multiupload-server="<?=URL::to('/').'/admin/uploads'?>" multiupload-model-id="0" />
                             <div class="image-container row">
                             </div>
                     </div>

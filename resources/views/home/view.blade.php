@@ -29,10 +29,14 @@
     <div class="col-xs-12">
     <a href="/?">Home</a> / {{ $listing->title }}
     </div>
+
         <div class="col-xs-12">
             <h1>
                 {{ $listing->title }}
             </h1>
+        </div>
+        <div class="col-xs-12 codeUp">
+        Código: {{ $listing->property_code }}
         </div>
         <div class="col-xs-12">
         	<h3>{{ $listing->short_desc }}</h3>

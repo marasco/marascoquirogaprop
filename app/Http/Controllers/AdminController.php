@@ -65,7 +65,16 @@ class AdminController extends Controller
         $listing_images = DB::table('listing_images')->where('listing_id', $id)->get();
         return view('admin/edit', ['listing' => $listing, 'listing_types'=>$listing_types, 'listing_images'=>$listing_images]);
     }
-
+    private function Unique(){
+        $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = 3;
+        $randomString = '';
+        for ($i = 0; $i < $charactersLength; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        $randomString.= ''.rand(0,999);
+        return $randomString;
+    }
     public function postUploads(Request $request){
         try {
             if (!$request->hasFile('data')) {
@@ -123,9 +132,14 @@ class AdminController extends Controller
         }
         if (!empty($request->id)){
             $listing = \App\Listing::find($request->id);
+            if (empty($listing->property_code))
+                $listing->property_code = $this->Unique();
+
         }else{
             $listing = new \App\Listing;
+            $listing->property_code = $this->Unique();
         }
+        $listing->privacy_comment = $request->privacy_comment;
         $listing->title = $request->title;
         $listing->short_desc = $request->short_desc;
         $listing->long_desc = $request->long_desc;

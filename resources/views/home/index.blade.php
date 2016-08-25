@@ -202,6 +202,9 @@ $map_items = json_encode($map_listings);
     <a id="contact"></a>
     <div class="row pb40 highlight">
         <div class="col-xs-12 backTitle"><h1 class="osLight color-white">Contactanos</h1></div>
+        <div class="col-xs-12 subcontact">
+            Escribinos a info@marascoquirogaprop.com.ar<br /> o completá el formulario de contacto.
+        </div>
         <div class="col-xs-12 col-sm-offset-1 col-sm-10">
             <div class="panel-body">
                 <form class="form-horizontal" role="form">
@@ -275,6 +278,7 @@ $map_items = json_encode($map_listings);
                 <div class="osLight footer-header">Contactanos</div>
                 <ul class="footer-nav pb20">
                     <li class="footer-phone"><span class="fa fa-phone"></span> +54 911 4624 4850</li>
+                    <li class="footer-mail"><span class="fa fa-envelope"></span> info@marascoquirogaprop.com.ar</li>
                     <li class="footer-address osLight">
                         <p>Cnel. Brandsen 342</p>
                         <p>Ituzaingó, Buenos Aires</p>

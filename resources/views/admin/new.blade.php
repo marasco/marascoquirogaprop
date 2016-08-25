@@ -107,6 +107,10 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label>Aclaraciones</label>
+                    <textarea class="form-control" name="privacy_comment" rows="3">{{ old('privacy_comment') }}</textarea>
+                </div>
+                <div class="form-group">
                     <button type="submit"  class="btn btn-green btn-lg" value="Guardar">Guardar</button>
                 </div>
             </form>

@@ -20,7 +20,14 @@
                 <form action="{{ url('admin/new')}}" method="POST" class="form-horizontal">
                     {{ csrf_field() }}
                     <input type="hidden" name="id" class="form-control" style="display:none" value="{{ $listing->id }}">
-
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label>Codigo: </label>
+                            {{ $listing->property_code }}
+                        </div>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="form-group">
@@ -136,7 +143,10 @@
                         </div>
                     </div>
                 </div>
-                 
+                <div class="form-group">
+                    <label>Aclaraciones</label>
+                    <textarea class="form-control" name="privacy_comment" rows="3">{{ $listing->privacy_comment }}</textarea>
+                </div>
                 <div class="form-group">
                     <button type="submit"  class="btn btn-green btn-lg" value="Guardar">Guardar</button>
                 </div>

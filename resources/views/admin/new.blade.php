@@ -107,6 +107,10 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label>Datos del propietario</label>
+                    <textarea class="form-control" name="owner_data" rows="3">{{ old('owner_data') }}</textarea>
+                </div>
+                <div class="form-group">
                     <label>Aclaraciones</label>
                     <textarea class="form-control" name="privacy_comment" rows="3">{{ old('privacy_comment') }}</textarea>
                 </div>

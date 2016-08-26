@@ -140,6 +140,7 @@ class AdminController extends Controller
             $listing->property_code = $this->Unique();
         }
         $listing->privacy_comment = $request->privacy_comment;
+        $listing->owner_data = $request->owner_data;
         $listing->title = $request->title;
         $listing->short_desc = $request->short_desc;
         $listing->long_desc = $request->long_desc;

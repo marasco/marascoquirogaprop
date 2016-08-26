@@ -144,6 +144,10 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label>Datos del propietario</label>
+                    <textarea class="form-control" name="owner_data" rows="3">{{ $listing->owner_data }}</textarea>
+                </div>
+                <div class="form-group">
                     <label>Aclaraciones</label>
                     <textarea class="form-control" name="privacy_comment" rows="3">{{ $listing->privacy_comment }}</textarea>
                 </div>

@@ -124,8 +124,7 @@
     <div class="clearfix"></div>
 </div>
 <script>
-    window._defaultLat = {{ $location }}; 
-    console.log(_defaultLat)
+    window._defaultLat = <?=$location?>; 
 </script>
 
 @endsection

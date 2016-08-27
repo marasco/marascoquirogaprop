@@ -65,7 +65,10 @@ class AdminController extends Controller
         $operation = !empty($request->old('operation'))?$request->old('operation'):'sale';
         $currency = !empty($request->old('currency'))?$request->old('currency'):'U$S';
         $listing_type = !empty($request->old('listing_type'))?$request->old('listing_type'):1;
-        $location = !empty($request->old('location'))?$request->old('location'):"{lat:-34.6550036,lng:-58.6784542}";
+        $location = !empty($request->old('location'))?html_entity_decode($request->old('location')):"{lat:-34.6550036,lng:-58.6784542}";
+        if (!empty($request->old('location'))){
+            //die($request->old('location'));
+        }
         return view('admin/new', ['operation' => $operation,'listing_type_selected' => $listing_type, 'listing_types'=>$listing_types,'location'=>$location,'currency'=>$currency]);
     }
 

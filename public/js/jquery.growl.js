@@ -118,7 +118,10 @@ Copyright 2013 Kevin Sylvestre
     Growl.prototype.cycle = function() {
       var $growl;
       $growl = this.$growl();
-      return $growl.queue(this.present).delay(this.settings.duration).queue(this.dismiss).queue(this.remove);
+      var obj = this;
+      setTimeout(function(){
+        obj.dismiss(function() {obj.remove(function(){})});
+      },this.settings.duration,obj);
     };
 
     Growl.prototype.present = function(callback) {

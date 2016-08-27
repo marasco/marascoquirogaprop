@@ -107,6 +107,7 @@
         @yield('content')
 
 
+        <script src="//maps.googleapis.com/maps/api/js?sensor=true&amp;libraries=geometry&amp;libraries=places" type="text/javascript"></script>
         <script src="<?=URL::to('/')?>/js/jquery-2.1.1.min.js"></script>
         <script src="<?=URL::to('/')?>/js/jquery-ui.min.js"></script>
         <script src="<?=URL::to('/')?>/js/jquery-ui-touch-punch.js"></script>
@@ -115,7 +116,6 @@
         <script src="<?=URL::to('/')?>/js/jquery.touchSwipe.min.js"></script>
         <script src="<?=URL::to('/')?>/js/jquery.slimscroll.min.js"></script>
         <script src="<?=URL::to('/')?>/js/jquery.visible.js"></script>
-        <script src="//maps.googleapis.com/maps/api/js?sensor=true&amp;libraries=geometry&amp;libraries=places" type="text/javascript"></script>
         <script src="<?=URL::to('/')?>/js/signin.js" type="text/javascript"></script>
         <script src="<?=URL::to('/')?>/js/jquery.mjs.nestedSortable.js"></script>
         <script src="<?=URL::to('/')?>/js/infobox.js"></script>
@@ -126,7 +126,6 @@
         <script src="<?=URL::to('/')?>/js/jquery.growl.js"></script>
         <script src="<?=URL::to('/')?>/js/bootstrap-filestyle.min.js"></script>
         @yield('scripts')
-        @include('alerts.notice');
-        @include('alerts.errors');
+        @include('alerts.growl');
     </body>
 </html>

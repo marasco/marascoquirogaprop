@@ -2,28 +2,18 @@
 
 @section('content')
 <div class="home-header map">
-    <div class="home-logo osLight">
-        <img height="40" src="<?=URL::to('/')?>/images/logo.png"/>
+        <div class="home-logo osLight">
+        <a href="<?=URL::to('/')?>"><img src="<?=URL::to('/')?>/images/logo.png" height="40" /></a>
+        </div>
+        <a href="#" class="home-navHandler visible-xs"><span class="fa fa-bars"></span></a>
+        <div class="home-nav">
+            <ul>
+                <li><a href="#"><?=config('vars.sp.header')?></a></li>
+                <li><a href="/?#contact" class="btn btn-green">Contactanos</a></li>
+            </ul>
+        </div>
     </div>
-    <a class="home-navHandler visible-xs" href="#">
-        <span class="fa fa-bars">
-        </span>
-    </a>
-    <div class="home-nav">
-        <ul>
-            <li>
-                <a href="#">
-                    <?=config('vars.sp.header')?>
-                </a>
-            </li>
-            <li>
-                <a class="btn btn-green" href="#contact">
-                    Contactanos
-                </a>
-            </li>
-        </ul>
-    </div>
-</div>
+     
 <div class="publication container margintop100 ">
     <div class="row">
     <div class="col-xs-12">

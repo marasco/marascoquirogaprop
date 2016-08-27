@@ -31,13 +31,13 @@ class AdminController extends Controller
 
     public function getDelete($id)
     {
-        DB::table('listings')->delete($id);
+        \App\Listing::find($id)->delete($id);
         return redirect('admin/index');
     }
 
     public function getIndex()
     {
-        $listings = DB::table('listings')->paginate(20);
+        $listings = \App\Listing::paginate(20);
         return view('admin/index', ['listings'=>$listings]);
     }
 

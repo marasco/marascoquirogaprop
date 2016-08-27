@@ -34,10 +34,15 @@ class AdminController extends Controller
         \App\Listing::find($id)->delete($id);
         return redirect('admin/index');
     }
-
+    public function getUndelete($id){
+        $listing= \App\Listing::withTrashed()
+        ->where('id', $id)
+        ->restore();
+        return redirect('admin/index');
+    }
     public function getIndex()
     {
-        $listings = \App\Listing::paginate(20);
+        $listings = \App\Listing::withTrashed()->paginate(10);
         return view('admin/index', ['listings'=>$listings]);
     }
 

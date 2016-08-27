@@ -29,18 +29,20 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th>Código</th>
                                     <th>Titulo</th>
                                     <th>Descripción</th>
                                     <th>Rating</th>
                                     <th>Fecha</th>
                                     <th>Estado</th>
-                                    <th>&nbsp;</th>
+                                    <th width="200">&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody class="table">
                                 @foreach ($listings as $listing)
                                     <tr>
                                         <td><span class="userName">{{ $listing->id }}</span></td>
+                                         <td><span class="userName">{{ $listing->property_code }}</span></td>
                                         <td><span class="userName">{{ $listing->title }}</span></td>
                                         <td>{{ $listing->short_desc }}</td>
                                          <td>
@@ -52,11 +54,25 @@
                                             (123)
                                         </td>
                                         <td>{{ date('d/m/Y H:i', strtotime($listing->created_at)) }} </td>
-                                        <td><span class="label label-success">ACTIVE</span></td>
+                                        @if (!$listing->trashed())
+                                        <td><span class="label label-success">
+                                        ACTIVO   
+                                        </span></td>
+                                        @else
+                                        <td><span class="label label-danger">
+                                        INACTIVO   
+                                        </span></td>
+                                        @endif
                                         <td>
                                             <div class="btn-group">
-                                                <a href="<?=URL::to('/')?>/admin/edit/{{ $listing->id }}" class="btn btn-xs btn-round btn-o btn-green"><span class="fa fa-pencil"></span> Edit</a> 
-                                                <a href="<?=URL::to('/')?>/admin/delete/{{ $listing->id }}" class="btn btn-xs btn-round btn-o btn-red"><span class="fa fa-trash"></span> Delete</a> 
+                                                <a href="<?=URL::to('/')?>/admin/edit/{{ $listing->id }}" class="btn btn-xs btn-round btn-o btn-green"><span class="fa fa-pencil"></span> Editar</a> 
+                                                @if (!$listing->trashed())
+                                                <a href="<?=URL::to('/')?>/admin/delete/{{ $listing->id }}" class="btn btn-xs btn-round btn-o btn-red"><span class="fa fa-trash"></span> Eliminar</a>  
+                                                @else
+                                                <a href="<?=URL::to('/')?>/admin/undelete/{{ $listing->id }}" class="btn btn-xs btn-round btn-o btn-green"><span class="fa fa-trash"></span> Restaurar</a>
+                                                @endif
+
+                                                 
                                             </div>
                                         </td>
                                     </tr>

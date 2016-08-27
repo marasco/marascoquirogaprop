@@ -35,10 +35,13 @@
                 </a>
             </div>
             <a href="#" class="navHandler"><span class="fa fa-bars"></span></a>
-            <!--<div class="search">
+            <div class="search">
+                <form method="GET" action="">
                 <span class="searchIcon icon-magnifier"></span>
-                <input type="text" placeholder="Buscador de propiedades">
-            </div>-->
+                <input type="text" name="search" placeholder="Ingrese código o texto a buscar">
+                <button type="submit" value="Buscar" class="btn btn-green">Buscar</button>
+                </form>
+            </div>
             <div class="headerUserWraper">
                  
                 <a href="#" class="headerUser dropdown-toggle" data-toggle="dropdown">
@@ -68,9 +71,11 @@
         <div id="leftSide">
             <nav class="leftNav scrollable">
                 <div class="search">
+                    <form method="GET" action="">
                     <span class="searchIcon icon-magnifier"></span>
-                    <input type="text" placeholder="Search for houses, apartments...">
-                    <div class="clearfix"></div>
+                    <input type="text" name="search" placeholder="Ingrese código o texto a buscar">
+                    <button type="submit" value="Buscar" class="btn btn-green">Buscar</button>
+                    </form>
                 </div>
                 <ul>
                      

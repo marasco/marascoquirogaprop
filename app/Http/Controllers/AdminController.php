@@ -40,10 +40,19 @@ class AdminController extends Controller
         ->restore();
         return redirect('admin/index');
     }
-    public function getIndex()
+    public function getIndex(Request $request)
     {
-        $listings = \App\Listing::withTrashed()->paginate(10);
-        return view('admin/index', ['listings'=>$listings]);
+        $search = null;
+        if (!empty($request->search)){
+            $search = $request->search;
+            $listings = \App\Listing::withTrashed()
+                ->where('property_code', 'like', '%'.$search.'%')
+                ->orWhere('title', 'like', '%'.$search.'%')
+                ->paginate(10);
+        }else{
+            $listings = \App\Listing::withTrashed()->paginate(10);
+        }
+        return view('admin/index', ['listings'=>$listings, 'search'=>$search]);
     }
 
     public function getNew(Request $request)

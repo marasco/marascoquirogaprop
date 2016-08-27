@@ -21,7 +21,11 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     @if (count($listings) < 1)
-                        <p>No hay propiedades publicadas.</p>
+                        @if (!empty($search))
+                        <p>No hay propiedades para la búsqueda <b>{{ $search }}</b>. <a href="/admin/?">Volver</a></p>
+                        @else
+                        <p>No hay propiedades en este momento.</p>
+                        @endif
                     @else
 
                     <div class="table-overflow">
@@ -32,7 +36,6 @@
                                     <th>Código</th>
                                     <th>Titulo</th>
                                     <th>Descripción</th>
-                                    <th>Rating</th>
                                     <th>Fecha</th>
                                     <th>Estado</th>
                                     <th width="200">&nbsp;</th>
@@ -45,17 +48,10 @@
                                          <td><span class="userName">{{ $listing->property_code }}</span></td>
                                         <td><span class="userName">{{ $listing->title }}</span></td>
                                         <td>{{ $listing->short_desc }}</td>
-                                         <td>
-                                            <span class="fa fa-star text-yellow"></span>
-                                            <span class="fa fa-star text-yellow"></span>
-                                            <span class="fa fa-star text-yellow"></span>
-                                            <span class="fa fa-star text-yellow"></span>
-                                            <span class="fa fa-star text-yellow"></span>
-                                            (123)
-                                        </td>
+                                          
                                         <td>{{ date('d/m/Y H:i', strtotime($listing->created_at)) }} </td>
                                         @if (!$listing->trashed())
-                                        <td><span class="label label-success">
+                                        <td><span class="label label-green">
                                         ACTIVO   
                                         </span></td>
                                         @else

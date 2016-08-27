@@ -126,6 +126,7 @@
         <script src="<?=URL::to('/')?>/js/jquery.growl.js"></script>
         <script src="<?=URL::to('/')?>/js/bootstrap-filestyle.min.js"></script>
         @yield('scripts')
-
+        @include('alerts.notice');
+        @include('alerts.errors');
     </body>
 </html>

@@ -20,7 +20,7 @@
                 <form action="{{ url('admin/new')}}" method="POST" class="form-horizontal">
                     {{ csrf_field() }}
                  <div class="form-group">
-                    <label>Titulo</label>
+                    <label>* Titulo</label>
                     <input type="text" name="title" class="form-control" value="{{ old('title') }}">
                 </div>
                 <div class="row">                    
@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>Descripción corta</label>
+                    <label>* Descripción corta</label>
                     <textarea class="form-control" name="short_desc" rows="2">{{ old('short_desc') }}</textarea>
                 </div>
                 <div class="form-group">

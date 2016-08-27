@@ -141,8 +141,9 @@ class AdminController extends Controller
 
         if ($validator->fails()) {
              return redirect('admin/new')
-                        ->withErrors($validator)
-                        ->withInput();
+                ->with('error-message', 'Faltan campos obligatorios.')
+                ->withErrors($validator)
+                ->withInput();
         }
         if (!empty($request->id)){
             $listing = \App\Listing::find($request->id);
@@ -171,8 +172,12 @@ class AdminController extends Controller
                 ->where('listing_id', 0)
                 ->update(array('listing_id' => $listing->id));
             }
+            $request->session()->flash('message', 'Propiedad creada exitosamente!');
+            return redirect('admin/index');
+
+        }else{
+            $request->session()->flash('error-message', 'Ha ocurrido un error!');
         }
-        return redirect('admin/index');
 
     }
 

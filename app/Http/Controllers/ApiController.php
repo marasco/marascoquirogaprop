@@ -41,7 +41,7 @@ class ApiController extends Controller
  
     public function getIndex()
     {
-        return response()->json(['exams' => []], 200);
+        return response()->json(['test' => []], 200);
     }
 
 }

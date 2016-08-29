@@ -9,6 +9,7 @@ use App\Http\Requests;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use DB;
+use Mail;
 
 class HomeController extends Controller
 {
@@ -17,18 +18,36 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-       
+    public function __construct() {
+    }
+
+
+    public function postIndex(Request $request){
+        // email contact tool
+        try {
+        if ($request->isMethod('post')) {
+            $data = $request->all();
+            if ( (!empty($data['name']) || !empty($data['message']) || !empty($data['phone'])) && !empty($data['email'])) {
+                Mail::send('emails.contact',  ['data'=>$data], function ($message) use ($data) {
+                    $from = 'no-responder@marascoquirogaprop.com.ar';
+                    $message->from($from);
+                    $receiver = $data['email'];
+                    $message->to($receiver, 'Contacto Web')->subject('Contacto Web');
+                });
+                return back()->withMessage('En la brevedad lo contactaremos. Gracias');
+            }else{
+                throw new \Exception("Error Processing Request", 1);
+            }
+        }else{
+            throw new \Exception("Error Processing Request", 1);
+        }
+    } catch(\Exception $e){
+        return back()->with('error-message', /*$e->getMessage().$e->getLine().*/'No se ha podido enviar su mail. Contactese al 4624-4850.');
+    }
 
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function getIndex(Request $request)
     {
       /*  
         DB::table('users')->delete();
@@ -41,7 +60,7 @@ class HomeController extends Controller
          
         return view('home/index',['listing_types' => $listing_types, 'listings' => $listings]);
     }
-    public function view($id)
+    public function getView($id)
     {
         $listing = \App\Listing::find($id);
         if (empty($listing)){

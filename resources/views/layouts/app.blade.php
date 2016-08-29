@@ -13,6 +13,7 @@
         <link href="<?=URL::to('/')?>/css/app.css" rel="stylesheet">
         <link href="<?=URL::to('/')?>/css/wow.css" rel="stylesheet">
         <link href="<?=URL::to('/')?>/css/custom.css" rel="stylesheet">
+        <link href="<?=URL::to('/')?>/css/jquery.growl.css" rel="stylesheet">
 
         <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -52,12 +53,13 @@
         <script src="<?=URL::to('/')?>/js/bootstrap.js"></script>
         <script src="<?=URL::to('/')?>/js/jquery.touchSwipe.min.js"></script>
         <script src="//maps.googleapis.com/maps/api/js?sensor=true&amp;libraries=geometry&amp;libraries=places" type="text/javascript"></script>
-
         <script src="<?=URL::to('/')?>/js/infobox.js"></script>
-
         <script src="<?=URL::to('/')?>/js/jquery.visible.js"></script>
         <script src="<?=URL::to('/')?>/js/wowslider.js"></script>
         <script src="<?=URL::to('/')?>/js/home.js" type="text/javascript"></script>
+        <script src="<?=URL::to('/')?>/js/jquery.growl.js"></script>
+
         @yield('scripts')
+        @include('alerts.growl')
     </body>
 </html>

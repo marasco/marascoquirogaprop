@@ -52,7 +52,7 @@
         <script src="<?=URL::to('/')?>/js/jquery.placeholder.js"></script>
         <script src="<?=URL::to('/')?>/js/bootstrap.js"></script>
         <script src="<?=URL::to('/')?>/js/jquery.touchSwipe.min.js"></script>
-        <script src="//maps.googleapis.com/maps/api/js?sensor=true&amp;libraries=geometry&amp;libraries=places" type="text/javascript"></script>
+        <script src="//maps.googleapis.com/maps/api/js?sensor=true&amp;libraries=geometry&amp;libraries=places&amp;key=AIzaSyAelkSxqPGF0u96iml_y3fhDq3tl8RxeHs" type="text/javascript"></script>
         <script src="<?=URL::to('/')?>/js/infobox.js"></script>
         <script src="<?=URL::to('/')?>/js/jquery.visible.js"></script>
         <script src="<?=URL::to('/')?>/js/wowslider.js"></script>

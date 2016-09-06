@@ -190,6 +190,17 @@ class AdminController extends Controller
                 ->where('listing_id', 0)
                 ->update(array('listing_id' => $listing->id));
             }
+
+            $firstImage = \App\ListingImage::where('listing_id', $request->id)->first();
+            if (!empty($firstImage) && !empty($firstImage->filename)){
+                \Image::make(\App::make('url')->to('/').'/uploads/'.$firstImage->filename)->resize(null, 200, 
+                    function ($constraint) {
+                        $constraint->aspectRatio();
+                    }
+                )->save('uploads/'.'thumb_'.$firstImage->filename);
+            }
+
+            
             $request->session()->flash('message', 'Propiedad creada exitosamente!');
             return redirect('admin/index');
 

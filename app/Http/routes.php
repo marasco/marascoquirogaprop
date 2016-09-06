@@ -28,3 +28,7 @@ Route::group(['middleware' => 'cors'], function () {
 
 
 Route::auth();
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('cache:clear');
+    // return what you want
+});

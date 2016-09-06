@@ -9,6 +9,7 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use DB;
 use Auth;
+use File;
 
 class AdminController extends Controller
 {
@@ -127,6 +128,10 @@ class AdminController extends Controller
                 throw new \Exception("Error Processing Request", 1);
             }
             $id = $request->data['id'];
+            $listing_image = \App\ListingImage::where('id',$id)->first();
+            if (!empty($listing_image) && !empty($listing_image->filename)){
+                File::delete('uploads/'.$listing_image->filename);
+            }
             $success = DB::table('listing_images')->delete($id);
             return response()->json(['success' => (bool)$success]);
         } catch (\Exception $e){
@@ -152,7 +157,17 @@ class AdminController extends Controller
             $listing = \App\Listing::find($request->id);
             if (empty($listing->property_code))
                 $listing->property_code = $this->Unique();
+            // resize the first image -> thumbnail
 
+            $firstImage = \App\ListingImage::where('listing_id', $request->id)->first();
+            if (!empty($firstImage) && !empty($firstImage->filename)){
+                \Image::make(\App::make('url')->to('/').'/uploads/'.$firstImage->filename)->resize(null, 200, 
+                    function ($constraint) {
+                        $constraint->aspectRatio();
+                    }
+                )->save('uploads/'.'thumb_'.$firstImage->filename);
+            }
+            //
         }else{
             $listing = new \App\Listing;
             $listing->property_code = $this->Unique();

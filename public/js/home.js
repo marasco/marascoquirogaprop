@@ -50,8 +50,8 @@ var addMarkers = function(props, map) {
         var saleClass=prop.type.toLowerCase()=='venta'?'blueClass':'';
         var infoboxContent = 
         '<div class="infoW">' + 
-        '<div class="propImg">' + 
-        '<img src="' + prop.image + '">' + 
+        '<div class="propImg" style="background-image:url('+prop.image+')">' + 
+        //'<img src="' + prop.image + '">' + 
         '<div class="propBg">' + 
         '<div class="propPrice">' + prop.price + '</div>' + 
         '<div class="propType '+saleClass+'">' + prop.type + '</div>' + 

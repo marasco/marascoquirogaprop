@@ -11,7 +11,7 @@ foreach ($listings as $item) {
     $operation = ($item->operation=='sale')?'VENTA':'ALQUILER';
     $markerIcon = ($item->operation=='sale')?'marker-green.png':'marker-yellow.png';
     if (!empty($images[0]) && !empty($images[0]['filename'])){
-        $imageToShow = URL::to('/').'/uploads/'.$images[0]['filename'];
+        $imageToShow = URL::to('/').'/uploads/thumb_'.$images[0]['filename'];
         $sliding.= '
         <li><div style="background-image:url('.$imageToShow.')"
 " alt="'.$item->title.'" title="'.$item->title.'" id="wows1_0">'.$item->short_desc.'</div<</li>
@@ -140,7 +140,7 @@ $map_items = json_encode($map_listings);
                 $images = $item->Images()->get();
                 $operation = ($item->operation=='sale')?'VENTA':'ALQUILER';
                 if (!empty($images[0]) && !empty($images[0]['filename'])){
-                    $imageToShow = URL::to('/').'/uploads/'.$images[0]['filename'];
+                    $imageToShow = URL::to('/').'/uploads/thumb_'.$images[0]['filename'];
                 }
                 $page = intval(($i+1)/$per_page);
                 if (intval(($i+1)%$per_page)>0) $page+=1;

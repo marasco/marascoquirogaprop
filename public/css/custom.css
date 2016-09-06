@@ -4,6 +4,13 @@
 .color-black{
 	color:black;
 }
+.propImg{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    width:200px;
+    height:120px;
+}
 .labelSale,.labelRent{
     background:#0eaaa6;
     font-size: 30px;

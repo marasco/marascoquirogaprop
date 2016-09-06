@@ -20,7 +20,7 @@
         	<h3>{{ $listing->short_desc }}</h3>
         </div>
         
-        <div class="col-xs-12 col-sm-8">
+        <div class="col-xs-12 col-sm-7 col-md-6">
         	<div id="gallery" style="display:none;">
 				@foreach ($listing_images as $i=>$image)
                    	<img alt="{{ $listing->title }}"
@@ -31,8 +31,11 @@
 				
 			</div>
         </div>
-        <div class="col-xs-12 col-sm-4">
+        <div class="col-xs-12 col-sm-5 col-md-6">
         	<h4><?=nl2br($listing->long_desc)?></h4>
+            <div class="hidden-xs">
+            <a href="#contact"><button type="button" class="btn btn-green">Estoy interesado en esta propiedad</button></a>
+            </div>
         </div>
     </div>
 </div>
@@ -55,7 +58,7 @@
                     <div class="form-group">
                         <label for="name" class="col-sm-2 control-label color-white">Nombre</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="name" placeholder="Nombre">
+                            <input type="text" class="form-control" name="name" id="contact_name" placeholder="Nombre">
                         </div>
                     </div>
                     

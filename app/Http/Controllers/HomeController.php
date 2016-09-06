@@ -68,6 +68,6 @@ class HomeController extends Controller
         }
         $listing_types = DB::table('listing_types')->get();
         $listing_images = DB::table('listing_images')->where('listing_id', $id)->get();
-        return view('home/view', ['listing' => $listing, 'listing_types'=>$listing_types, 'listing_images'=>$listing_images]);
+        return view('home/view', ['page'=>'view', 'listing' => $listing, 'listing_types'=>$listing_types, 'listing_images'=>$listing_images]);
     }
 }

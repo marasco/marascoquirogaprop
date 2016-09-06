@@ -3,7 +3,7 @@ if (typeof _defaultLat == 'undefined'){
 }
 (function($) {
     "use strict";
-
+    
     // Custom options for map
     var options = {
             zoom : 14,
@@ -584,5 +584,7 @@ if (typeof _defaultLat == 'undefined'){
     }
 
     $('input, textarea').placeholder();
+
+    
 
 })(jQuery);

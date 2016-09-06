@@ -126,11 +126,13 @@ $map_items = json_encode($map_listings);
                 </a>
             </div>
         </div>
-                <div class="col-xs-12 backTitle"><h1 class="osLight">Últimas publicaciones</h1></div>
+        <a id="last"></a>
+        <div class="col-xs-12 backTitle"><h1 class="osLight">Últimas publicaciones</h1></div>
         <div class="row pb40">
             @foreach ($listings as $i=>$item) 
                 <?php 
-                $show = ($i<6)?true:false;
+                $per_page=9;
+                $show = ($i<$per_page)?true:false;
                 $showclass=!$show?' style="display:none"':null;
                 $showPrice = ($item->price==0)?'Oportunidad':$item->currency.' '.number_format($item->price,0,',','.'); 
                 $imageToShow = URL::to('/'). "/images/prop/1-1.png";
@@ -139,8 +141,8 @@ $map_items = json_encode($map_listings);
                 if (!empty($images[0]) && !empty($images[0]['filename'])){
                     $imageToShow = URL::to('/').'/uploads/'.$images[0]['filename'];
                 }
-                $page = intval(($i+1)/6);
-                if (intval(($i+1)%6)>0) $page+=1;
+                $page = intval(($i+1)/$per_page);
+                if (intval(($i+1)%$per_page)>0) $page+=1;
 
                 $cssItemPage = 'item-page-'. (string)$page;
                 ?>
@@ -204,7 +206,7 @@ $map_items = json_encode($map_listings);
                     <div class="form-group">
                         <label for="name" class="col-sm-2 control-label color-white">Nombre</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="name" placeholder="Nombre">
+                            <input type="text" class="form-control" name="name"  id="contact_name" placeholder="Nombre">
                         </div>
                     </div>
                     

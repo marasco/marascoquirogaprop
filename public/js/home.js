@@ -203,4 +203,18 @@ function loadHomeMap() {
         $('#signin').modal('show');
     });
     $('input, textarea').placeholder();
+    $('a[href^="#"]').on('click',function (e) {
+        e.preventDefault();
+
+        var target = this.hash;
+        var $target = $(target);
+        if (target=='#contact'){
+            $('#contact_name').focus();
+        }
+        $('html, body').stop().animate({
+            'scrollTop': $target.offset().top
+        }, 900, 'swing', function () {
+            window.location.hash = target;
+        });
+    });
 })(jQuery);

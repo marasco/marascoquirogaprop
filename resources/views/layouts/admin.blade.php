@@ -107,7 +107,7 @@
         @yield('content')
 
 
-        <script src="//maps.googleapis.com/maps/api/js?sensor=true&amp;libraries=geometry&amp;libraries=places" type="text/javascript"></script>
+        <script src="//maps.googleapis.com/maps/api/js?sensor=true&amp;libraries=geometry&amp;libraries=places&amp;key=AIzaSyAelkSxqPGF0u96iml_y3fhDq3tl8RxeHs" type="text/javascript"></script>
         <script src="<?=URL::to('/')?>/js/jquery-2.1.1.min.js"></script>
         <script src="<?=URL::to('/')?>/js/jquery-ui.min.js"></script>
         <script src="<?=URL::to('/')?>/js/jquery-ui-touch-punch.js"></script>

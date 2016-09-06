@@ -8,7 +8,8 @@ foreach ($listings as $item) {
     $showPrice = ($item->price==0)?'Oportunidad':$item->currency.' '.number_format($item->price,0,',','.'); 
     $imageToShow = URL::to('/'). "/images/prop/1-1.png";
     $images = $item->Images()->get();
-    $operation = ($item->operation=='rent')?'VENTA':'ALQUILER';
+    $operation = ($item->operation=='sale')?'VENTA':'ALQUILER';
+    $markerIcon = ($item->operation=='sale')?'marker-green.png':'marker-yellow.png';
     if (!empty($images[0]) && !empty($images[0]['filename'])){
         $imageToShow = URL::to('/').'/uploads/'.$images[0]['filename'];
         $sliding.= '
@@ -25,7 +26,7 @@ foreach ($listings as $item) {
         'price' => $showPrice,
         'address' => $item->short_desc,
         'position' => htmlspecialchars_decode($item->location),
-        'markerIcon' => 'marker-green.png'
+        'markerIcon' => $markerIcon
         );
 }
 $map_items = json_encode($map_listings);

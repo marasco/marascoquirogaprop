@@ -47,14 +47,14 @@ var addMarkers = function(props, map) {
         });
         console.log('addMarker '+i)
         console.log( prop.image )
-
+        var saleClass=prop.type.toLowerCase()=='venta'?'blueClass':'';
         var infoboxContent = 
         '<div class="infoW">' + 
         '<div class="propImg">' + 
         '<img src="' + prop.image + '">' + 
         '<div class="propBg">' + 
         '<div class="propPrice">' + prop.price + '</div>' + 
-        '<div class="propType">' + prop.type + '</div>' + 
+        '<div class="propType '+saleClass+'">' + prop.type + '</div>' + 
         '</div>' + '</div>' + 
         '<div class="paWrapper">' + 
         '<div class="propTitle">' + prop.title + '</div>' + 
@@ -67,11 +67,6 @@ var addMarkers = function(props, map) {
         '<span class="fa fa-star"></span>' + 
         '<span class="fa fa-star"></span>' + 
         '</div>' + 
-      //  '<ul class="propFeat">' + 
-       // '<li><span class="fa fa-moon-o"></span> 1</li>' + 
-      //  '<li><span class="icon-drop"></span> 2</li>' + 
-      //  '<li><span class="icon-frame"></span> 33</li>' + 
-       // '</ul>' + 
        '<div class="clearfix"></div>' + 
         '<div class="infoButtons">' + 
         '<a class="btn btn-sm btn-round btn-gray btn-o closeInfo">Cerrar</a>' + 
@@ -79,11 +74,18 @@ var addMarkers = function(props, map) {
         '</div>' + '</div>';
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
-                infobox.setContent(infoboxContent);
-                infobox.open(map, marker);
+                if (typeof infobox.status == 'string' && infobox.status=='opened'){
+                    infobox.open(null, null);
+                    infobox.status = 'closed';
+                }else{
+                    infobox.setContent(infoboxContent);
+                    infobox.open(map, marker);
+                    infobox.status = 'opened';
+                }
             }
         })(marker, i));
         $(document).on('click', '.closeInfo', function() {
+            infobox.status = 'closed';
             infobox.open(null, null);
         });
         markers.push(marker);

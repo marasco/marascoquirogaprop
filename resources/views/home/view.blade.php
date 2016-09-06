@@ -2,7 +2,11 @@
 
 @section('content')
 @include('includes.header')
-     
+<?php
+    $labelType = $listing->type=='sale'?'labelSale':'labelRent';
+    $labelText = $listing->type=='sale'?'VENTA':'ALQUILER';
+    $label = '<label class="'.$labelType.'">'.$labelText.'</label>';
+?>
 <div class="publication container margintop100 ">
     <div class="row">
     <div class="col-xs-12">
@@ -10,7 +14,7 @@
     </div> 
         <div class="col-xs-12">
             <h1>
-                {{ $listing->title }}
+                {{ $listing->title }} <?=$label?> 
             </h1>
         </div>
         <div class="col-xs-12 codeUp">

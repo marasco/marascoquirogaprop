@@ -30,7 +30,8 @@ class ApiController extends Controller
         Mail::send('emails.contact',  ['data'=>$data], function ($message) {
             $from = 'no-responder@marascoquirogaprop.com.ar';
             $message->from($from);
-            $receiver = 'francisco.marasco@gmail.com';
+            //$receiver = 'francisco.marasco@gmail.com';
+            $receiver = 'info@marascoquirogaprop.com.ar';
             $message->to($receiver, 'Contacto Web')->subject('Contacto Web');
         });
 

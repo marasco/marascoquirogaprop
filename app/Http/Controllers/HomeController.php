@@ -42,32 +42,28 @@ class HomeController extends Controller
             throw new \Exception("Error Processing Request", 1);
         }
     } catch(\Exception $e){
-        return back()->with('error-message', /*$e->getMessage().$e->getLine().*/'No se ha podido enviar su mail. Contactese al 4624-4850.');
+        return back()->with('error-message', 'No se ha podido enviar su mail. Contactese al 4624-4850.');
     }
 
     }
 
     public function getIndex(Request $request)
     {
-      /*  
-        DB::table('users')->delete();
-        DB::table('users')->insert([
-            ['name'=>'Fran', 'email' => 'fran@marasco.com', 'password' => Hash::make('fran21'), 'created_at'=>gmdate('Y-m-d H:i:s')]
-        ]);
-        */
+        $user = \Auth::user();
         $listing_types = DB::table('listing_types')->get();
         $listings = \App\Listing::all();
          
-        return view('home/index',['listing_types' => $listing_types, 'listings' => $listings]);
+        return view('home/index',['user'=>$user, 'listing_types' => $listing_types, 'listings' => $listings]);
     }
     public function getView($id)
     {
+        $user = \Auth::user();
         $listing = \App\Listing::find($id);
         if (empty($listing)){
             return redirect('/');
         }
         $listing_types = DB::table('listing_types')->get();
         $listing_images = DB::table('listing_images')->where('listing_id', $id)->get();
-        return view('home/view', ['page'=>'view', 'listing' => $listing, 'listing_types'=>$listing_types, 'listing_images'=>$listing_images]);
+        return view('home/view', ['page'=>'view', 'listing' => $listing, 'listing_types'=>$listing_types, 'user'=>$user, 'listing_images'=>$listing_images]);
     }
 }

@@ -3,8 +3,8 @@
 @section('content')
 @include('includes.header')
 <?php
-    $labelType = $listing->type=='sale'?'labelSale':'labelRent';
-    $labelText = $listing->type=='sale'?'VENTA':'ALQUILER';
+    $labelType = $listing->operation=='sale'?'labelSale':'labelRent';
+    $labelText = $listing->operation=='sale'?'VENTA':'ALQUILER';
     $label = '<label class="'.$labelType.'">'.$labelText.'</label>';
 ?>
 <div class="publication container margintop100 ">
@@ -47,7 +47,7 @@
 @section('contact')
 	<a id="contact"></a>
     <div class="row pb40 highlight" style="margin-top:40px;">
-        <div class="col-xs-12 backTitle"><h1 class="osLight color-white">Estás interesado en esta propiedad?</h1></div>
+        <div class="col-xs-12 backTitle"><h1 class="osLight color-white">Estás interesado en esta propiedad?<br />Llamanos al 4624-4850</h1></div>
         <div class="col-xs-12 subcontact">
             Escribinos a info@marascoquirogaprop.com.ar<br /> o completá el formulario de contacto.
         </div>

@@ -32,6 +32,7 @@ foreach ($listings as $item) {
 $map_items = json_encode($map_listings);
 ?>
 <script type="text/javascript">
+    window._isAdmin = <?=(int)(!empty($user))?>;
     window._mapItems = <?=$map_items?>;
 </script>
 <div id="hero-container-map">

@@ -68,9 +68,17 @@ var addMarkers = function(props, map) {
         '<span class="fa fa-star"></span>' + 
         '</div>' + 
        '<div class="clearfix"></div>' + 
-        '<div class="infoButtons">' + 
-        '<a class="btn btn-sm btn-round btn-gray btn-o closeInfo">Cerrar</a>' + 
-        '<a href="'+_baseUrl+'home/view/'+prop.id+'" class="btn btn-sm btn-round btn-green viewInfo">Ver</a>' + 
+        '<div class="infoButtons">';
+        if (typeof _isAdmin != 'undefined' && _isAdmin){
+            infoboxContent+=
+            '<a class="btn btn-sm btn-round btn-blue" href="'+_baseUrl+'admin/edit/'+prop.id+'">Editar</a>';
+        }else{
+            infoboxContent+=
+            '<a class="btn btn-sm btn-round btn-gray btn-o closeInfo">Cerrar</a>';
+        }
+ 
+        infoboxContent+=
+        '<a href="'+_baseUrl+'home/view/'+prop.id+'" class="btn btn-sm btn-round btn-green viewInfo">Ver</a>'+ 
         '</div>' + '</div>';
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {

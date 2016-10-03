@@ -99,7 +99,7 @@ $map_items = json_encode($map_listings);
                         </div>
                         <div class="property-data">
                             <div class="priceCap osLight"><span>{{ $showPrice }}</span></div>
-                            <h3 class="osLight">{{ $item->title }} </h3>
+                            <h3 class="osLight title-search">{{ $item->title }} </h3>
                             <div class="address">{{ $item->short_desc }} </div>
                             <div class="desc"><?= nl2br($item->long_desc) ?></div>
                              

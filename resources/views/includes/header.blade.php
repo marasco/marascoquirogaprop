@@ -4,7 +4,7 @@
     </div>
     <div class="home-nav">
         <ul>
-            <li style="text-align:right"><a href="javascript:void(0)">{{ config('vars.sp.header') }}</a><br />Escribinos a info@marascoquirogaprop.com.ar</li>
+            <li style="text-align:right" class="info-header"><a href="javascript:void(0)">{{ config('vars.sp.header') }}</a><br />Escribinos a info@marascoquirogaprop.com.ar</li>
             <li style="margin-top:8px"><a href="#contact" class="btn btn-green">Contactanos</a></li>
             @if (!empty($user))
 	            <li style="margin-top:8px"><a href="{{ URL::to('/admin/new') }}" class="btn btn-green">Agregar propiedades</a></li>

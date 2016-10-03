@@ -66,10 +66,10 @@ $map_items = json_encode($map_listings);
             </div>
             @endif
             </div> 
-            <div class="form-group hidden-xs adv">
+            <div class="form-group adv">
                 <div class="checkbox custom-checkbox"><label><input type="checkbox" name="rent" <?php if (empty($request) || empty($request['sale']) || !empty($request['rent']) ) { echo 'checked="checked"'; } ?>><span class="fa fa-check"></span> Alquiler</label></div>
             </div>
-            <div class="form-group hidden-xs adv right20">
+            <div class="form-group adv right20">
                 <div class="checkbox custom-checkbox"><label><input type="checkbox" name="sale" <?php if (empty($request) || empty($request['rent'])  || !empty($request['sale']) ) { echo 'checked="checked"'; } ?>><span class="fa fa-check"></span> Venta</label></div>
             </div>
             <div class="form-group">

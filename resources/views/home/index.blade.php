@@ -36,42 +36,49 @@ $map_items = json_encode($map_listings);
     window._mapItems = <?=$map_items?>;
 </script>
 <div id="hero-container-map">
-    <div id="home-map"></div>
+    <div id="left-map">
+        <div class="space-top"></div>
+        <div class="row pb40">
+            <div class="col-xs-12 col-sm-6 s-menu-item-top">
+                <a href="{{ URL::to('/home/search') }}">
+                    <span class="icon-home s-icon-top"></span>
+                    <div class="s-content-top">
+                        <h2 class="s-main osLight">Buscador de propiedades</h2>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-12 col-sm-6 s-menu-item-top">
+                <a href="#services">
+                    <span class="icon-settings s-icon-top"></span>
+                    <div class="s-content-top">
+                        <h2 class="s-main osLight">Servicios</h2>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-12 col-sm-6 s-menu-item-top">
+                <a href="#who-we-are">
+                    <span class="icon-users s-icon-top"></span>
+                    <div class="s-content-top">
+                        <h2 class="s-main osLight">Quiénes somos</h2>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="col-xs-12 col-sm-6 s-menu-item-top">
+                <a href="#contact">
+                    <span class="icon-cloud-upload s-icon-top"></span>
+                    <div class="s-content-top">
+                        <h2 class="s-main osLight">Contactanos</h2>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="home-map" class="use-map"></div>
     @include('includes.header')
 
-   <!-- <div class="search-panel">
-        <form class="form-inline" role="form"> 
-            <div class="form-group">
-            @if (count($listing_types))
-            <div class="btn-group">
-                <button data-toggle="dropdown" class="btn btn-white dropdown-toggle">
-                    <span class="dropdown-label">{{ $listing_types[0]->name }}</span> <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu dropdown-select">
-                    <?php $i = 0; ?>
-                    @foreach ($listing_types as $i=>$listing_type) 
-                    <?php $ifActive = ($i==0)?'class="active" ':'';$i++; ?>
-                        <li {{ $ifActive }}>
-                            <input type="radio" name="listing_type" value="{{ $listing_type->id }}" checked="checked"><a href="javascript:void(0)">{{ $listing_type->name }}</a>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-            @endif
-            </div> 
-            <div class="form-group hidden-xs adv">
-                <div class="checkbox custom-checkbox"><label><input type="checkbox" checked="checked"><span class="fa fa-check"></span> Alquiler</label></div>
-            </div>
-            <div class="form-group hidden-xs adv">
-                <div class="checkbox custom-checkbox"><label><input type="checkbox" checked="checked"><span class="fa fa-check"></span> Venta</label></div>
-            </div>
-            <div class="form-group">
-                <a href="explore.html" class="btn btn-green">Buscar</a> 
-            </div>
-        </form>
-    </div>-->
 </div>
- <!--
+@if (!empty($showSlider))
 <div id="wowslider-container1">
 <div class="ws_images"><ul>
 <?=$sliding?>
@@ -80,16 +87,31 @@ $map_items = json_encode($map_listings);
  
 <a href="#" class="ws_frame"></a>
 </div>
--->
+@endif
 <div class="highlight">
-    <div class="h-title osLight">Encontrá tu nueva casa en Marasco Quiroga Propiedades</div>
-    <div class="h-text osLight">Llamanos y buscaremos la mejor ubicación o proyecto para tu vivienda.</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-8">
+        <div class="h-title osLight">Encontrá tu nueva casa en Marasco Quiroga Propiedades</div>
+        <div class="h-text osLight">Llamanos y buscaremos la mejor ubicación o proyecto para tu vivienda.</div>
+    </div>
+    <div class="col-xs-12 col-sm-4 phone-big">
+        4624-4850
+    </div>
+</div>
 </div>
  
-
 <div class="home-wrapper">
     <div class="home-content">
+        <div class="col-xs-12 backTitle"><h1 class="osLight">Quienes Somos</h1></div>
+            <div class="col-xs-12">
+<a id="who-we-are"></a>
+            <p class="who-we-are">
+    Somos una empresa joven que trabaja para satisfacer las necesidades inmobiliarias de nuestros clientes ofreciendo <span class="profesionalidad">profesionalidad</span>, <span class="eficacia">eficacia</span> y <span class="seriedad">seriedad</span>.
+    </p>
+    </div>
+
         <div class="col-xs-12 backTitle"><h1 class="osLight">Servicios</h1></div>
+        <a id="services"></a>
         <div class="row pb40">
             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 s-menu-item">
                 <a href="javascript:void(0)">
@@ -148,8 +170,8 @@ $map_items = json_encode($map_listings);
 
                 $cssItemPage = 'item-page-'. (string)$page;
                 ?>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 <?=$cssItemPage?>" <?=$showclass?>>
-                <a href="<?=URL::to('/home/view/'). '/'.$item->id?>" class="propWidget-2">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 {{ $cssItemPage }}" <?=$showclass?>>
+                <a href="{{ URL::to('/home/view/'). '/'.$item->id }}" class="propWidget-2">
                     <div class="fig">
 
                         <div class="listing-home" style="background-image: url({{ $imageToShow }});" alt="{{ $item->title }} "></div>
@@ -186,13 +208,13 @@ $map_items = json_encode($map_listings);
         </div>
         
        
-        
+
     </div>
 </div>
 @endsection
 @section('contact')
-    <a id="contact"></a>
     <div class="row pb40 highlight">
+            <a id="contact"></a>
         <div class="col-xs-12 backTitle"><h1 class="osLight color-white">Contactanos</h1></div>
         <div class="col-xs-12 subcontact">
             Escribinos a info@marascoquirogaprop.com.ar<br /> o completá el formulario de contacto.

@@ -20,7 +20,7 @@
                 <div class="osLight footer-header">Contactanos</div>
                 <ul class="footer-nav pb20">
                     <li class="footer-phone"><span class="fa fa-phone"></span> +54 911 4624 4850</li>
-                    <li class="footer-mail"><span class="fa fa-envelope"></span><a href="mailto:info@marascoquirogaprop.com.ar">info@marascoquirogaprop.com.ar</a></li>
+                    <li class="footer-mail"><span class="fa fa-envelope"></span> <a href="mailto:info@marascoquirogaprop.com.ar">info@marascoquirogaprop.com.ar</a></li>
                     <li class="footer-address osLight">
                         <p>Cnel. Brandsen 342</p>
                         <p>Ituzaingó, Buenos Aires</p>

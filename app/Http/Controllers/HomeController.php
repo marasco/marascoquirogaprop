@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Listing;
 use App\ListingImage;
+use App\ListingType;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Hash;
@@ -54,6 +55,32 @@ class HomeController extends Controller
         $listings = \App\Listing::all();
          
         return view('home/index',['user'=>$user, 'listing_types' => $listing_types, 'listings' => $listings]);
+    }
+
+    public function getSearch(Request $request)
+    {
+        $user = \Auth::user();
+        $listing_types = DB::table('listing_types')->get();
+        $data = $request->all();
+        $listing_type_selected=\App\ListingType::findOrFail(3);
+        if (!empty($data)){
+            $conditions = array();
+            if (!empty($data['listing_type'])){
+                $conditions[] = array('type','=',intval($data['listing_type']));
+                $listing_type_selected = \App\ListingType::findOrFail(intval($data['listing_type']));
+            }
+            if ((!empty($data['sale']) && $data['sale']=='on') && (empty($data['rent']) || $data['rent']!='on')) 
+                $conditions[] = array('operation','=','sale');
+            if ((!empty($data['rent']) && $data['rent']=='on') && (empty($data['sale']) || $data['sale']!='on')) 
+                $conditions[] = array('operation','=','rent');
+            
+            $listings = \App\Listing::where(
+                    array_values($conditions)
+                )->get();
+        }else{
+            $listings = \App\Listing::all();
+        }
+        return view('home/search',['listing_type_selected'=>$listing_type_selected, 'request'=>$data, 'page'=>'search','listing_types' => $listing_types,'user'=>$user,'listings' => $listings]);
     }
     public function getView($id)
     {

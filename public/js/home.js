@@ -85,10 +85,13 @@ var addMarkers = function(props, map) {
                 if (typeof infobox.status == 'string' && infobox.status=='opened'){
                     infobox.open(null, null);
                     infobox.status = 'closed';
+                    $('.property-item').removeClass('hovered');
+
                 }else{
                     infobox.setContent(infoboxContent);
                     infobox.open(map, marker);
                     infobox.status = 'opened';
+                    scrollToProperty(prop.id);
                 }
             }
         })(marker, i));
@@ -99,9 +102,22 @@ var addMarkers = function(props, map) {
         markers.push(marker);
     });
 }
-
+function scrollToProperty(id){
+    $('.property-item').removeClass('hovered');
+    $target = $('#property-div-'+id);
+    if ($target){
+        $('html, body').stop().animate({
+            'scrollTop': $target.offset().top - 100
+        }, 900, 'swing', function () {
+            $target.addClass('hovered');
+        })
+    }
+}
+function subscribemail(){
+    
+}
 function loadHomeMap() {
-    if ($('#home-map').length > 0) {
+    if ($('.use-map').length > 0) {
         loadMarkers(function(props) {
             window.infobox = new InfoBox({
                 disableAutoPan: false,
@@ -124,6 +140,7 @@ function loadHomeMap() {
                 zoom: 14,
                 mapTypeId: 'Styled',
                 disableDefaultUI: true,
+                zoomControl: true,
                 mapTypeControlOptions: {
                     mapTypeIds: ['Styled']
                 },
@@ -155,7 +172,7 @@ function loadHomeMap() {
                     visibility: "off"
                 }]
             }];
-            map = new google.maps.Map(document.getElementById('home-map'), options);
+            map = new google.maps.Map(document.getElementsByClassName('use-map')[0], options);
             var styledMapType = new google.maps.StyledMapType(styles, {
                 name: 'Styled'
             });
@@ -222,7 +239,7 @@ function loadHomeMap() {
             $('#contact_name').focus();
         }
         $('html, body').stop().animate({
-            'scrollTop': $target.offset().top
+            'scrollTop': $target.offset().top - 160
         }, 900, 'swing', function () {
             window.location.hash = target;
         });

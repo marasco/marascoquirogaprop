@@ -1,3 +1,186 @@
+.property-image{
+    height:180px; 
+    width:300px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    float:left;
+}
+.who-we-are{
+    font-size: 36px;
+    text-align: center;
+    color: #444;
+    margin-bottom: 80px;
+    margin-top: 50px;
+}
+.profesionalidad{
+    color:#e40051;
+}
+.eficacia{
+    color:#29b73c;
+}
+.seriedad{
+    color:#3f65ff;
+}
+.line-gray{
+    background:#eee;
+    height:1px;
+    margin-top:10px;
+    margin-bottom:20px;
+}
+.property-data{
+    height:160px;
+    float:left;
+    margin-left: 15px; 
+}
+.property-operation{
+    float: right;
+    right: 0px;
+    position: relative;
+    left: initial;
+}
+.s-menu-item-top {
+    height: 260px;
+    overflow: hidden;
+    position: relative;
+    background: transparent;
+    -webkit-transition: all 300ms linear;
+    -moz-transition: all 300ms linear;
+    -o-transition: all 300ms linear;
+    -ms-transition: all 300ms linear;
+    transition: all 300ms linear;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.s-menu-item-top:last-child {
+    margin-right: 0px;
+}
+.s-content-top{
+    color:white;
+    position: absolute;
+    text-align: center;
+    width:100%;
+    top:60%;
+}
+.s-icon-top{
+    font-size: 60px;
+    opacity: 0.8;
+    width: 100%;
+    position: absolute;
+    top:30%;
+    height: 50%;
+    text-align: center;
+    -webkit-transition: all 400ms linear;
+    -moz-transition: all 400ms linear;
+    -o-transition: all 400ms linear;
+    -ms-transition: all 400ms linear;
+    transition: all 400ms linear;
+    color:white;
+}
+
+.no-touch .s-menu-item-top:hover {
+    
+    z-index:999;
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1);
+}
+.no-touch .s-menu-item-top:hover .s-icon-top {
+    color: #fff;
+    font-size: 90px;
+    opacity:0.3;
+    -webkit-animation: smallToBig 900ms alternate ease;
+    -moz-animation: smallToBig 900ms alternate ease;
+    -ms-animation: smallToBig 900ms alternate ease;
+}
+.no-touch .s-menu-item-top:hover .s-main {
+    color: #fff;
+    -webkit-animation: smallToBig 300ms ease;
+    -moz-animation: smallToBig 300ms ease;
+    -ms-animation: smallToBig 300ms ease;
+}
+.no-touch .s-menu-item-top:hover .s-sub {
+    color: #fff;
+    -webkit-animation: moveFromBottom 500ms ease;
+    -moz-animation: moveFromBottom 500ms ease;
+    -ms-animation: moveFromBottom 500ms ease;
+}
+.checkbox.custom-checkbox input:checked+span, .radio.custom-radio input:checked+span{
+    background-color: #0eaaa6;
+    border-color: #0eaaa6;
+}
+.right20{
+    margin-right: 20px;
+}
+.property-item{
+    padding:6px;
+}
+.property-item:hover{
+
+    background:rgba(210, 255, 110, 0.14);
+}
+.property-item.hovered{
+    background:rgba(210, 255, 110, 0.14);
+}
+.search-panel-top{
+    background:#eee;
+    padding:10px;
+    margin-bottom:20px;
+    margin-top:10px;
+}
+.phone-big{
+    color:white;
+    font-size:40px;
+    font-weight: bold;
+    letter-spacing: 0.02em;
+}
+#home-map {
+    width: 50%;
+    float:left;
+    height: 600px;
+}
+#left-map{
+    width:50%;
+    float:left;
+    height: 600px;
+    display: block;
+    background-color: #056966;
+}
+
+#search-home-map-container {
+    width:40%;
+    float:right;
+    position: fixed;
+    right: 0px;
+    min-height: 600px;
+    z-index: 99;
+}
+#search-home-map {
+    width:100%;
+    z-index: 99;
+    min-height: 600px;
+}
+#search-left-map{
+    width:60%;
+    float:left;
+    min-height: 600px;
+    display: block;
+    background-color: transparent;
+}
+
+@media(max-width: 768px){
+    .home-nave{
+        display:none;
+    }
+    #home-map{
+        width:100%;
+    }
+    #left-map{
+        display: none;
+    }
+}
 .color-white{
 	color:white;
 }
@@ -67,7 +250,6 @@
     filter: blur(2px);
     -webkit-filter: blur(2px);
     -moz-filter: blur(2px);
-    display: none;
 }
 .propWidget-2 .fig .figType{
 	font-size: 12px;
@@ -81,10 +263,10 @@
     position: relative;
     display: block;
     }
-.no-touch .propWidget-2:hover .fig > div.blur {
+.no-touch .propWidget-2 .fig > div.blur {
     -webkit-transform: scale(1.2);
     transform: scale(1.2);
-    opacity: 0.6;
+    opacity: 0.3;
  }
 .listing-home{
 	background-repeat: no-repeat;
@@ -92,6 +274,12 @@
 	background-position: center center;
 	height:180px;
 	width:100%;
+}
+
+.space-top{
+    height:90px;
+    float:left;
+    width:100%;
 }
 .deleteContainer{
     float: right;

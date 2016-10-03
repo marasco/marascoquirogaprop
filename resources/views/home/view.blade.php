@@ -10,6 +10,7 @@
 <div class="publication container margintop100 ">
     <div class="row">
     <div class="col-xs-12">
+    <a href="{{ URL::previous() }}">Volver</a> &bull;
     <a href="/?">Home</a> / {{ $listing->title }}
     </div> 
         <div class="col-xs-12">
@@ -28,15 +29,15 @@
         	<div id="gallery" style="display:none;">
 				@foreach ($listing_images as $i=>$image)
                    	<img alt="{{ $listing->title }}"
-					 src="<?=URL::to('/')?>/uploads/{{ $image->filename }}"
-					 data-image="<?=URL::to('/')?>/uploads/{{ $image->filename }}"
+					 src="{{ URL::to('/') }}/uploads/{{ $image->filename }}"
+					 data-image="{{ URL::to('/') }}/uploads/{{ $image->filename }}"
 					 data-description="{{ $listing->short_desc }}" />
                 @endforeach
 				
 			</div>
         </div>
         <div class="col-xs-12 col-sm-5 col-md-6">
-        	<h4><?=nl2br($listing->long_desc)?></h4>
+        	<h4><?= nl2br($listing->long_desc) ?></h4>
             <div class="hidden-xs">
             <a href="#contact"><button type="button" class="btn btn-green">Estoy interesado en esta propiedad</button></a>
             </div>

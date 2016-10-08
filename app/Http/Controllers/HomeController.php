@@ -62,7 +62,7 @@ class HomeController extends Controller
         $user = \Auth::user();
         $listing_types = DB::table('listing_types')->get();
         $data = $request->all();
-        $listing_type_selected=\App\ListingType::findOrFail(3);
+        $listing_type_selected=0;//\App\ListingType::findOrFail(3);
         if (!empty($data)){
             $conditions = array();
             if (!empty($data['listing_type'])){

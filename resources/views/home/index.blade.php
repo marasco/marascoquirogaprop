@@ -38,37 +38,37 @@ $map_items = json_encode($map_listings);
 <div id="hero-container-map">
     <div id="left-map">
         <div class="space-top"></div>
-        <div class="row pb40">
-            <div class="col-xs-12 col-sm-6 s-menu-item-top">
+        <div class="row pb40 icon-top-container">
+            <div class="col-xs-12 col-sm-6 s-menu-item-top top-icon1">
                 <a href="{{ URL::to('/home/search') }}">
                     <span class="icon-home s-icon-top"></span>
                     <div class="s-content-top">
-                        <h2 class="s-main osLight">Buscador de propiedades</h2>
+                        <h2 class="osLight">Buscador de propiedades</h2>
                     </div>
                 </a>
             </div>
-            <div class="col-xs-12 col-sm-6 s-menu-item-top">
+            <div class="col-xs-12 col-sm-6 s-menu-item-top top-icon2">
                 <a href="#services">
                     <span class="icon-settings s-icon-top"></span>
                     <div class="s-content-top">
-                        <h2 class="s-main osLight">Servicios</h2>
+                        <h2 class="osLight">Servicios</h2>
                     </div>
                 </a>
             </div>
-            <div class="col-xs-12 col-sm-6 s-menu-item-top">
+            <div class="col-xs-12 col-sm-6 s-menu-item-top top-icon3">
                 <a href="#who-we-are">
                     <span class="icon-users s-icon-top"></span>
                     <div class="s-content-top">
-                        <h2 class="s-main osLight">Quiénes somos</h2>
+                        <h2 class="osLight">Quiénes somos</h2>
                     </div>
                 </a>
             </div>
             
-            <div class="col-xs-12 col-sm-6 s-menu-item-top">
+            <div class="col-xs-12 col-sm-6 s-menu-item-top top-icon4">
                 <a href="#contact">
                     <span class="icon-cloud-upload s-icon-top"></span>
                     <div class="s-content-top">
-                        <h2 class="s-main osLight">Contactanos</h2>
+                        <h2 class="osLight">Contactanos</h2>
                     </div>
                 </a>
             </div>

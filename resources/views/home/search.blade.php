@@ -46,20 +46,23 @@ $map_items = json_encode($map_listings);
     </div> 
     <div class="col-xs-12 line-gray">
     </div>
-    @if (1 || !empty($showSearch))
     <div class="col-xs-12 search-panel-top">
         <form class="form-inline" role="form"> 
             <div class="form-group">
             @if (count($listing_types))
             <div class="btn-group right20">
                 <button data-toggle="dropdown" class="btn btn-green dropdown-toggle">
-                    <span class="dropdown-label"><?php if (!empty($listing_type_selected)){ echo $listing_type_selected->name; } else{ echo $listing_types[0]->name; } ?></span> <span class="caret"></span>
+                    <span class="dropdown-label"><?php if (!empty($listing_type_selected)){ echo $listing_type_selected->name; } else { echo "Todas"; } ?></span> <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu dropdown-select">
                     <?php $i = 0; ?>
+                    <li>
+                        <input type="radio" name="listing_type" value="0" <?php if (empty($listing_type_selected)) { echo ' checked="checked" '; } ?>><a href="javascript:void(0)">Todas</a>
+                        </li>
                     @foreach ($listing_types as $i=>$listing_type) 
-                        <li <?php if ($listing_type->id == $listing_type_selected->id){ echo 'class="active"'; } ?>>
-                            <input type="radio" name="listing_type" value="{{ $listing_type->id }}" <?php if ($listing_type->id == $listing_type_selected->id){ echo ' checked="checked" '; } ?>><a href="javascript:void(0)">{{ $listing_type->name }}</a>
+                        
+                        <li <?php if (!empty($listing_type_selected) && $listing_type->id == $listing_type_selected->id){ echo 'class="active"'; } ?>>
+                            <input type="radio" name="listing_type" value="{{ $listing_type->id }}" <?php if (!empty($listing_type_selected) && $listing_type->id == $listing_type_selected->id){ echo ' checked="checked" '; } ?>><a href="javascript:void(0)">{{ $listing_type->name }}</a>
                         </li>
                     @endforeach
                 </ul>
@@ -77,7 +80,6 @@ $map_items = json_encode($map_listings);
             </div>
         </form>
     </div>  
-    @endif
             <div class="col-xs-12">
             	<div id="propery-list">
     				 

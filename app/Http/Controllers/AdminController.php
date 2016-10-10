@@ -49,6 +49,7 @@ class AdminController extends Controller
             $listings = \App\Listing::withTrashed()
                 ->where('property_code', 'like', '%'.$search.'%')
                 ->orWhere('title', 'like', '%'.$search.'%')
+                ->orderBy('price','ASC')
                 ->paginate(10);
         }else{
             $listings = \App\Listing::withTrashed()->paginate(10);

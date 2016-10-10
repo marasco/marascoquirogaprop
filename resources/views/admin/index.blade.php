@@ -34,9 +34,10 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Código</th>
+                                    <th>Operación</th>
                                     <th>Titulo</th>
                                     <th>Descripción</th>
-                                    <th>Fecha</th>
+                                    <th>Precio</th>
                                     <th>Estado</th>
                                     <th width="200">&nbsp;</th>
                                 </tr>
@@ -46,10 +47,10 @@
                                     <tr>
                                         <td><span class="userName">{{ $listing->id }}</span></td>
                                          <td><span class="userName">{{ $listing->property_code }}</span></td>
+                                         <td><span class="userName">{{ $listing->operation=='rent'?'Alquiler':'Venta' }}</span></td>
                                         <td><span class="userName">{{ $listing->title }}</span></td>
                                         <td>{{ $listing->short_desc }}</td>
-                                          
-                                        <td>{{ date('d/m/Y H:i', strtotime($listing->created_at)) }} </td>
+                                        <td>{{ number_format($listing->price, 2, ',', '.') }} </td>
                                         @if (!$listing->trashed())
                                         <td><span class="label label-green">
                                         ACTIVO   

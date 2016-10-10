@@ -37,7 +37,6 @@ $map_items = json_encode($map_listings);
 </script>
 @include('includes.header')
 <div class="publication container-fluid margintop100 ">
-    <div class="row">
     
     <div class="row">
         <div id="search-left-map" style=""> 

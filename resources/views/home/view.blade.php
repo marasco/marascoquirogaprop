@@ -19,7 +19,7 @@
             </h1>
         </div>
         <div class="col-xs-12 codeUp">
-        Código: {{ $listing->property_code }}
+        Código: {{ $listing->property_code }} @if (!empty($user)) <a class="btn btn-danger" href="{{ URL::to('/admin/edit/'.$listing->id) }}">Editar esta propiedad</a> @endif
         </div>
         <div class="col-xs-12">
         	<h3>{{ $listing->short_desc }}</h3>

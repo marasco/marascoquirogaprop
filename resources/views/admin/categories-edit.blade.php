@@ -13,7 +13,6 @@
                     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                      <div class="form-group">
                            <h3>Agregar Categoría</h3>
-
                         </div>
                         <div class="form-group">
                             <label>Nombre</label>

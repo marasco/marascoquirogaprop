@@ -392,14 +392,17 @@ body {
     position:fixed!important;
 }
 .top-icon1{
-    background: rgba(255, 0, 89, 0.87);
+    background: rgba(255, 66, 66, 0.87);
 }
 .top-icon2{
-    background: #ffaa00;
+    background: #ffc041;
 }
 .top-icon3{
-    background: rgba(0, 73, 255, 0.8);
+    background: rgba(67, 107, 208, 0.8);
 }
 .top-icon4{
-    background: #5cb85c;
+    background: #39d239;
+}
+.highlight {
+    margin:0!important;
 }

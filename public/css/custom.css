@@ -218,18 +218,27 @@
         display: none;
     }
 }
+.btn-map {
+    margin-right: 4px;
+}
+a.btn.viewInfo, a.btn.closeInfo{
+    width:auto;
+}
 .color-white{
 	color:white;
 }
 .color-black{
 	color:black;
 }
+.infoW{
+    padding:0px;
+}
 .propImg{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    width:200px;
-    height:120px;
+    width:240px;
+    height:130px;
 }
 .labelSale,.labelRent{
     background:#0eaaa6;

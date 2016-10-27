@@ -82,6 +82,7 @@ class HomeController extends Controller
         }
         return view('home/search',['listing_type_selected'=>$listing_type_selected, 'request'=>$data, 'page'=>'search','listing_types' => $listing_types,'user'=>$user,'listings' => $listings]);
     }
+    
     public function getView($id)
     {
         $user = \Auth::user();

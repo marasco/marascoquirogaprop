@@ -71,15 +71,14 @@ var addMarkers = function(props, map) {
         '<div class="infoButtons">';
         if (typeof _isAdmin != 'undefined' && _isAdmin){
             infoboxContent+=
-            '<a class="btn btn-sm btn-round btn-blue" href="'+_baseUrl+'admin/edit/'+prop.id+'">Editar</a>';
-        }else{
-            infoboxContent+=
-            '<a class="btn btn-sm btn-round btn-gray btn-o closeInfo">Cerrar</a>';
-        }
- 
+            '<a class="btn btn-sm btn-round btn-blue btn-map" href="'+_baseUrl+'admin/edit/'+prop.id+'">Editar</a>';
+        } 
         infoboxContent+=
-        '<a href="'+_baseUrl+'home/view/'+prop.id+'" class="btn btn-sm btn-round btn-green viewInfo">Ver</a>'+ 
-        '</div>' + '</div>';
+        '<a href="'+_baseUrl+'home/view/'+prop.id+'" class="btn btn-sm btn-round btn-green btn-map">Ver</a>';
+        infoboxContent+=
+            '<a class="btn btn-sm btn-round btn-red btn-map closeInfo">Cerrar</a>';
+
+        infoboxContent+= '</div>' + '</div>';
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
                 if (typeof infobox.status == 'string' && infobox.status=='opened'){
@@ -121,13 +120,14 @@ function loadHomeMap() {
         loadMarkers(function(props) {
             window.infobox = new InfoBox({
                 disableAutoPan: false,
-                maxWidth: 202,
+                maxWidth: 242,
                 pixelOffset: new google.maps.Size(-101, -285),
                 zIndex: null,
                 boxStyle: {
-                    background: "url('" + _baseUrl + "images/infobox-bg.png') no-repeat",
+                    background: "white",
                     opacity: 1,
-                    width: "202px",
+                    width: "242px",
+                    border:"solid 1px #ccc",
                     height: "245px"
                 },
                 closeBoxMargin: "28px 26px 0px 0px",

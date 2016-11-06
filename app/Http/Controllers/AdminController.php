@@ -44,17 +44,49 @@ class AdminController extends Controller
     public function getIndex(Request $request)
     {
         $search = null;
+        $order = 'recent';
+        $operation = null;
+        $orderField = 'id';
+        $orderValue = 'desc';
+
+
+        if (!empty($request->order)){
+            $order = $request->order;
+            switch ($order){
+                case 'recent':
+                    $orderValue ='desc';
+                break;
+                case 'price_desc':
+                    $orderField ='price';
+                    $orderValue='desc';
+                break;
+                case 'price_asc':
+                    $orderField ='price';
+                    $orderValue='asc';
+                break;
+
+            }
+        }
         if (!empty($request->search)){
             $search = $request->search;
             $listings = \App\Listing::withTrashed()
                 ->where('property_code', 'like', '%'.$search.'%')
                 ->orWhere('title', 'like', '%'.$search.'%')
-                ->orderBy('price','ASC')
+                ->orderBy($orderField,$orderValue)
                 ->paginate(10);
+
+
+        }elseif (!empty($request->operation)) {
+            $operation = $request->operation;
+            $listings = \App\Listing::withTrashed()
+                ->where('operation', $operation)
+                ->orderBy($orderField, $orderValue)
+                ->paginate(10);
+
         }else{
-            $listings = \App\Listing::withTrashed()->paginate(10);
+            $listings = \App\Listing::withTrashed()->orderBy($orderField,$orderValue)->paginate(10);
         }
-        return view('admin/index', ['listings'=>$listings, 'search'=>$search]);
+        return view('admin/index', ['listings'=>$listings, 'order'=>$order, 'search'=>$search, 'operation'=>$operation]);
     }
 
     public function getNew(Request $request)

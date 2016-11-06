@@ -13,8 +13,9 @@
                 <div class="pull-left">
                 <h4>Propiedades</h4>
                 </div>
-                <div class="pull-right">
-                    <a href="<?=URL::to('/')?>/admin/new" class="btn btn-red"><span class="fa fa-gear"></span> Agregar propiedades</a>
+                <div class="pull-right"> 
+                    <a href="<?=URL::to('/')?>/admin/new" class="btn btn-red"><span class="fa fa-gear"></span> Agregar propiedades
+                    </a>
                 </div>
                 </div>
             </div>
@@ -50,7 +51,7 @@
                                          <td><span class="userName">{{ $listing->operation=='rent'?'Alquiler':'Venta' }}</span></td>
                                         <td><span class="userName">{{ $listing->title }}</span></td>
                                         <td>{{ $listing->short_desc }}</td>
-                                        <td>{{ number_format($listing->price, 2, ',', '.') }} </td>
+                                        <td>{{ number_format(floatval($listing->price), 2, ',', '.') }} </td>
                                         @if (!$listing->trashed())
                                         <td><span class="label label-green">
                                         ACTIVO   

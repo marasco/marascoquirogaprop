@@ -1,5 +1,7 @@
 
-
+.price{
+    width:140px!important;
+}
 .property-image{
     width:40%;
     height:140px;

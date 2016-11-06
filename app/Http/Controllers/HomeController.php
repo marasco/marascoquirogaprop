@@ -32,7 +32,7 @@ class HomeController extends Controller
                 Mail::send('emails.contact',  ['data'=>$data], function ($message) use ($data) {
                     $from = 'no-responder@marascoquirogaprop.com.ar';
                     $message->from($from);
-                    $receiver = $data['email'];
+                    $receiver = 'info@marascoquirogaprop.com.ar'; //$data['email'];
                     $message->to($receiver, 'Contacto Web')->subject('Contacto Web');
                 });
                 return back()->withMessage('En la brevedad lo contactaremos. Gracias');
@@ -42,8 +42,8 @@ class HomeController extends Controller
         }else{
             throw new \Exception("Error Processing Request", 1);
         }
-    } catch(\Exception $e){
-        return back()->with('error-message', 'No se ha podido enviar su mail. Contactese al 4624-4850.');
+    }catch(\Swift_TransportException $e){
+        return back()->with('error-message', $e->getMessage().'No se ha podido enviar su mail. Contactese al 4624-4850.');
     }
 
     }
@@ -62,7 +62,7 @@ class HomeController extends Controller
         $user = \Auth::user();
         $listing_types = DB::table('listing_types')->get();
         $data = $request->all();
-        $listing_type_selected=0;//\App\ListingType::findOrFail(3);
+        $listing_type_selected=0; 
         if (!empty($data)){
             $conditions = array();
             if (!empty($data['listing_type'])){
@@ -73,7 +73,12 @@ class HomeController extends Controller
                 $conditions[] = array('operation','=','sale');
             if ((!empty($data['rent']) && $data['rent']=='on') && (empty($data['sale']) || $data['sale']!='on')) 
                 $conditions[] = array('operation','=','rent');
-            
+            if (!empty(intval($data['price-a']))) {
+                $conditions[] = array('price','>=', intval($data['price-a']));
+            }
+            if (!empty(intval($data['price-b']))) {
+                $conditions[] = array('price','<=', intval($data['price-b']));
+            }
             $listings = \App\Listing::where(
                     array_values($conditions)
                 )->get();

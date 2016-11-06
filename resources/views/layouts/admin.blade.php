@@ -38,9 +38,20 @@
             <a href="#" class="navHandler"><span class="fa fa-bars"></span></a>
             <div class="search">
                 <form method="GET" action="">
+                                <input type="hidden" type="text" name="operation" value="{{ isset($operation)?$operation:''}}" />
+
                 <span class="searchIcon icon-magnifier"></span>
-                <input type="text" name="search" placeholder="Ingrese código o texto a buscar">
+                <input type="search" name="search" placeholder="Ingrese código o texto a buscar" />
+                @if (isset($order))
+                <label>Orden </label>
+                    <select name="order" onchange="javascript:document.forms[0].submit()">
+                    <option value="recent" {{ $order=='recent'? "selected":"" }}>Recientes</option>
+                    <option value="price_desc" {{ $order=='price_desc'? "selected":"" }}>Precio Mayor</option>
+                    <option value="price_asc" {{ $order=='price_asc'? "selected":"" }}>Precio Menor</option>
+                    </select>
+                @endif
                 <button type="submit" value="Buscar" class="btn btn-green">Buscar</button>
+                
                 </form>
             </div>
             <div class="headerUserWraper">
@@ -75,7 +86,9 @@
                     <form method="GET" action="">
                     <span class="searchIcon icon-magnifier"></span>
                     <input type="text" name="search" placeholder="Ingrese código o texto a buscar">
+                     
                     <button type="submit" value="Buscar" class="btn btn-green">Buscar</button>
+
                     </form>
                 </div>
                 <ul>
@@ -84,7 +97,8 @@
                     <li class="hasSub">
                         <a href="#"><span class="navIcon icon-home"></span><span class="navLabel">Propiedades</span><span class="fa fa-angle-left arrowRight"></span></a>
                         <ul>
-                            <li><a href="<?=URL::to('/')?>/admin/?operation=sell">Ventas</a></li>
+                            <li><a href="<?=URL::to('/')?>/admin/index">Todas</a></li>
+                            <li><a href="<?=URL::to('/')?>/admin/?operation=sale">Ventas</a></li>
                             <li><a href="<?=URL::to('/')?>/admin/?operation=rent">Alquileres</a></li>
                         </ul>
                     </li>

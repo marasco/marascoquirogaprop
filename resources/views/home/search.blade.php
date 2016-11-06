@@ -67,10 +67,18 @@ $map_items = json_encode($map_listings);
                 </ul>
             </div>
             @endif
-            <div class="btn-group right20">
-                <input type="text" name="price_from" class="form-control" placeholder="Desde">
-                <input type="text" name="price_to" class="form-control" placeholder="Hasta">
-            </div>
+            <div class="form-group hidden-xs adv">
+                        <div class="input-group">
+                            <div class="input-group-addon">$</div>
+                            <input class="form-control price" type="text" name="price-a" placeholder="Desde" style="width:120px;!important" />
+                        </div>
+                    </div>
+                    <div class="form-group hidden-xs adv">
+                        <div class="input-group">
+                            <div class="input-group-addon">$</div>
+                            <input class="form-control price" type="text" name="price-b" placeholder="Hasta" value="" style="width:120px;!important" />
+                        </div>
+                    </div>
             </div> 
             <div class="form-group adv">
                 <div class="checkbox custom-checkbox"><label><input type="checkbox" name="rent" <?php if (empty($request) || empty($request['sale']) || !empty($request['rent']) ) { echo 'checked="checked"'; } ?>><span class="fa fa-check"></span> Alquiler</label></div>

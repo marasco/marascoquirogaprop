@@ -22,7 +22,10 @@
         Código: {{ $listing->property_code }} @if (!empty($user)) <a class="btn btn-danger" href="{{ URL::to('/admin/edit/'.$listing->id) }}">Editar esta propiedad</a> @endif
         </div>
         <div class="col-xs-12">
-        	<h3>{{ $listing->short_desc }}</h3>
+        <?php
+        $showPrice = ($listing->price==0)?'Oportunidad':$listing->currency.' '.number_format($listing->price,0,',','.');
+        ?>
+        	<h3>{{ $showPrice. ' - '.$listing->short_desc }}</h3>
         </div>
         
         <div class="col-xs-12 col-sm-7 col-md-6">
@@ -47,7 +50,7 @@
 @endsection
 @section('contact')
 	<a id="contact"></a>
-    <div class="row pb40 highlight" style="margin-top:40px;">
+    <div class="row pb40 highlight" style="margin-top:40px!important;">
         <div class="col-xs-12 backTitle"><h1 class="osLight color-white">Estás interesado en esta propiedad?<br />Llamanos al 4624-4850</h1></div>
         <div class="col-xs-12 subcontact">
             Escribinos a info@marascoquirogaprop.com.ar<br /> o completá el formulario de contacto.

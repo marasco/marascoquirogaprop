@@ -66,7 +66,7 @@ $map_items = json_encode($map_listings);
             
             <div class="col-xs-12 col-sm-6 s-menu-item-top top-icon4">
                 <a href="#contact">
-                    <span class="icon-cloud-upload s-icon-top"></span>
+                    <span class="icon-envelope s-icon-top"></span>
                     <div class="s-content-top">
                         <h2 class="osLight">Contactanos</h2>
                     </div>

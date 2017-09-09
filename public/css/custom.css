@@ -49,7 +49,7 @@
     left: initial;
 }
 .s-menu-item-top {
-    height: 255px;
+    height: 254px;
     overflow: hidden;
     position: relative;
     padding:0px;
@@ -152,12 +152,12 @@
 #home-map {
     width: 60%;
     float:left;
-    height: 600px;
+    height: 590px;
 }
 #left-map{
     width:40%;
     float:left;
-    height: 600px;
+    height: 590px;
     display: block;
     background-color: #056966;
 }
@@ -167,7 +167,7 @@
     float:right;
     position: fixed;
     right: 0px;
-    min-height: 600px;
+    min-height: 590px;
     z-index: 99;
 }
 .group-search{
@@ -325,7 +325,7 @@ a.btn.viewInfo, a.btn.closeInfo{
 }
 
 .space-top{
-    height:90px;
+    height:82px;
     float:left;
     width:100%;
 }

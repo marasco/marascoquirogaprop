@@ -2,8 +2,7 @@
     <div class="home-wrapper">
         <div class="row">
             
-            <div class="hidden-xs hidden-sm col-md-1 col-lg-1"></div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <div class="osLight footer-header">Buscá</div>
                 <ul class="footer-nav pb20">
                 <li><a href="<?php if ($page == 'view') echo URL::to('/')."?"; ?>#last">Departamentos</a></li>
@@ -26,19 +25,14 @@
                         <p>Ituzaingó, Buenos Aires</p>
                         <p>Argentina</p>
                     </li>
-                    <li><a target="_blank" href="https://www.facebook.com/Marasco-Quiroga-propiedades-440321106054766/?fref=ts" class="btn btn-sm btn-icon btn-round btn-o btn-white"><span class="fa fa-facebook"></span></a></li>
+                    <li><a target="_blank" href="https://fb.me/marascoquirogaprop" class="btn btn-sm btn-icon btn-round btn-o btn-white"><span class="fa fa-facebook"></span></a></li>
                 </ul>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-                <div class="osLight footer-header">Recibí ofertas a tu email</div>
-                <form role="form"> 
-                    <div class="form-group">
-                        <a href="http://eepurl.com/c2T5Af" class="btn btn-green btn-block">Suscribirme</a>
-                    </div>
-                </form>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                
+                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fmarascoquirogaprop&tabs=messages&width=320&height=320&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=1580557768907207" style="width:100%" height="320" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
             </div>
-            <div class="hidden-xs hidden-sm col-md-1 col-lg-1"></div>
         </div>
-        <div class="copyright"><a href="http://www.flydevs.com/" target="_blank">flyDevs.com &copy; <?php echo date('Y'); ?></a></div>
+        <div class="newsletter-div"><a href="http://eepurl.com/c2T5Af" class="btn btn-green btn-block">Recibí ofertas a tu email</a> </div><div class="copyright"><a href="http://www.flydevs.com/" target="_blank">flyDevs.com &copy; <?php echo date('Y'); ?></a></div>
     </div>
 </div>

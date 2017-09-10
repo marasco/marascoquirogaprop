@@ -246,6 +246,10 @@ a.btn.viewInfo, a.btn.closeInfo{
 .infoW{
     padding:0px;
 }
+.newsletter-div {
+
+    margin-top:15px;
+}
 .propImg{
     background-repeat: no-repeat;
     background-size: cover;

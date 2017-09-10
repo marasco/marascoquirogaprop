@@ -4357,7 +4357,7 @@ a.home-navHandler.active {
 .home-wrapper {
     width: 1140px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 40px 20px 10px;
 }
 .home-content h2 {
     margin: 0;
@@ -5084,7 +5084,7 @@ blockquote {
     text-align: center;
     color: white;
     font-size: 12px;
-    padding-top: 30px;
+    padding-top: 20px;
 }
 .copyright a{
     color: white;

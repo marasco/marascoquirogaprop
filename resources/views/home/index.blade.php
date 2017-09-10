@@ -31,10 +31,14 @@ foreach ($listings as $item) {
 }
 $map_items = json_encode($map_listings);
 ?>
+
 <script type="text/javascript">
     window._isAdmin = <?=(int)(!empty($user))?>;
     window._mapItems = <?=$map_items?>;
+
 </script>
+<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us13.list-manage.com","uuid":"2f49dfc9c797577bc9c22e0fd","lid":"54e9991af1"}) })</script>
+
 <div id="hero-container-map">
     <div id="left-map">
         <div class="space-top"></div>
@@ -218,12 +222,12 @@ $map_items = json_encode($map_listings);
 @endsection
 @section('contact')
     <div class="row pb40 highlight">
-            <a id="contact"></a>
+        <a id="contact"></a>
         <div class="col-xs-12 backTitle"><h1 class="osLight color-white">Contactanos</h1></div>
         <div class="col-xs-12 subcontact">
             Escribinos a info@marascoquirogaprop.com.ar<br /> o completá el formulario de contacto.
         </div>
-        <div class="col-xs-12 col-sm-offset-1 col-sm-10">
+        <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-6 col-md-offset-3">
             <div class="panel-body">
                 <form class="form-horizontal" role="form" method="POST" action="/?contact=sent">
                 {{ csrf_field() }}

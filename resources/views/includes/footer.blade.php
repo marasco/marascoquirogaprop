@@ -31,12 +31,9 @@
             </div>
             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
                 <div class="osLight footer-header">Recibí ofertas a tu email</div>
-                <form role="form">
+                <form role="form"> 
                     <div class="form-group">
-                        <input type="email" id="subscribe_mail" class="form-control" placeholder="Tu Email">
-                    </div>
-                    <div class="form-group">
-                        <a href="javascript:void(0)" onclick="subscribemail()" class="btn btn-green btn-block">Suscribirme</a>
+                        <a href="http://eepurl.com/c2T5Af" class="btn btn-green btn-block">Suscribirme</a>
                     </div>
                 </form>
             </div>

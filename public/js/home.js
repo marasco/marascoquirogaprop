@@ -112,9 +112,6 @@ function scrollToProperty(id){
         })
     }
 }
-function subscribemail(){
-    
-}
 function loadHomeMap() {
     if ($('.use-map').length > 0) {
         loadMarkers(function(props) {
@@ -235,12 +232,13 @@ function loadHomeMap() {
 
         var target = this.hash;
         var $target = $(target);
-        if (target=='#contact'){
-            $('#contact_name').focus();
-        }
+        
         $('html, body').stop().animate({
             'scrollTop': $target.offset().top - 160
         }, 900, 'swing', function () {
+            if (target=='#contact'){
+            $('#contact_name').focus();
+        }
             window.location.hash = target;
         });
     });

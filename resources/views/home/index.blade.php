@@ -43,24 +43,27 @@ $map_items = json_encode($map_listings);
                 <a href="{{ URL::to('/home/search') }}">
                     <span class="icon-home s-icon-top"></span>
                     <div class="s-content-top">
+                    <div class="title-wrapper">
                         <h2 class="osLight">Buscador de propiedades</h2>
-                    </div>
+                    </div></div>
                 </a>
             </div>
             <div class="col-xs-12 col-sm-6 s-menu-item-top top-icon2">
                 <a href="#services">
                     <span class="icon-settings s-icon-top"></span>
                     <div class="s-content-top">
+                    <div class="title-wrapper">
                         <h2 class="osLight">Servicios</h2>
-                    </div>
+                    </div></div>
                 </a>
             </div>
             <div class="col-xs-12 col-sm-6 s-menu-item-top top-icon3">
                 <a href="#who-we-are">
                     <span class="icon-users s-icon-top"></span>
                     <div class="s-content-top">
+                    <div class="title-wrapper">
                         <h2 class="osLight">Quiénes somos</h2>
-                    </div>
+                    </div></div>
                 </a>
             </div>
             
@@ -68,8 +71,9 @@ $map_items = json_encode($map_listings);
                 <a href="#contact">
                     <span class="icon-envelope s-icon-top"></span>
                     <div class="s-content-top">
+                    <div class="title-wrapper">
                         <h2 class="osLight">Contactanos</h2>
-                    </div>
+                    </div></div>
                 </a>
             </div>
         </div>
@@ -118,7 +122,7 @@ $map_items = json_encode($map_listings);
                     <span class="icon-pointer s-icon"></span>
                     <div class="s-content">
                         <h2 class="s-main osLight">Encontrá las mejores ofertas inmobiliarias</h2>
-                        <h3 class="s-sub osLight">Existe una casa para cada persona.</h3>
+                        <h3 class="s-sub osLight">Apta Créditos - PROCREAR</h3>
                     </div>
                 </a>
             </div>
@@ -126,8 +130,8 @@ $map_items = json_encode($map_listings);
                 <a href="javascript:void(0)">
                     <span class="icon-users s-icon"></span>
                     <div class="s-content">
-                        <h2 class="s-main osLight">Agentes con experiencia</h2>
-                        <h3 class="s-sub osLight">Honestidad, sin sorpresas ni dolores de cabeza.</h3>
+                        <h2 class="s-main osLight">Tasaciones</h2>
+                        <h3 class="s-sub osLight">Tasamos su propiedad de manera gratuita y confiable.</h3>
                     </div>
                 </a>
             </div>
@@ -135,8 +139,8 @@ $map_items = json_encode($map_listings);
                 <a href="javascript:void(0)">
                     <span class="icon-home s-icon"></span>
                     <div class="s-content">
-                        <h2 class="s-main osLight">Comprá o alquilá tu próximo hogar</h2>
-                        <h3 class="s-sub osLight">Garantía de confianza en alquileres y operaciones inmobiliarias.</h3>
+                        <h2 class="s-main osLight">Confianza</h2>
+                        <h3 class="s-sub osLight">Garantía de confianza en la zona. Seguridad y Honestidad.</h3>
                     </div>
                 </a>
             </div>
@@ -144,8 +148,8 @@ $map_items = json_encode($map_listings);
                 <a href="javascript:void(0)">
                     <span class="icon-cloud-upload s-icon"></span>
                     <div class="s-content">
-                        <h2 class="s-main osLight">Tazaciones y proyectos</h2>
-                        <h3 class="s-sub osLight">Pedí tasación para vender o traenos tu proyecto y lo gestionamos juntos.</h3>
+                        <h2 class="s-main osLight">Inversiones y Proyectos</h2>
+                        <h3 class="s-sub osLight">Inversión inmobiliaria - Proyectos edilicios - Zonificaciones.</h3>
                     </div>
                 </a>
             </div>

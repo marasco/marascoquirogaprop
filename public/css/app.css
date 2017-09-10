@@ -4338,11 +4338,6 @@ a.home-navHandler.active {
     text-decoration: none;
     color: #fff;
 }
-.highlight {
-    background-color: rgb(15, 97, 70);
-    padding: 30px;
-    text-align: center;
-}
 .h-title {
     color: #fff;
     font-size: 26px;

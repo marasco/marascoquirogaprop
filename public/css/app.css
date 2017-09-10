@@ -4266,6 +4266,9 @@ body.black {
     margin: 0 5px 20px 5px;
     position: relative;
 }
+.form-group,.btn-group {
+    margin-bottom:10px;
+}
 .pac-container {
     background-color: #fff;
     position: absolute !important;

@@ -1,5 +1,4 @@
 <?php
-
 use App\Listing;
 use App\ListingImage;
 namespace App\Http\Controllers;
@@ -10,6 +9,7 @@ use Illuminate\Http\Request;
 use DB;
 use Auth;
 use File;
+use Image;
 
 class AdminController extends Controller
 {
@@ -248,6 +248,68 @@ class AdminController extends Controller
     {
         $listing_types = DB::table('listing_types')->paginate(20);
         return view('admin/categories', ['items'=>$listing_types]);
+    }
+    public function getImagery(Request $request){
+        return view('admin/create-image');
+
+    }
+    public function getCreate(Request $request)
+    {
+        $precio = $request->query('precio');
+        $descripcion = $request->query('descripcion');
+        $ubicacion = $request->query('ubicacion');
+        $files = $request->query('files');
+        $files = explode(',',$files);
+        if (empty($files)){
+            die('No hay archivos utiles');
+        }
+        $resources = array();
+        $image = Image::make(public_path().'/images/mq_layer.png'); 
+        foreach ($files as $k=>$file){
+            //$file = storage_path().str_replace('http://marascoquirogaprop.com.ar','',$file);
+            $resource[$k] = Image::make($file)->resize('676',null,function($c){
+                $c->aspectRatio();
+            });
+            $image->insert($resource[$k], 'left', 368);
+            
+        }
+        // ubicacion
+        $image->text($ubicacion, 60, 164, function($font) {
+            $font->file(public_path().'/fonts/sspro/SourceSansPro-Light.ttf');
+            $font->size(24);
+            $font->color('#666');
+            $font->align('left');
+            $font->valign('top');
+            //$font->angle(0);
+        });
+        // descripcion
+        $y = 200;
+        $font_height=28;
+        $lines = explode("\n", wordwrap($descripcion, 32));
+        $i=0;
+        foreach ($lines as $line){
+            $i++;
+            $image->text($line, 24, $y+($i*$font_height), function($font) {
+                $font->file(public_path().'/fonts/sspro/SourceSansPro-Light.ttf');
+                $font->size(24);
+                $font->color('#222');
+                $font->align('left');
+                $font->valign('top');
+                //$font->angle(0);
+            });
+        }
+
+        $i++;
+        // precio
+        $image->text($precio, 24, $y+30+($i*$font_height), function($font) {
+            $font->file(public_path().'/fonts/sspro/SourceSansPro-Regular.ttf');
+            $font->size(24);
+            $font->color('#85bb65');
+            $font->align('left');
+            $font->valign('top');
+            //$font->angle(0);
+        });
+        return $image->response('png');
     }
 
 

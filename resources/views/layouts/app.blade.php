@@ -26,17 +26,14 @@
         @yield('contact') 
         @yield('footer') 
         <script type="text/javascript">
-        window._baseUrl = '<?=URL::to("/")?>/'; 
+        window._baseUrl = '<?=URL::to("/")?>/';
 
-        </script>
-        <script>
           window.fbAsyncInit = function() {
             FB.init({
               appId      : '1580557768907207',
               xfbml      : true,
-              version    : 'v2.10'
+              version    : 'v2.7'
             });
-            FB.AppEvents.logPageView();
           };
 
           (function(d, s, id){
@@ -46,6 +43,8 @@
              js.src = "//connect.facebook.net/en_US/sdk.js";
              fjs.parentNode.insertBefore(js, fjs);
            }(document, 'script', 'facebook-jssdk'));
+
+
         </script>
         <script src="<?=URL::to('/')?>/js/jquery-2.1.1.min.js"></script>
         <script src="<?=URL::to('/')?>/js/jquery-ui.min.js"></script>

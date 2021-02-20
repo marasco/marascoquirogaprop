@@ -11,9 +11,9 @@ foreach ($listings as $item) {
     $operation = ($item->operation=='sale')?'VENTA':'ALQUILER';
     $markerIcon = ($item->operation=='sale')?'marker-green.png':'marker-yellow.png';
     if (!empty($images[0]) && !empty($images[0]['filename'])){
-        $imageToShow = URL::to('/').'/uploads/thumb_'.$images[0]['filename'];
+        $imageToShow = URL::to('/').'/uploads/'.$images[0]['filename'];
         $sliding.= '
-        <li><div style="background-image:url('.$imageToShow.')"
+        <li><div class="wow-image" style="background-image:url('.$imageToShow.')"
 " alt="'.$item->title.'" title="'.$item->title.'" id="wows1_0">'.$item->short_desc.'</div<</li>
 ';
     }
@@ -82,20 +82,18 @@ $map_items = json_encode($map_listings);
             </div>
         </div>
     </div>
-    <div id="home-map" class="use-map"></div>
-    @include('includes.header')
+    <!--<div id="home-map" class="use-map"></div>-->
 
-</div>
-@if (!empty($showSlider))
 <div id="wowslider-container1">
 <div class="ws_images"><ul>
 <?=$sliding?>
  
 </ul></div>
  
-<a href="#" class="ws_frame"></a>
 </div>
-@endif
+    @include('includes.header')
+
+</div>
 <div class="highlight">
 <div class="row">
     <div class="col-xs-12 col-sm-8">

@@ -56,7 +56,7 @@ class HomeController extends Controller
     {
         $user = \Auth::user();
         $listing_types = DB::table('listing_types')->get();
-        $listings = \App\Listing::all();
+        $listings = \App\Listing::get()->sortByDesc('id');
          
         return view('home/index',['user'=>$user, 'listing_types' => $listing_types, 'listings' => $listings]);
     }

@@ -5,13 +5,22 @@
 @import url(https://fonts.googleapis.com/css?family=Tenor+Sans&subset=latin,cyrillic,latin-ext);
 #wowslider-container1 { 
 	zoom: 1; 
-	position: relative; 
-	width:100%;
-	margin:0px auto 0px;
+	float: left;
+	width:60%;
+	height: 400px;
+	margin:82px auto 0px;
 	z-index:90;
 	border:none;
 	text-align:left; /* reset align=center */
 	font-size: 10px;
+}
+@media screen and (max-width: 768px) {
+	#wowslider-container1 { 
+	margin: 0px auto 0px;
+	width:100%;
+	float:none;
+	position:relative;
+	}
 }
 * html #wowslider-container1{ width:960px }
 #wowslider-container1 .ws_images ul{
@@ -25,6 +34,9 @@
 	border-spacing:0;
 	overflow: visible;
 	/*table-layout:fixed;*/
+}
+#wowslider-container1 .ws_images ul li div{
+	height:400px;
 }
 #wowslider-container1 .ws_images ul li{
 	width:1%;
@@ -144,7 +156,11 @@
 #wowslider-container1:hover .ws_playpause {
 	display:block;
 }
-
+.wow-image {
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
 #wowslider-container1 .ws_pause {
     background-image: url(./pause.png);
 }

@@ -49,7 +49,7 @@
     left: initial;
 }
 .s-menu-item-top {
-    height: 127px;
+    height: 100px;
     overflow: hidden;
     width: 100%;
     position: relative;
@@ -75,7 +75,7 @@
     color:white;
     position: relative;
     display: inline-block;
-    line-height:127px;
+    line-height:100px;
     vertical-align: middle;
     text-align: left;
     width:70%;
@@ -96,7 +96,7 @@
     font-size: 48px;
     opacity: 0.8;
     width: 30%;
-    line-height: 127px;
+    line-height: 100px;
     height:100%;
     vertical-align: middle;
     position: relative;
@@ -158,12 +158,12 @@
 #home-map {
     width: 60%;
     float:left;
-    height: 590px;
+    height: 482px;
 }
 #left-map{
     width:40%;
     float:left;
-    height: 590px;
+    height: 482px;
     display: block;
     background-color: #333333;
 }
@@ -173,7 +173,7 @@
     float:right;
     position: fixed;
     right: 0px;
-    min-height: 590px;
+    min-height: 482px;
     z-index: 99;
 }
 .group-search{

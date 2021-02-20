@@ -1,0 +1,10 @@
+@if(Session::has('error-message'))
+<script>
+		$.growl.error({"title":"Error","message":"{{Session::get('error-message')}}"});
+</script>
+@endif
+@if(Session::has('message'))
+<script>
+		$.growl.notice({"title":"Bien","message":"{{Session::get('message')}}"});
+</script>
+@endif

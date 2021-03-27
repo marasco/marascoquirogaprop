@@ -7,8 +7,8 @@
 	zoom: 1; 
 	float: left;
 	width:60%;
-	height: 400px;
-	margin:82px auto 0px;
+	height: 482px;
+	margin:0px auto 0px;
 	z-index:90;
 	border:none;
 	text-align:left; /* reset align=center */
@@ -36,7 +36,7 @@
 	/*table-layout:fixed;*/
 }
 #wowslider-container1 .ws_images ul li div{
-	height:400px;
+	height:482px;
 }
 #wowslider-container1 .ws_images ul li{
 	width:1%;

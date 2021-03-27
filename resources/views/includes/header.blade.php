@@ -1,17 +1,45 @@
-<div class="home-header map">
+<div class="home-header map ">
+<div class="container">
     <div class="home-logo osLight">
-        <a href="<?=URL::to('/')?>"><img src="<?=URL::to('/')?>/images/logo.png" height="40" /></a>
+        <a href="<?=URL::to('/')?>"><img src="<?=URL::to('/')?>/images/logo.png" height="60" /></a>
     </div>
-    <div class="home-nav">
-        <ul>
-            <li style="text-align:right;font-size:14px" class="info-header"><a href="javascript:void(0)">{{ config('vars.sp.header') }}</a><br />info@marascoquirogaprop.com.ar</li>
-            <li style="margin-top:2px"><a href="#contact" class="btn btn-green">Contactanos</a></li>
-            @if (!empty($user))
-	            <li style="margin-top:8px"><a href="{{ URL::to('/admin/new') }}" class="btn btn-green">Agregar propiedades</a></li>
-	            <li></li>
-            @endif
-        </ul>
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
     </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li>
+                <a href="{{ URL::to('/home/search') }}">
+                    Buscar
+                </a>
+            </li>
+           <li>
+                <a href="/index.php#services">
+                    Servicios
+                </a>
+            </li>
+            <li>
+                <a href="/index.php#who-we-are">
+                    Quiénes somos
+                </a>
+            </li>
+           <li>
+                <a href="/index.php#contact">
+                    Contactanos
+                </a>
+            </li>
+      </ul>
+</div>
+ 
+</div>
 </div>
 
 @if (!empty($showSearch))

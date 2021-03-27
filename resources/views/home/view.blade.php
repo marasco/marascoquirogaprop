@@ -13,9 +13,10 @@
     <a href="{{ URL::previous() }}">Volver</a> &bull;
     <a href="/?">Home</a> / {{ $listing->title }}
     </div> 
+        <div class="col-xs-12"><?=$label?></div>
         <div class="col-xs-12">
             <h1>
-                {{ $listing->title }} <?=$label?> 
+                {{ $listing->title }} 
             </h1>
         </div>
         <div class="col-xs-12 codeUp">
@@ -28,7 +29,7 @@
         	<h3>{{ $showPrice. ' - '.$listing->short_desc }}</h3>
         </div>
         
-        <div class="col-xs-12 col-sm-7 col-md-6">
+        <div class="col-xs-12 col-sm-7 col-md-8">
         	<div id="gallery" style="display:none;">
 				@foreach ($listing_images as $i=>$image)
                    	<img alt="{{ $listing->title }}"
@@ -39,7 +40,7 @@
 				
 			</div>
         </div>
-        <div class="col-xs-12 col-sm-5 col-md-6">
+        <div class="col-xs-12 col-sm-5 col-md-4">
         	<h4><?= nl2br($listing->long_desc) ?></h4>
             <div class="hidden-xs">
             <a href="#contact"><button type="button" class="btn btn-green">Estoy interesado en esta propiedad</button></a>

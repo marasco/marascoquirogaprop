@@ -110,13 +110,13 @@
     color: #fff;
 }
 .btn-green {
-    background-color: rgb(15, 97, 70);
+    background-color: #febd03;
     color: #fff;
 }
 .btn-o.btn-green {
     background-color: transparent;
-    color: rgb(15, 97, 70);
-    border-color: rgb(15, 97, 70);
+    color: #febd03;
+    border-color: #febd03;
 }
 .no-touch .btn-green:hover,
 .btn-green:focus,
@@ -131,7 +131,7 @@
 .btn-o.btn-green:active,
 .btn-o.btn-green.active,
 .open > .dropdown-toggle.btn-o.btn-green {
-    background-color: rgb(15, 97, 70);
+    background-color: #febd03;
     color: #fff;
 }
 .btn-blue {
@@ -365,7 +365,7 @@
   color: #333;
 }
 .text-green {
-  color: rgb(15, 97, 70);
+  color: #febd03;
 }
 .no-touch a.text-green:hover {
   color: #068b85;
@@ -396,7 +396,7 @@
 }
 .bg-green {
     color: #fff;
-    background-color: rgb(15, 97, 70);
+    background-color: #febd03;
 }
 .no-touch a.bg-green:hover {
     background-color: #068b85;
@@ -442,7 +442,7 @@
     z-index: 1040;
 }
 .logo {
-    background-color: rgb(15, 97, 70);
+    background-color: #febd03;
     float: left;
     width: 70px;
     height: 60px;
@@ -714,8 +714,8 @@ a.notifySettings {
     padding-top: 11px;
 }
 .notifyRound-green {
-    border: 1px solid rgb(15, 97, 70);
-    color: rgb(15, 97, 70);
+    border: 1px solid #febd03;
+    color: #febd03;
 }
 .notifyRound-blue {
     border: 1px solid #1d82aa;
@@ -740,10 +740,10 @@ a.notifySettings {
     display: block;
     font-size: 12px;
     line-height: 14px;
-    color: rgb(15, 97, 70);
+    color: #febd03;
 }
 .no-touch .notifyAll:hover {
-    color: rgb(15, 97, 70);
+    color: #febd03;
     text-decoration: underline;
 }
 @keyframes pulsate {
@@ -785,7 +785,7 @@ a.notifySettings {
     border: 3px solid #ababab;
 }
 .border-green {
-    border: 3px solid rgb(15, 97, 70);
+    border: 3px solid #febd03;
 }
 .border-blue {
     border: 3px solid #1d82aa;
@@ -800,7 +800,7 @@ a.notifySettings {
     border: 3px solid #9b156e;
 }
 .bg-green {
-    background-color: rgb(15, 97, 70);
+    background-color: #febd03;
 }
 .bg-blue {
     background-color: #1d82aa;
@@ -879,7 +879,7 @@ a.headerUser {
     text-decoration: none;
 }
 .no-touch .userMenu ul > li > a:hover > span, .no-touch .userMenu ul > li > a:focus > span {
-    color: rgb(15, 97, 70);
+    color: #febd03;
 }
 a.userHandler {
     position: relative;
@@ -1299,7 +1299,7 @@ a.userHandler .counter {
     transition: all .2s ease-in-out;
 }
 .no-touch .expanded .leftUserWraper ul li a:hover span, .no-touch .expanded .leftUserWraper ul li a:focus span {
-    color: rgb(15, 97, 70);
+    color: #febd03;
 }
 .leftUserWraper ul li a span.badge {
     font-size: 11px;
@@ -1582,7 +1582,7 @@ a.btn.dropdown-btn.btn-gray {
     z-index: 90;
 }
 .stLabel {
-    background-color: rgb(15, 97, 70);
+    background-color: #febd03;
     font-size: 11px;
     line-height: 12px;
     color: #fff;
@@ -1601,10 +1601,10 @@ a.btn.dropdown-btn.btn-gray {
     position: absolute;
     width: 0;
     height: 0;
-    border-top-color: rgb(15, 97, 70);
+    border-top-color: #febd03;
 }
 .ui-slider .ui-slider-range {
-    background-color: rgb(15, 97, 70);
+    background-color: #febd03;
 }
 .volume {
     width: 100%;
@@ -1825,7 +1825,7 @@ a.card h2, div.card h2 {
     text-decoration: none;
 }
 .no-touch a.card:hover h2, .no-touch div.card:hover h2 {
-    color: rgb(15, 97, 70);
+    color: #febd03;
     text-decoration: none;
 }
 a.card .cardAddress, div.card .cardAddress {
@@ -2116,7 +2116,7 @@ h1.pageTitle {
     margin-bottom: 10px;
 }
 .amItem span {
-    color: rgb(15, 97, 70);
+    color: #febd03;
 }
 .amItem.inactive, .amItem.inactive span {
     color: #b4b4b4;
@@ -2229,7 +2229,7 @@ h1.pageTitle {
     color: #ea3d36;
 }
 .c-green {
-    color: rgb(15, 97, 70);
+    color: #febd03;
 }
 .c-blue {
     color: #1d82aa;
@@ -2270,7 +2270,7 @@ h1.pageTitle {
 .no-touch .icons > div:hover {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     cursor: default;
-    color: rgb(15, 97, 70);
+    color: #febd03;
     font-size: 16px;
 }
 .no-touch .icons > div:hover > span {
@@ -2875,7 +2875,7 @@ h1.pageTitle {
 .userWidget-1 .avatar {
     width: 100%;
     height: 80px;
-    background-color: rgb(15, 97, 70);
+    background-color: #febd03;
     position: relative;
     border-radius: 0;
     position: relative;
@@ -3012,7 +3012,7 @@ h1.pageTitle {
     max-width: 70%;
 }
 .userWidget-2 .info .name {
-    color: rgb(15, 97, 70);
+    color: #febd03;
     font-size: 14px;
     line-height: 14px;
     font-weight: bold;
@@ -3084,7 +3084,7 @@ h1.pageTitle {
 .nav-tabs > li.active > a,
 .no-touch .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
-    color: rgb(15, 97, 70);
+    color: #febd03;
     cursor: default;
     background-color: #fff;
     border: 0 none;
@@ -3145,7 +3145,7 @@ h1.pageTitle {
     letter-spacing: -1px;
 }
 .no-touch .tabsWidget ul.propList li a:hover .info .name, .no-touch .tabsWidget ul.userList li a:hover .info .name {
-    color: rgb(15, 97, 70);
+    color: #febd03;
 }
 .tabsWidget ul.propList li a .info .price {
     font-size: 14px;
@@ -3287,7 +3287,7 @@ h1.pageTitle {
 .cal .clndr .clndr-table tr .day.event .day-contents span {
     display: block;
     position: absolute;
-    color: rgb(15, 97, 70);
+    color: #febd03;
     width: 100%;
     text-align: center;
     line-height: 6px;
@@ -3302,10 +3302,10 @@ h1.pageTitle {
     margin-top: 8px;
 }
 .cal .clndr .clndr-table tr .day.event .tooltip.top .tooltip-arrow {
-    border-top-color: rgb(15, 97, 70);
+    border-top-color: #febd03;
 }
 .cal .clndr .clndr-table tr .day.event .tooltip .tooltip-inner {
-    background-color: rgb(15, 97, 70);
+    background-color: #febd03;
 }
 .cal .clndr .clndr-table tr .day .day-contents {
     box-sizing: border-box;
@@ -3335,7 +3335,7 @@ h1.pageTitle {
     padding-bottom: 5px;
 }
 .commentsWidget h5 .badge {
-    background-color: rgb(15, 97, 70);
+    background-color: #febd03;
     font-weight: normal;
 }
 .commentsWidgetForm .cfAvatar {
@@ -3355,7 +3355,7 @@ h1.pageTitle {
     padding-bottom: 5px;
 }
 .notificationsWidget h5 .badge {
-    background-color: rgb(15, 97, 70);
+    background-color: #febd03;
     font-weight: normal;
 }
 .notificationsWidget .notification {
@@ -3400,7 +3400,7 @@ h1.pageTitle {
     background-color: #f3f3f3;
 }
 .notificationsWidget .notification .time.green .timeBody {
-    background-color: rgb(15, 97, 70);
+    background-color: #febd03;
 }
 .notificationsWidget .notification .time.blue .timeBody {
     background-color: #1d82aa;
@@ -3416,7 +3416,7 @@ h1.pageTitle {
 }
 .notificationsWidget .notification .time.green .timeArrow,
 .notificationsWidget .notification .time.green .indicator {
-    color: rgb(15, 97, 70);
+    color: #febd03;
 }
 .notificationsWidget .notification .time.blue .timeArrow,
 .notificationsWidget .notification .time.blue .indicator {
@@ -3533,8 +3533,8 @@ h1.pageTitle {
     z-index: 2;
     color: #fff;
     cursor: default;
-    background-color: rgb(15, 97, 70);
-    border-color: rgb(15, 97, 70);
+    background-color: #febd03;
+    border-color: #febd03;
 }
 .labelsContainer {
     margin-bottom: 20px;
@@ -3543,7 +3543,7 @@ h1.pageTitle {
     margin-bottom: 5px;
 }
 .label-green {
-    background-color: rgb(15, 97, 70);
+    background-color: #febd03;
 }
 .no-touch .label-green[href]:hover,
 .label-green[href]:focus {
@@ -3602,7 +3602,7 @@ h1.pageTitle {
     background-color: #d9534f;
 }
 .badge.badge-green {
-    background-color: rgb(15, 97, 70);
+    background-color: #febd03;
 }
 .badge.badge-red {
     background-color: #ea3d36;
@@ -3657,7 +3657,7 @@ h1.pageTitle {
     background-color: #d9534f;
 }
 .progress-bar-green {
-  background-color: rgb(15, 97, 70);
+  background-color: #febd03;
 }
 .progress-striped .progress-bar-green {
     background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
@@ -3739,7 +3739,7 @@ a.list-group-item .arrow {
     opacity: 0.70;
 }
 .list-group.list-group-sortable .list-group-item.ui-sortable-helper.helper-green {
-    border-left: 4px solid rgb(15, 97, 70);
+    border-left: 4px solid #febd03;
 }
 .list-group.list-group-sortable .list-group-item.ui-sortable-helper.helper-red {
     border-left: 4px solid #ea3d36;
@@ -3825,7 +3825,7 @@ li.list-ns-collapsed.list-ns-hovering div {
     border-left: 4px solid #999;
 }
 .list-ns li.ui-sortable-helper.helper-green {
-    border-left: 4px solid rgb(15, 97, 70);
+    border-left: 4px solid #febd03;
 }
 .list-ns li.ui-sortable-helper.helper-red {
     border-left: 4px solid #ea3d36;
@@ -4173,13 +4173,9 @@ body.black {
     height: 600px;
 }
 .home-header {
-    position: absolute;
-    width: 100%;
-    padding: 20px;
+    position: relative;
+    padding: 10px;
     color: #fff;
-    top: 0;
-    left: 0;
-    z-index: 1000;
     background: -moz-linear-gradient(top,  rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.5)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(top,  rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
@@ -4189,7 +4185,7 @@ body.black {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
 }
 .home-header.map {
-    background: rgba(0, 0, 0, 0.83);
+    background: rgb(49 49 49);
 }
 .home-logo {
     color: #fff;
@@ -4206,7 +4202,7 @@ body.black {
     transition: all .2s ease-in-out;
 }
 .home-nav ul {
-    margin: 0;
+    margin: 20px;
     padding: 0;
     list-style-type: none;
     float: right;
@@ -4394,7 +4390,7 @@ a.home-navHandler.active {
 }
 .s-icon {
     font-size: 60px;
-    color: rgb(15, 97, 70);
+    color: #febd03;
     opacity: 0.8;
     line-height: 150px;
     position: absolute;
@@ -4417,7 +4413,7 @@ a.home-navHandler.active {
     top: 50%;
 }
 h2.s-main {
-    color: rgb(15, 97, 70);
+    color: #febd03;
     font-size: 30px;
     color: 333;
     font-size: 22px;
@@ -4432,7 +4428,7 @@ h2.s-main {
 h3.s-sub {
     text-align:center;
     font-size: 13px;
-    color: #999;
+    color: #444;
     position: absolute;
     bottom: 20px;
     line-height: 16px;
@@ -4446,7 +4442,7 @@ h3.s-sub {
     transition: all 200ms linear;
 }
 .no-touch .s-menu-item:hover {
-    background-color: rgb(15, 97, 70);
+    background-color: #febd03;
     z-index:999;
     -webkit-transform: scale(1.1);
     -moz-transform: scale(1.1);
@@ -4790,7 +4786,7 @@ a.toggle-search:hover {
     color: #333;
 }
 .no-touch .article h3 a:hover {
-    color: rgb(15, 97, 70);
+    color: #febd03;
 }
 .article p {
     padding: 10px 20px 20px 20px;
@@ -4901,7 +4897,7 @@ blockquote {
     padding: 10px 20px;
     margin: 20px 0;
     font-size: 14px;
-    border-left: 2px solid rgb(15, 97, 70);
+    border-left: 2px solid #febd03;
     color: #999;
     font-style: italic;
 }
@@ -5005,7 +5001,7 @@ blockquote {
     color: #333;
 }
 .no-touch .f-p-article:hover .fpna-header, .no-touch .f-n-article:hover .fpna-header {
-    color: rgb(15, 97, 70);
+    color: #febd03;
 }
 .f-p-article .fpna-header {
     margin-left: 30px;
@@ -5173,7 +5169,7 @@ blockquote {
         transition: none;
     }
     #header {
-        background-color: rgb(15, 97, 70);
+        background-color: #febd03;
         height: 50px;
     }
     .search {
@@ -5399,10 +5395,10 @@ blockquote {
         font-size: 11px;
     }
     #hero-container, #hero-container-map {
-        height: 592px;
+        height: 482px;
     }
     #home-map {
-        height: 592px;
+        height: 482px;
     }
     .home-caption {
         top: 150px;

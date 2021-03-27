@@ -38,73 +38,20 @@ $map_items = json_encode($map_listings);
 
 </script>
 <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us13.list-manage.com","uuid":"2f49dfc9c797577bc9c22e0fd","lid":"54e9991af1"}) })</script>
+@include('includes.header')
 
 <div id="hero-container-map">
-    <div id="left-map">
-        <div class="space-top"></div>
-        <div class="row pb40 icon-top-container">
-            <div class="col-xs-12 col-sm-6 s-menu-item-top top-icon1">
-                <a href="{{ URL::to('/home/search') }}">
-                    <span class="icon-home s-icon-top"></span>
-                    <div class="s-content-top">
-                    <div class="title-wrapper">
-                        <h2 class="osLight">Buscador de propiedades</h2>
-                    </div></div>
-                </a>
-            </div>
-            <div class="col-xs-12 col-sm-6 s-menu-item-top top-icon2">
-                <a href="#services">
-                    <span class="icon-settings s-icon-top"></span>
-                    <div class="s-content-top">
-                    <div class="title-wrapper">
-                        <h2 class="osLight">Servicios</h2>
-                    </div></div>
-                </a>
-            </div>
-            <div class="col-xs-12 col-sm-6 s-menu-item-top top-icon3">
-                <a href="#who-we-are">
-                    <span class="icon-users s-icon-top"></span>
-                    <div class="s-content-top">
-                    <div class="title-wrapper">
-                        <h2 class="osLight">Quiénes somos</h2>
-                    </div></div>
-                </a>
-            </div>
-            
-            <div class="col-xs-12 col-sm-6 s-menu-item-top top-icon4">
-                <a href="#contact">
-                    <span class="icon-envelope s-icon-top"></span>
-                    <div class="s-content-top">
-                    <div class="title-wrapper">
-                        <h2 class="osLight">Contactanos</h2>
-                    </div></div>
-                </a>
-            </div>
-        </div>
-    </div>
-    <!--<div id="home-map" class="use-map"></div>-->
+<div class="buscador-home"></div>    
 
 <div id="wowslider-container1">
 <div class="ws_images"><ul>
 <?=$sliding?>
  
 </ul></div>
- 
 </div>
-    @include('includes.header')
+</div>
 
-</div>
-<div class="highlight">
-<div class="row">
-    <div class="col-xs-12 col-sm-8">
-        <div class="h-title osLight">Encontrá tu nueva casa en Marasco Quiroga Propiedades</div>
-        <div class="h-text osLight">Llamanos y buscaremos la mejor ubicación o proyecto para tu vivienda.</div>
-    </div>
-    <div class="col-xs-12 col-sm-4 phone-big">
-        4624-4850
-    </div>
-</div>
-</div>
+
  
 <div class="home-wrapper">
     <div class="home-content">

@@ -4027,6 +4027,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-toggle .icon-bar {
   display: block;
   width: 22px;
+  background: gold;
   height: 2px;
   border-radius: 1px;
 }

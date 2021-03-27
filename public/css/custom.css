@@ -203,9 +203,17 @@
  .form-inline {
         margin-left: 10px;
     }
- 
+.navbar-nav {
+    float:right;
+}
+.navbar-nav > li > a {
+    color: white;
+}
 @media(max-width: 768px){
 
+    .navbar-nav {
+        float:left;
+    }
     .property-image{
         width:100%;
         height: 180px;
@@ -214,9 +222,6 @@
         width:100%;
     }
     #search-home-map-container{
-        display:none;
-    }
-    .home-nav{
         display:none;
     }
     #home-map{
@@ -247,7 +252,6 @@ a.btn.viewInfo, a.btn.closeInfo{
     padding:0px;
 }
 .newsletter-div {
-
     margin-top:15px;
 }
 .propImg{
@@ -258,16 +262,9 @@ a.btn.viewInfo, a.btn.closeInfo{
     height:130px;
 }
 .labelSale,.labelRent{
-    background:#0f6146;
-    font-size: 30px;
-    border-radius: 10px;
-    padding:8px;
-    color:white;
-    opacity: 0.8;
-}
-.labelRent{
-    background: #eab134;
-    opacity: 0.8;
+    font-size: 12px;
+    color:#777;
+    margin: 20px 0px 0px;
 }
 .blueClass{
     background: #0eaaa6;
@@ -333,9 +330,9 @@ a.btn.viewInfo, a.btn.closeInfo{
  }
 .listing-home{
 	background-repeat: no-repeat;
-	background-size: contain;
+	background-size: cover;
 	background-position: center center;
-	height:180px;
+	height:200px;
 	width:100%;
 }
 
@@ -398,8 +395,9 @@ body {
    padding-bottom: 20px;
    font-size: 30px; 
    text-transform: uppercase;
-   border-bottom: solid 1px #88d0cc;
-    margin-bottom: 10px;
+   border-bottom: solid 1px #424242;
+   border-width: thin;
+   margin-bottom: 10px;
 }
 .see-more{
     margin:0 auto;
@@ -414,24 +412,21 @@ body {
 .margintop100 {
     margin-top:100px;
 }
-.home-header{
-    position:fixed!important;
-}
 .top-icon1{
-    background: rgb(26, 60, 49); 
+    background: rgb(49 49 49);
 }
 .top-icon2{
-    background: #0f6146;
+    background: #febd03;
 }
 .top-icon3{
-    background: rgb(19, 138, 99);
+    background: #febd03;
 }
 .top-icon4{
-    background: #1bb381;
+    background: #febd03;
 }
 
 .highlight {
-    background-color: rgb(146, 48, 52);
+    background-color: rgb(49 49 49);
     padding: 30px;
     text-align: center;
     margin:0!important;

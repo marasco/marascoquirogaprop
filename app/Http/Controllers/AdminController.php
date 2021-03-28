@@ -210,17 +210,28 @@ class AdminController extends Controller
             $listing = new \App\Listing;
             $listing->property_code = $this->Unique();
         }
-        $listing->privacy_comment = $request->privacy_comment || "";
-        $listing->owner_data = $request->owner_data || "";
+        $listing->privacy_comment = @$request->privacy_comment;
+        $listing->owner_data = @$request->owner_data;
         $listing->title = $request->title;
         $listing->short_desc = $request->short_desc;
         $listing->long_desc = $request->long_desc;
         $listing->type = $request->type;
+        $listing->city_id = $request->city_id;
         $listing->operation = $request->operation;
         $listing->likes = 0;
         $listing->currency = !empty($request->currency)?$request->currency:'$';
         $listing->price = $request->price;
+        $listing->ambience_qty = (int)$request->ambience_qty;
+        $listing->room_qty = (int)$request->room_qty;
+        $listing->bath_qty = (int)$request->bath_qty;
+        $listing->seller_info = @$request->seller_info;
         $listing->location = $request->location;
+        $listing->is_favorite = (!empty($request->is_favorite) && $request->is_favorite =='on')?1:0;
+        $listing->has_poster = (!empty($request->has_poster) && $request->has_poster =='on')?1:0;
+        $listing->published_in_mercadolibre = (!empty($request->published_in_mercadolibre) && $request->published_in_mercadolibre =='on')?1:0;
+        $listing->published_in_zonaprop = (!empty($request->published_in_zonaprop) && $request->published_in_zonaprop =='on')?1:0;
+        $listing->published_in_argenprop = (!empty($request->published_in_argenprop) && $request->published_in_argenprop =='on')?1:0;
+
         $success = $listing->save();
         if ($success){
             if (empty($request->id)){

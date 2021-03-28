@@ -16,7 +16,11 @@
                 </ul>
             </div>
         @endif
-            <h1>Agrega una nueva propiedad</h1>
+        @if ($listing->id)
+        <h1>Modifica la propiedad</h1>
+        @else
+        <h1>Agrega una nueva propiedad</h1>
+        @endif
                 <form action="{{ url('admin/new')}}" method="POST" class="form-horizontal">
                     {{ csrf_field() }}
                     <input type="hidden" name="id" class="form-control" style="display:none" value="{{ $listing->id }}">
@@ -129,13 +133,19 @@
                         <label>Ciudad / Localidad</label>
                         <div class="clearfix"></div>
                         @if (count($cities))
+                        <?php 
+                                foreach ($cities as $i=>$city):
+                                    if ($city->id == $listing->city_id):
+                                        $selectedCity = $city->name;
+                                    endif;
+                                endforeach; ?>
                         <a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle">
-                            <span class="dropdown-label">{{ $cities[0]->name }}</span>&nbsp;&nbsp;&nbsp;<span class="caret"></span>
+                                <span class="dropdown-label">{{ $selectedCity }}</span>&nbsp;&nbsp;&nbsp;<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu dropdown-select">
                             @foreach ($cities as $i=>$city) 
                                 <li <?php if ($i==0) echo 'class="active"'; ?>>
-                                <input type="radio" value="{{ $city->id }}" name="type" <?php if ($city_selected == $city->id) { echo 'checked="checked"'; } ?>><a href="#">{{ $city->name }}</a>
+                                <input type="radio" value="{{ $city->id }}" name="city_id" <?php if ($listing->city_id == $city->id) { echo 'checked="checked"'; } ?>><a href="#">{{ $city->name }}</a>
                                 </li>
                             @endforeach
                         </ul>

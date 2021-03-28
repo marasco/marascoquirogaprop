@@ -4,6 +4,9 @@
 *::-moz-focus-inner {
     border: 0;
 }
+h4 {
+    line-height:24px;
+}
 .notransition * {
     -webkit-transition: none !important;
     -moz-transition: none !important;

@@ -161,48 +161,55 @@ $map_items = json_encode($map_listings);
         <a id="last"></a>
         <div class="col-xs-12 backTitle"><h1 class="osLight">Últimas publicaciones</h1></div>
         <div class="row pb40">
-            @foreach ($listings as $i=>$item) 
-                <?php 
-                $per_page=9;
-                $show = ($i<$per_page)?true:false;
+        <?php 
+        
+        $toShow = "";  
+        $per_page=9;
+        $x=-1;
+        foreach ($listings as $i=>$item) { 
+            $x++;
+                $show = ($x<$per_page)?true:false;
                 $showclass=!$show?' style="display:none"':null;
                 $showPrice = ($item->price==0)?'Oportunidad':$item->currency.' '.number_format($item->price,0,',','.'); 
                 $imageToShow = URL::to('/'). "/images/prop/1-1.png";
                 $images = $item->Images()->get();
                 $operation = ($item->operation=='sale')?'VENTA':'ALQUILER';
                 if (!empty($images[0]) && !empty($images[0]['filename'])){
-                    $imageToShow = URL::to('/').'/uploads/thumb_'.$images[0]['filename'];
+                    $imageToShow = URL::to('/').'/uploads/'.$images[0]['filename'];
                 }
-                $page = intval(($i+1)/$per_page);
-                if (intval(($i+1)%$per_page)>0) $page+=1;
+                $page = intval(($x+1)/$per_page);
+                if (intval(($x+1)%$per_page)>0) $page+=1;
 
                 $cssItemPage = 'item-page-'. (string)$page;
-                ?>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 {{ $cssItemPage }}" <?=$showclass?>>
-                <a href="{{ URL::to('/home/view/'). '/'.$item->id }}" class="propWidget-2">
-                    <div class="fig">
+                $toShow.="
 
-                        <div class="listing-home" style="background-image: url({{ $imageToShow }});" alt="{{ $item->title }} "></div>
-                        <div class="listing-home blur" style="background: black"  alt="image"></div>
-                        <div class="opac"></div>
+            <div class='col-xs-12 col-sm-6 col-md-4 col-lg-4 item-". $i ."-".$per_page." ".$cssItemPage."' ".$showclass.">
+                <a href='". URL::to('/home/view/'). '/'.$item->id ."' class='propWidget-2'>
+                    <div class='fig'>
 
-                        <div class="priceCap osLight"><span>{{ $showPrice }}</span></div>
-                        <div class="figType">{{ $operation }}</div>
-                        <h3 class="osLight">{{ $item->title }} </h3>
-                        <div class="address">{{ $item->short_desc }} </div>
-                        <ul class="rating">
-                            <li><span class="fa fa-star star-1"></span></li>
-                            <li><span class="fa fa-star star-2"></span></li>
-                            <li><span class="fa fa-star star-3"></span></li>
-                            <li><span class="fa fa-star star-4"></span></li>
-                            <li><span class="fa fa-star-o star-5"></span></li>
+                        <div class='listing-home' style='background-image: url(". $imageToShow .");' alt='". $item->title ."'></div>
+                        <div class='listing-home blur' style='background: black'  alt='image'></div>
+                        <div class='opac'></div>
+
+                        <div class='priceCap osLight'><span>".$showPrice ."</span></div>
+                        <div class='figType'>".$operation ."</div>
+                        <h3 class='osLight'>".$item->title ." </h3>
+                        <div class='address'>".$item->short_desc ." </div>
+                        <ul class='rating'>
+                            <li><span class='fa fa-star star-1'></span></li>
+                            <li><span class='fa fa-star star-2'></span></li>
+                            <li><span class='fa fa-star star-3'></span></li>
+                            <li><span class='fa fa-star star-4'></span></li>
+                            <li><span class='fa fa-star-o star-5'></span></li>
                         </ul>
                     </div>
                 </a>
-            </div>
+            </div>";
 
             
-            @endforeach
+            }
+            echo $toShow;
+            ?>
             @if (count($listing_types)>6)
 
             <div class="row">

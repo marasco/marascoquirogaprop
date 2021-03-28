@@ -80,23 +80,73 @@
                             </ul>
                         </div>
                 </div>
-                 <div class="form-group">
-                        <div class="btn-group">
-                            <label>Tipo de Propiedad</label>
-                            <div class="clearfix"></div>
-                            @if (count($listing_types))
-                            <a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle">
-                                <span class="dropdown-label">{{ $listing_types[0]->name }}</span>&nbsp;&nbsp;&nbsp;<span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-select">
-                                @foreach ($listing_types as $i=>$listing_type) 
-                                    <li <?php if ($i==0) echo 'class="active"'; ?>>
-                                    <input type="radio" value="{{ $listing_type->id }}" name="type" <?php if ($listing_type_selected == $listing_type->id) { echo 'checked="checked"'; } ?>><a href="#">{{ $listing_type->name }}</a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                            @endif
-                        </div>
+                <div class="form-group">
+                    <div class="btn-group">
+                        <label>Tipo de Propiedad</label>
+                        <div class="clearfix"></div>
+                        @if (count($listing_types))
+                        <a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle">
+                            <span class="dropdown-label">{{ $listing_types[0]->name }}</span>&nbsp;&nbsp;&nbsp;<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-select">
+                            @foreach ($listing_types as $i=>$listing_type) 
+                                <li <?php if ($i==0) echo 'class="active"'; ?>>
+                                <input type="radio" value="{{ $listing_type->id }}" name="type" <?php if ($listing_type_selected == $listing_type->id) { echo 'checked="checked"'; } ?>><a href="#">{{ $listing_type->name }}</a>
+                                </li>
+                            @endforeach
+                        </ul>
+                        @endif
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="btn-group">
+                        <label>Ciudad / Localidad</label>
+                        <div class="clearfix"></div>
+                        @if (count($cities))
+                        <a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle">
+                            <span class="dropdown-label">{{ $cities[0]->name }}</span>&nbsp;&nbsp;&nbsp;<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-select">
+                            @foreach ($cities as $i=>$city) 
+                                <li <?php if ($i==0) echo 'class="active"'; ?>>
+                                <input type="radio" value="{{ $city->id }}" name="type" <?php if ($city_selected == $city->id) { echo 'checked="checked"'; } ?>><a href="#">{{ $city->name }}</a>
+                                </li>
+                            @endforeach
+                        </ul>
+                        @endif
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Cantidad de Ambientes</label>
+                    <input type="number" class="form-control" name="ambience_qty" min="1" value="{{ old('ambience_qty') || 1 }}" />
+                </div>
+                <div class="form-group">
+                    <label>Cantidad de Habitaciones</label>
+                    <input type="number" class="form-control" name="room_qty" min="1" value="{{ old('room_qty') || 1 }}" />
+                </div>
+                <div class="form-group">
+                    <label>Cantidad de Baños</label>
+                    <input type="number" class="form-control" name="bath_qty" min="1" value="{{ old('bath_qty') || 1 }}" />
+                </div>
+                <div class="form-group adv">
+                    <div class="checkbox custom-checkbox"><label><input type="checkbox" name="has_poster">
+                    <span class="fa fa-check"></span> Tiene Cartel</label></div>
+                </div>
+                <div class="form-group adv">
+                    <div class="checkbox custom-checkbox"><label><input type="checkbox" name="is_favorite">
+                    <span class="fa fa-check"></span> Favorito</label></div>
+                </div>
+                <div class="form-group adv">
+                    <div class="checkbox custom-checkbox"><label><input type="checkbox" name="published_in_mercadolibre">
+                    <span class="fa fa-check"></span> MercadoLibre</label></div>
+                </div>
+                <div class="form-group adv">
+                    <div class="checkbox custom-checkbox"><label><input type="checkbox" name="published_in_zonaprop">
+                    <span class="fa fa-check"></span> Zona Prop</label></div>
+                </div>
+                <div class="form-group adv">
+                    <div class="checkbox custom-checkbox"><label><input type="checkbox" name="published_in_argenprop">
+                    <span class="fa fa-check"></span> ArgenProp</label></div>
                 </div>
                 <div class="form-group">
                     <div class="btn-group">
@@ -113,6 +163,10 @@
                 <div class="form-group">
                     <label>Aclaraciones</label>
                     <textarea class="form-control" name="privacy_comment" rows="3">{{ old('privacy_comment') }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label>Datos del Vendedor</label>
+                    <textarea class="form-control" name="seller_info" placeholder="{nombre del vendedor} - {fecha}" rows="3">{{ old('seller_info') }}</textarea>
                 </div>
                 <div class="form-group">
                     <button type="submit"  class="btn btn-green btn-lg" value="Guardar">Guardar</button>

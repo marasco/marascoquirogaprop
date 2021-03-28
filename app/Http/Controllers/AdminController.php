@@ -96,14 +96,23 @@ class AdminController extends Controller
         }
 
         $listing_types = DB::table('listing_types')->get();
+        $cities = DB::table('cities')->get();
         $operation = !empty($request->old('operation'))?$request->old('operation'):'sale';
         $currency = !empty($request->old('currency'))?$request->old('currency'):'U$S';
         $listing_type = !empty($request->old('listing_type'))?$request->old('listing_type'):1;
+        $city = !empty($request->old('city'))?$request->old('city'):1;
         $location = !empty($request->old('location'))?html_entity_decode($request->old('location')):"{lat:-34.6550036,lng:-58.6784542}";
         if (!empty($request->old('location'))){
             //die($request->old('location'));
         }
-        return view('admin/new', ['operation' => $operation,'listing_type_selected' => $listing_type, 'listing_types'=>$listing_types,'location'=>$location,'currency'=>$currency]);
+        return view('admin/new', [
+            'operation' => $operation,
+            'listing_type_selected' => $listing_type, 
+            'city_selected' => $city, 
+            'listing_types'=>$listing_types, 
+            'cities'=>$cities, 
+            'location'=>$location, 
+            'currency'=>$currency]);
     }
 
     public function getEdit(Request $request, $id)
@@ -113,8 +122,14 @@ class AdminController extends Controller
             return redirect('admin/index');
         }
         $listing_types = DB::table('listing_types')->get();
+        $cities = DB::table('cities')->get();
         $listing_images = DB::table('listing_images')->where('listing_id', $id)->get();
-        return view('admin/edit', ['listing' => $listing, 'listing_types'=>$listing_types, 'listing_images'=>$listing_images]);
+        return view('admin/edit', [
+            'listing' => $listing, 
+            'listing_types'=>$listing_types, 
+            'cities'=>$cities, 
+            'listing_images'=>$listing_images
+        ]);
     }
     private function Unique(){
         $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';

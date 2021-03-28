@@ -123,7 +123,7 @@
 .btn-green:active,
 .btn-green.active,
 .open > .dropdown-toggle.btn-green {
-    background-color: #068b85;
+    background-color: #333;
     color: #fff;
 }
 .no-touch .btn-o.btn-green:hover,

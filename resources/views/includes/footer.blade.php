@@ -25,7 +25,10 @@
                         <p>Ituzaingó, Buenos Aires</p>
                         <p>Argentina</p>
                     </li>
-                    <li><a target="_blank" href="https://fb.me/marascoquirogaprop" class="btn btn-sm btn-icon btn-round btn-o btn-white"><span class="fa fa-facebook"></span></a></li>
+                    <li>
+                        <a target="_blank" href="https://fb.me/marascoquirogaprop" class="btn btn-sm btn-icon btn-round btn-o btn-white"><span class="fa fa-facebook"></span></a> &nbsp;
+                        <a target="_blank" href="http://instagram.com/marascoquiroga" class="btn btn-sm btn-icon btn-round btn-o btn-white"><span class="fa fa-instagram"></span></a> 
+                    </li>
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">

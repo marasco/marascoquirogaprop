@@ -59,7 +59,7 @@
 }
 .datepicker td.day:hover {
   cursor: pointer;
-  color: #0eaaa6;
+  color: #febd03;
 }
 .datepicker td.day.disabled {
   color: #bbbbbb;
@@ -71,7 +71,7 @@
 .datepicker td.active,
 .datepicker td.active:hover {
   color: #ffffff;
-  background-color: #0eaaa6;
+  background-color: #febd03;
 }
 .datepicker td.active:hover,
 .datepicker td.active:hover:hover,
@@ -107,11 +107,11 @@
   border-radius: 2px;
 }
 .datepicker td span:hover {
-  color: #0eaaa6;
+  color: #febd03;
 }
 .datepicker td span.active {
   color: #ffffff;
-  background-color: #0eaaa6;
+  background-color: #febd03;
 }
 .datepicker td span.active:hover,
 .datepicker td span.active:focus,
@@ -140,7 +140,7 @@
   cursor: pointer;
 }
 .datepicker thead tr:first-child th:hover {
-  color: #0eaaa6;
+  color: #febd03;
 }
 .input-append.date .add-on i,
 .input-prepend.date .add-on i {

@@ -5708,7 +5708,7 @@ button.close {
   background-color: #d9534f;
 }
 *[data-tooltip-class="green"] ~ .tooltip .tooltip-inner {
-  background-color: #0eaaa6;
+  background-color: #febd03;
 }
 *[data-tooltip-class="red"] ~ .tooltip .tooltip-inner {
   background-color: #ea3d36;
@@ -5902,28 +5902,28 @@ button.close {
   border-bottom-color: #d9534f;
 }
 *[data-tooltip-class="green"] ~ .tooltip.top .tooltip-arrow {
-  border-top-color: #0eaaa6;
+  border-top-color: #febd03;
 }
 *[data-tooltip-class="green"] ~ .tooltip.top-left .tooltip-arrow {
-  border-top-color: #0eaaa6;
+  border-top-color: #febd03;
 }
 *[data-tooltip-class="green"] ~ .tooltip.top-right .tooltip-arrow {
-  border-top-color: #0eaaa6;
+  border-top-color: #febd03;
 }
 *[data-tooltip-class="green"] ~ .tooltip.right .tooltip-arrow {
-  border-right-color: #0eaaa6;
+  border-right-color: #febd03;
 }
 *[data-tooltip-class="green"] ~ .tooltip.left .tooltip-arrow {
-  border-left-color: #0eaaa6;
+  border-left-color: #febd03;
 }
 *[data-tooltip-class="green"] ~ .tooltip.bottom .tooltip-arrow {
-  border-bottom-color: #0eaaa6;
+  border-bottom-color: #febd03;
 }
 *[data-tooltip-class="green"] ~ .tooltip.bottom-left .tooltip-arrow {
-  border-bottom-color: #0eaaa6;
+  border-bottom-color: #febd03;
 }
 *[data-tooltip-class="green"] ~ .tooltip.bottom-right .tooltip-arrow {
-  border-bottom-color: #0eaaa6;
+  border-bottom-color: #febd03;
 }
 *[data-tooltip-class="red"] ~ .tooltip.top .tooltip-arrow {
   border-top-color: #ea3d36;

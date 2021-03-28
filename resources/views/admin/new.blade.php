@@ -109,7 +109,7 @@
                         <ul class="dropdown-menu dropdown-select">
                             @foreach ($cities as $i=>$city) 
                                 <li <?php if ($i==0) echo 'class="active"'; ?>>
-                                <input type="radio" value="{{ $city->id }}" name="type" <?php if ($city_selected == $city->id) { echo 'checked="checked"'; } ?>><a href="#">{{ $city->name }}</a>
+                                <input type="radio" value="{{ $city->id }}" name="type" ><a href="#">{{ $city->name }}</a>
                                 </li>
                             @endforeach
                         </ul>

@@ -51,7 +51,7 @@ $map_items = json_encode($map_listings);
             @if (count($listing_types))
             <div class="btn-group right20">
                 <button data-toggle="dropdown" class="btn btn-green dropdown-toggle">
-                    <span class="dropdown-label"><?php if (!empty($listing_type_selected)){ echo $listing_type_selected->name; } else { echo "Todas"; } ?></span> <span class="caret"></span>
+                    <span class="dropdown-label"><?php if (!empty($listing_type_selected)){ echo $listing_type_selected->name; } else { echo "Tipo"; } ?></span> <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu dropdown-select">
                     <?php $i = 0; ?>
@@ -67,27 +67,69 @@ $map_items = json_encode($map_listings);
                 </ul>
             </div>
             @endif
-            <div class="form-group adv">
-                        <div class="input-group">
-                            <div class="input-group-addon">$</div>
-                            <input class="form-control price" type="text" name="price-a" placeholder="Desde" style="width:120px;!important" />
-                        </div>
-                    </div>
-                    <div class="form-group adv">
-                        <div class="input-group">
-                            <div class="input-group-addon">$</div>
-                            <input class="form-control price" type="text" name="price-b" placeholder="Hasta" value="" style="width:120px;!important" />
-                        </div>
-                    </div>
-            </div> 
+
+            @if (count($cities))
+            <div class="btn-group right20">
+                <button data-toggle="dropdown" class="btn btn-green dropdown-toggle">
+                    <span class="dropdown-label"><?php if (!empty($city_selected)){ echo $city_selected->name; } else { echo "Ubicacion"; } ?></span> <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-select">
+                    <?php $i = 0; ?>
+                    <li>
+                        <input type="radio" name="city_id" value="0" <?php if (empty($city_selected)) { echo ' checked="checked" '; } ?>><a href="javascript:void(0)">Todas</a>
+                        </li>
+                    @foreach ($cities as $i=>$city) 
+                        
+                        <li <?php if (!empty($city_selected) && $city->id == $city_selected->id){ echo 'class="active"'; } ?>>
+                            <input type="radio" name="city_id" value="{{ $city->id }}" <?php if (!empty($city_selected) && $city->id == $city_selected->id){ echo ' checked="checked" '; } ?>>
+                            <a href="javascript:void(0)">{{ $city->name }}</a>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+            
+        </div> 
+        
             <div class="form-group adv">
                 <div class="checkbox custom-checkbox"><label><input type="checkbox" name="rent" <?php if (empty($request) || empty($request['sale']) || !empty($request['rent']) ) { echo 'checked="checked"'; } ?>><span class="fa fa-check"></span> Alquiler</label></div>
             </div>
             <div class="form-group adv right20">
                 <div class="checkbox custom-checkbox"><label><input type="checkbox" name="sale" <?php if (empty($request) || empty($request['rent'])  || !empty($request['sale']) ) { echo 'checked="checked"'; } ?>><span class="fa fa-check"></span> Venta</label></div>
             </div>
-            <div class="form-group">
-                <a href="javascript:document.forms[0].submit()" class="btn btn-green">Buscar</a> 
+            <div class="form-group adv right20">
+                <label><input type="text" class="form-control" placeholder="Código" style="width: 100px;" name="codigo"></label>
+            </div>
+            <div class="form-group clear" style="clear:both;display:block;">
+                @if (count($currencies))
+                <div class="btn-group right20">
+                    <button data-toggle="dropdown" class="btn btn-green dropdown-toggle">
+                        <span class="dropdown-label"><?php if (!empty($currency_selected)){ echo $currency_selected; } else { echo "U\$S"; } ?></span> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-select">
+                        <?php $i = 0; ?>
+                        @foreach ($currencies as $i=>$currency) 
+                            <li <?php if (!empty($currency_selected) && $currency == $currency_selected){ echo 'class="active"'; } ?>>
+                                <input type="radio" name="currency" value="{{ $currency }}" <?php if (!empty($currency_selected) && $currency == $currency_selected){ echo ' checked="checked" '; } ?>>
+                                <a href="javascript:void(0)">{{ $currency }}</a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+                <div class="form-group adv">
+                    <div class="input-group btn-group">
+                        <div class="input-group-addon">$</div>
+                        <input class="form-control price" type="text" name="price-a" placeholder="Desde" value="{{ @$request['price-a'] }}" style="width:100px!important" />
+                    </div>
+                </div>
+                <div class="form-group adv">
+                    <div class="input-group btn-group">
+                        <div class="input-group-addon">$</div>
+                        <input class="form-control price" type="text" name="price-b" placeholder="Hasta" value="{{ @$request['price-b'] }}" style="width:100px!important" />
+                    </div>
+                </div>
+                <a href="javascript:document.forms[0].submit()" class="btn btn-black btn-group">BUSCAR</a> 
             </div>
         </form>
     </div>  
@@ -111,7 +153,7 @@ $map_items = json_encode($map_listings);
                             <div class="figType property-operation">{{ $operation }}</div>
                         </div>
                         <div class="property-data">
-                            <div class="priceCap osLight"><span>{{ $showPrice }}</span></div>
+                            <div class="priceCap osLight"><span>COD: {{ $item->property_code }} / {{ $showPrice }}</span></div>
                             <h3 class="osLight title-search">{{ $item->title }} </h3>
                             <div class="address">{{ $item->short_desc }} </div>
                             <div class="desc"><?= nl2br($item->long_desc) ?></div>

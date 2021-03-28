@@ -144,7 +144,7 @@
     background:rgba(210, 255, 110, 0.14);
 }
 .search-panel-top{
-    background:#eee;
+    background:#fff;
     padding:10px;
     margin-bottom:20px;
     margin-top:10px;
@@ -226,6 +226,17 @@
 .buscador-home select option {
     text-align: center;
 }
+h4 {
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.1px;
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+h3 {
+    margin-bottom: 24px;
+}
+.buscador-home input,
 .buscador-home select {
     width: 300px;
     text-align: center;
@@ -234,6 +245,7 @@
 .buscador-home div, 
 .buscador-home button,
 .buscador-home label,
+.buscador-home input,
 .buscador-home select {
     display: block;
     font-size: 18px;
@@ -251,11 +263,12 @@
     border: none;
     color: #444;
 }
+.buscador-home input,
 .buscador-home select {
     padding: 6px;
 }
 .buscador-home label{
-    margin-top:20px;
+    margin-top:14px;
     color: white;
     font-size:18px;
     font-weight: normal;

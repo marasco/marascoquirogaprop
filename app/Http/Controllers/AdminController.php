@@ -45,11 +45,24 @@ class AdminController extends Controller
     {
         $search = null;
         $order = 'recent';
+        $bath = 0;
+        $ambience = 0;
+        $room = 0;
         $operation = null;
         $orderField = 'id';
         $orderValue = 'desc';
 
+        $operation = $request->operation;
 
+        if (!empty($request->bath)){
+            $bath = $request->bath;
+        }
+        if (!empty($request->room)){
+            $room = $request->room;
+        }
+        if (!empty($request->ambience)){
+            $ambience = $request->ambience;
+        }
         if (!empty($request->order)){
             $order = $request->order;
             switch ($order){
@@ -67,26 +80,41 @@ class AdminController extends Controller
 
             }
         }
-        if (!empty($request->search)){
+        if (!empty($request->search) || !empty($request->bath)) {
             $search = $request->search;
             $listings = \App\Listing::withTrashed()
                 ->where('property_code', 'like', '%'.$search.'%')
-                ->orWhere('title', 'like', '%'.$search.'%')
+                //->orWhere('title', 'like', '%'.$search.'%')
+                ->where('bath_qty', '>=', $bath)
+                ->where('ambience_qty', '>=', $ambience)
+                ->where('room_qty', '>=', $room)
                 ->orderBy($orderField,$orderValue)
                 ->paginate(10);
-
+                if (!empty($request->operation)){
+                    $listings->where('operation', '=', $operation);
+                }
 
         }elseif (!empty($request->operation)) {
-            $operation = $request->operation;
             $listings = \App\Listing::withTrashed()
                 ->where('operation', $operation)
+                ->where('bath_qty', '>=', $bath)
+                ->where('ambience_qty', '>=', $ambience)
+                ->where('room_qty', '>=', $room)
                 ->orderBy($orderField, $orderValue)
                 ->paginate(10);
 
         }else{
             $listings = \App\Listing::withTrashed()->orderBy($orderField,$orderValue)->paginate(10);
         }
-        return view('admin/index', ['listings'=>$listings, 'order'=>$order, 'search'=>$search, 'operation'=>$operation]);
+        return view('admin/index', [
+            'bath'=>$bath, 
+            'ambience'=>$ambience, 
+            'room'=>$room, 
+            'listings'=>$listings, 
+            'order'=>$order, 
+            'search'=>$search, 
+            'operation'=>$operation
+            ]);
     }
 
     public function getNew(Request $request)

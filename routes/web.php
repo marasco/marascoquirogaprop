@@ -16,12 +16,14 @@ Route::post('/', 'HomeController@postIndex');
 Route::get('/', 'HomeController@getIndex');
 Route::get('/home/search', 'HomeController@getSearch');
 Route::get('/home/view/{id}', 'HomeController@getView');
-
+Route::get('/propiedad/{id}', 'HomeController@getView');
 
 Route::get('/admin', 'AdminController@getIndex');
 Route::get('/admin/home', 'AdminController@getIndex');
 Route::get('/admin/index', 'AdminController@getIndex');
 Route::get('/admin/categories', 'AdminController@getCategories');
+Route::get('/admin/imagery', 'AdminController@getImagery');
+Route::get('/admin/create', 'AdminController@getCreate');
 
 Route::get('/admin/edit-category/{id}', 'AdminController@getEditCategory');
 Route::post('/admin/edit-category/{id}', 'AdminController@postNewCategory');

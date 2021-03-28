@@ -55,12 +55,12 @@ $map_items = json_encode($map_listings);
     <div class="buscador-home">
         <form method="GET" action="/home/search">
             <label>Ubicación</label>
-            <select id="ubicacion" name="ubicacion">
-                <option value="ituzaingo-norte">Ituzaingó Norte</option>
-                <option value="castelar-norte">Castelar Norte</option>
-                <option value="castelar-sur">Castelar Sur</option>
-                <option value="ituzaingo-centro">Ituzaingó Centro</option>
-                <option value="ituzaingo-sur">Ituzaingó Sur</option>
+            <select id="city_id" name="city_id">
+                @if (count($cities))
+                    @foreach ($cities as $i=>$city) 
+                    <option value="{{ $city->id }}">{{ $city->name }}</option>
+                    @endforeach
+                @endif
             </select>
             <label>Operación</label>
             <select id="operacion" name="operacion">
@@ -76,6 +76,8 @@ $map_items = json_encode($map_listings);
                     @endforeach
                 @endif
             </select>
+            <label>Código</label>
+            <input id="codigo" name="codigo" type="text" />
             <button type="submit">BUSCAR</button>
     </form>
     </div>    
@@ -143,7 +145,7 @@ $map_items = json_encode($map_listings);
         foreach ($listings as $i=>$item) { 
             $x++;
                 $show = ($x<$per_page)?true:false;
-                $showclass=!$show?' style="display:none"':null;
+                $showclass= !$show?' style="display:none"':null;
                 $showPrice = ($item->price==0)?'Oportunidad':$item->currency.' '.number_format($item->price,0,',','.'); 
                 $imageToShow = URL::to('/'). "/images/prop/1-1.png";
                 $images = $item->Images()->get();
@@ -158,7 +160,7 @@ $map_items = json_encode($map_listings);
                 $toShow.="
 
             <div class='col-xs-12 col-sm-6 col-md-4 col-lg-4 item-". $i ."-".$per_page." ".$cssItemPage."' ".$showclass.">
-                <a href='". URL::to('/home/view/'). '/'.$item->id ."' class='propWidget-2'>
+                <a href='". URL::to('/propiedad/'.$item->property_code )."' class='propWidget-2'>
                     <div class='fig'>
 
                         <div class='listing-home' style='background-image: url(". $imageToShow .");' alt='". $item->title ."'></div>
@@ -184,7 +186,8 @@ $map_items = json_encode($map_listings);
             }
             echo $toShow;
             ?>
-            @if (count($listing_types)>6)
+             
+            @if (count($listings)>9)
 
             <div class="row">
                 <div class="col-xs-12">
@@ -194,6 +197,7 @@ $map_items = json_encode($map_listings);
                 </div>
             </div>
             @endif
+ 
         </div>
         
        

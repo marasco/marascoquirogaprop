@@ -56,22 +56,49 @@ class HomeController extends Controller
     {
         $user = \Auth::user();
         $listing_types = DB::table('listing_types')->get();
-        $listings = \App\Listing::get()->sortByDesc('id');
+        $cities = DB::table('cities')->get();
+        $listings = \App\Listing::get()->sortByDesc('id')->take(36);
          
-        return view('home/index',['user'=>$user, 'listing_types' => $listing_types, 'listings' => $listings]);
+        return view('home/index',[
+            'user' => $user, 
+            'listing_types' => $listing_types, 
+            'cities' => $cities, 
+            'listings' => $listings
+            ]);
     }
 
     public function getSearch(Request $request)
     {
         $user = \Auth::user();
         $listing_types = DB::table('listing_types')->get();
+        $cities = DB::table('cities')->get();
+        $currencies = [
+            'U$S',
+            'AR$',
+        ];
         $data = $request->all();
-        $listing_type_selected=0; 
-        if (!empty($data)){
+        $listing_type_selected=0;
+        $currency_selected='U$S'; 
+        $city_selected=0; 
+        if (!empty($data)) {
+            if (!empty($data['codigo'])){
+                $item = \App\Listing::get()->where('property_code', '=', $data['codigo'])->first();
+                if (!empty($item)){
+                    return redirect('/propiedad/'.$data['codigo']);
+                }
+            }
             $conditions = array();
             if (!empty($data['listing_type'])){
                 $conditions[] = array('type','=',intval($data['listing_type']));
                 $listing_type_selected = \App\ListingType::findOrFail(intval($data['listing_type']));
+            }
+            if (!empty($data['currency'])){
+                $conditions[] = array('currency','=',$data['currency']);
+                $currency_selected = $data['currency'];
+            }
+            if (!empty($data['city_id'])){
+                $conditions[] = array('type','=',intval($data['city_id']));
+                $city_selected = \App\City::findOrFail(intval($data['city_id']));
             }
             if (!empty($data['operacion']) && $data['operacion'] == 'venta') {
                 $conditions[] = array('operation','=','sale');
@@ -88,7 +115,6 @@ class HomeController extends Controller
                 $conditions[] = array('operation','=','rent');
             }
 
-
             if (!empty(intval(@$data['price-a']))) {
                 $conditions[] = array('price','>=', intval($data['price-a']));
             }
@@ -100,15 +126,29 @@ class HomeController extends Controller
                 )->get();
         }else{
             $listings = \App\Listing::all();
-        }
-        return view('home/search',['listing_type_selected'=>$listing_type_selected, 'request'=>$data, 'page'=>'search','listing_types' => $listing_types,'user'=>$user,'listings' => $listings]);
+        } 
+        return view('home/search',[
+            'city_selected'=>$city_selected, 
+            'listing_type_selected'=>$listing_type_selected, 
+            'currency_selected'=>$currency_selected, 
+            'request'=>$data, 
+            'page'=>'search', 
+            'listing_types' => $listing_types, 
+            'cities' => $cities, 
+            'currencies' => $currencies, 
+            'user'=>$user, 
+            'listings' => $listings
+            ]);
     }
     
     public function getView($id)
     {
         $user = \Auth::user();
         $listing = \App\Listing::find($id);
-        if (empty($listing)){
+        if (empty($listing)) {
+            $listing = \App\Listing::get()->where('property_code', '=', $id)->first();
+        }
+        if (empty($listing)) {
             return redirect('/');
         }
         $listing_types = DB::table('listing_types')->get();

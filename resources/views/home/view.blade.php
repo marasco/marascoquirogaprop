@@ -10,18 +10,18 @@
 <div class="publication container margintop100 ">
     <div class="row">
     <div class="col-xs-12">
-    <a href="{{ URL::previous() }}">Volver</a> &bull;
-    <a href="/?">Home</a> / {{ $listing->title }}
+        <!--<a href="{{ URL::previous() }}">Volver</a><br />-->
+        <a href="/?">Home</a> / {{ $listing->title }}
     </div> 
-        <div class="col-xs-12"><?=$label?></div>
+        <div class="col-xs-12"><label>
+            <label class="{{ $labelType }}"><?=$labelText?> / COD: {{ $listing->property_code }}</label>
+        @if (!empty($user)) <a class="btn btn-danger" href="{{ URL::to('/admin/edit/'.$listing->id) }}">Editar esta propiedad</a> @endif
+       </div>
         <div class="col-xs-12">
             <h1>
                 {{ $listing->title }} 
             </h1>
-        </div>
-        <div class="col-xs-12 codeUp">
-        Código: {{ $listing->property_code }} @if (!empty($user)) <a class="btn btn-danger" href="{{ URL::to('/admin/edit/'.$listing->id) }}">Editar esta propiedad</a> @endif
-        </div>
+        </div> 
         <div class="col-xs-12">
         <?php
         $showPrice = ($listing->price==0)?'Oportunidad':$listing->currency.' '.number_format($listing->price,0,',','.');

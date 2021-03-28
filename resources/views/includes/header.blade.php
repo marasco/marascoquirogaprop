@@ -22,17 +22,17 @@
                 </a>
             </li>
            <li>
-                <a href="/index.php#services">
+                <a href="/#services">
                     Servicios
                 </a>
             </li>
             <li>
-                <a href="/index.php#who-we-are">
+                <a href="/#who-we-are">
                     Quiénes somos
                 </a>
             </li>
            <li>
-                <a href="/index.php#contact">
+                <a href="/#contact">
                     Contactanos
                 </a>
             </li>

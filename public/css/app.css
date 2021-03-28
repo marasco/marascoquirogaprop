@@ -4159,9 +4159,13 @@ body.black {
     height: 600px;
     position: relative;
 }
+#hero-container-map:after {
+    clear: both;
+    display:table;
+    content: ""
+}
 #hero-container-map {
     background-color: #fff;
-    height: 482px;
     position: relative;
 }
 #hero-container-blog {
@@ -5393,12 +5397,6 @@ blockquote {
     }
     .table > tbody > tr > td {
         font-size: 11px;
-    }
-    #hero-container, #hero-container-map {
-        height: 482px;
-    }
-    #home-map {
-        height: 482px;
     }
     .home-caption {
         top: 150px;

@@ -30,9 +30,11 @@
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 
-                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fmarascoquirogaprop&tabs=messages&width=320&height=320&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=1580557768907207" style="width:100%" height="320" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+                <!--    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fmarascoquirogaprop&tabs=messages&width=320&height=320&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=1580557768907207" style="width:100%" height="320" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe> -->
             </div>
-        </div>
-        <div class="newsletter-div"><a href="http://eepurl.com/c2T5Af" class="btn btn-green btn-block">Recibí ofertas a tu email</a> </div><div class="copyright"><a href="http://www.flydevs.com/" target="_blank">flyDevs.com &copy; <?php echo date('Y'); ?></a></div>
+        </div><!--
+       <div class="newsletter-div"<a href="http://eepurl.com/c2T5Af" class="btn btn-green btn-block">Recibí ofertas a tu email</a </div>
+       >-->
+       <div class="copyright"><a href="http://www.flydevs.com/" target="_blank">https://www.flydevs.com &copy; <?php echo date('Y'); ?></a></div> 
     </div>
 </div>

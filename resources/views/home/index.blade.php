@@ -41,23 +41,52 @@ $map_items = json_encode($map_listings);
 @include('includes.header')
 
 <div id="hero-container-map">
-<div class="buscador-home"></div>    
+    
 
-<div id="wowslider-container1">
-<div class="ws_images"><ul>
-<?=$sliding?>
- 
-</ul></div>
+    <div id="wowslider-container1">
+        <div class="ws_images">
+            <ul>
+            <?=$sliding?>
+            
+            </ul>
+        </div>
+    </div>
+
+    <div class="buscador-home">
+        <form method="GET" action="/home/search">
+            <label>Ubicación</label>
+            <select id="ubicacion" name="ubicacion">
+                <option value="ituzaingo-norte">Ituzaingó Norte</option>
+                <option value="castelar-norte">Castelar Norte</option>
+                <option value="castelar-sur">Castelar Sur</option>
+                <option value="ituzaingo-centro">Ituzaingó Centro</option>
+                <option value="ituzaingo-sur">Ituzaingó Sur</option>
+            </select>
+            <label>Operación</label>
+            <select id="operacion" name="operacion">
+                <option value="venta">Venta</option>
+                <option value="alquiler">Alquiler</option>
+            </select>
+            <label>Tipo de Propiedad</label>
+            <select id="listing_type" name="listing_type">
+
+                @if (count($listing_types))
+                    @foreach ($listing_types as $i=>$listing_type) 
+                    <option value="{{ $listing_type->id }}">{{ $listing_type->name }}</option>
+                    @endforeach
+                @endif
+            </select>
+            <button type="submit">Buscar</button>
+    </form>
+    </div>    
+
 </div>
-</div>
-
-
  
 <div class="home-wrapper">
     <div class="home-content">
         <div class="col-xs-12 backTitle"><h1 class="osLight">Quienes Somos</h1></div>
             <div class="col-xs-12">
-<a id="who-we-are"></a>
+            <a id="who-we-are"></a>
             <p class="who-we-are">
     Somos una empresa joven que trabaja para satisfacer las necesidades inmobiliarias de nuestros clientes ofreciendo <span class="profesionalidad">profesionalidad</span>, <span class="eficacia">eficacia</span> y <span class="seriedad">seriedad</span>.
     </p>

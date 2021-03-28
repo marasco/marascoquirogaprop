@@ -73,14 +73,26 @@ class HomeController extends Controller
                 $conditions[] = array('type','=',intval($data['listing_type']));
                 $listing_type_selected = \App\ListingType::findOrFail(intval($data['listing_type']));
             }
-            if ((!empty($data['sale']) && $data['sale']=='on') && (empty($data['rent']) || $data['rent']!='on')) 
+            if (!empty($data['operacion']) && $data['operacion'] == 'venta') {
                 $conditions[] = array('operation','=','sale');
-            if ((!empty($data['rent']) && $data['rent']=='on') && (empty($data['sale']) || $data['sale']!='on')) 
+                $data['sale']='on';
+            }
+            if (!empty($data['operacion']) && $data['operacion'] == 'alquiler') {
                 $conditions[] = array('operation','=','rent');
-            if (!empty(intval($data['price-a']))) {
+                $data['rent']='on';
+            }
+            if ((!empty($data['sale']) && $data['sale']=='on') && (empty($data['rent']) || $data['rent']!='on')) {
+                $conditions[] = array('operation','=','sale');
+            }
+            if ((!empty($data['rent']) && $data['rent']=='on') && (empty($data['sale']) || $data['sale']!='on')) {
+                $conditions[] = array('operation','=','rent');
+            }
+
+
+            if (!empty(intval(@$data['price-a']))) {
                 $conditions[] = array('price','>=', intval($data['price-a']));
             }
-            if (!empty(intval($data['price-b']))) {
+            if (!empty(intval(@$data['price-b']))) {
                 $conditions[] = array('price','<=', intval($data['price-b']));
             }
             $listings = \App\Listing::where(

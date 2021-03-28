@@ -156,7 +156,7 @@
     letter-spacing: 0.02em;
 }
 #home-map {
-    width: 60%;
+    width: 65%;
     float:left;
     height: 482px;
 }
@@ -206,11 +206,66 @@
 .navbar-nav {
     float:right;
 }
+.no-touch .nav > li > a:hover, .nav > li > a:focus {
+    background-color: transparent;
+    color: gold;
+}
 .navbar-nav > li > a {
     color: white;
 }
-@media(max-width: 768px){
+.navbar-nav {
+    margin-top: 5px;
+}
+.buscador-home {
+    background: #333;
+    height: 482px;
+    padding: 20px;
+    float:left;
+    width: 35%;
+}
+.buscador-home select option {
+    text-align: center;
+}
+.buscador-home select {
+    width: 300px;
+    text-align: center;
+    max-width: 100%;
+}
+.buscador-home div, 
+.buscador-home button,
+.buscador-home label,
+.buscador-home select {
+    display: block;
+    font-size: 18px;
+    font-family: 'open_sanslight';
+    margin: 0 auto 10px;
+    text-align: center;
+}
 
+.buscador-home button{
+    margin-top: 30px;
+    padding: 8px 30px;
+    font-family: 'open_sanslight';
+    font-size: 18px;
+    background: gold;
+    border: none;
+    color: #444;
+}
+.buscador-home select {
+    padding: 6px;
+}
+.buscador-home label{
+    margin-top:20px;
+    color: white;
+    font-size:18px;
+    font-weight: normal;
+}
+@media(max-width: 768px){
+    .buscador-home {
+        float:none;
+        position:relative;
+        width: 100%;
+    }
     .navbar-nav {
         float:left;
     }

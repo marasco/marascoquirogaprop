@@ -13,6 +13,8 @@ ALTER TABLE listings ADD COLUMN published_in_mercadolibre tinyint(1) unsigned no
 ALTER TABLE listings ADD COLUMN published_in_zonaprop tinyint(1) unsigned not null default '0';
 ALTER TABLE listings ADD COLUMN published_in_argenprop tinyint(1) unsigned not null default '0';
 CREATE TABLE cities (id int unsigned not null primary key auto_increment, name varchar(50) not null);
+ALTER TABLE cities ADD COLUMN `created_at` timestamp NULL DEFAULT NULL;
+ALTER TABLE cities ADD COLUMN `updated_at` timestamp NULL DEFAULT NULL;
 INSERT INTO cities (name) VALUES 
     ('Ituzaingó Norte'),
     ('Ituzaingó Sur'),

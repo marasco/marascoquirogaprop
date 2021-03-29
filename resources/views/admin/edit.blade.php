@@ -134,6 +134,7 @@
                         <div class="clearfix"></div>
                         @if (count($cities))
                         <?php 
+                            $selectedCity = '';
                                 foreach ($cities as $i=>$city):
                                     if ($city->id == $listing->city_id):
                                         $selectedCity = $city->name;
@@ -157,7 +158,7 @@
                     <input type="number" class="form-control" name="ambience_qty" min="1" value="{{ $listing->ambience_qty }}" />
                 </div>
                 <div class="form-group">
-                    <label>Cantidad de Habitaciones</label>
+                    <label>Cantidad de Dormitorios</label>
                     <input type="number" class="form-control" name="room_qty" min="1" value="{{ $listing->room_qty }}" />
                 </div>
                 <div class="form-group">

@@ -290,11 +290,15 @@ class AdminController extends Controller
 
     }
 
-
     public function getCategories()
     {
         $listing_types = DB::table('listing_types')->paginate(20);
         return view('admin/categories', ['items'=>$listing_types]);
+    }
+    public function getCities()
+    {
+        $cities = DB::table('cities')->paginate(20);
+        return view('admin/cities', ['items'=>$cities]);
     }
     public function getImagery(Request $request){
         return view('admin/create-image');
@@ -359,7 +363,7 @@ class AdminController extends Controller
         return $image->response('png');
     }
 
-
+    /* Categories */
     public function getNewCategory(Request $request)
     {
         return view('admin/categories-new');
@@ -389,6 +393,38 @@ class AdminController extends Controller
     {
         DB::table('listing_types')->delete($id);
         return redirect('admin/categories');
+    }
+
+    /* Cities */
+    public function getNewCity(Request $request)
+    {
+        return view('admin/cities-new');
+    }
+    public function getEditCity(Request $request, $id)
+    {
+        $item = \App\City::find($id);
+        if (empty($item)){
+            return redirect('admin/cities');
+        }
+        return view('admin/cities-edit', ['item'=>$item]);
+    }
+    public function postNewCity(Request $request)
+    {
+        if (!empty($request->id)){
+            $item = \App\City::find($request->id);
+        }else{
+            $item = new \App\City;
+        } 
+        $item->name = $request->name;
+        $success = $item->save();
+         
+        return redirect('admin/cities');
+
+    }
+    public function getDeleteCity($id)
+    {
+        DB::table('cities')->delete($id);
+        return redirect('admin/cities');
     }
 
 }

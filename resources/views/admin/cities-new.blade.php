@@ -6,18 +6,17 @@
         <div class="container">
         <div class="row"> 
         <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
-                <form action="{{ url('admin/new-category')}}" method="POST" class="form-horizontal">
+                <form action="{{ url('admin/new-city')}}" method="POST" class="form-horizontal">
                     {{ csrf_field() }}
-                    <input type="hidden" name="id" value="{{ $item->id }}" />
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                      <div class="form-group">
-                           <h3>Editar Categoría</h3>
+                           <h3>Agregar Ubicacion</h3>
 
                         </div>
                         <div class="form-group">
                             <label>Nombre</label>
-                            <input type="text" name="name" class="form-control" value="{{ $item->name }}">
+                            <input type="text" name="name" class="form-control" value="">
                         </div>
                         
                          <div class="form-group">

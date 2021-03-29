@@ -53,38 +53,38 @@
                 <label>Op </label>
                     <select name="operation">
                     <option value="" {{ empty($operation)? "selected":"" }}>*</option>
-                    <option value="sale" {{ $operation=='sale'? "selected":"" }}>Venta</option>
-                    <option value="rent" {{ $operation=='rent'? "selected":"" }}>Alquiler</option>
+                    <option value="sale" {{ @$operation=='sale'? "selected":"" }}>Venta</option>
+                    <option value="rent" {{ @$operation=='rent'? "selected":"" }}>Alquiler</option>
                     </select>
                 <label>Ba&ntilde;os </label>
                     <select name="bath">
-                    <option value="0" {{ $bath=='0'? "selected":"" }}>*</option>
-                    <option value="1" {{ $bath=='1'? "selected":"" }}>1+</option>
-                    <option value="2" {{ $bath=='2'? "selected":"" }}>2+</option>
-                    <option value="3" {{ $bath=='3'? "selected":"" }}>3+</option>
-                    <option value="4" {{ $bath=='4'? "selected":"" }}>4+</option>
+                    <option value="0" {{ @$bath=='0'? "selected":"" }}>*</option>
+                    <option value="1" {{ @$bath=='1'? "selected":"" }}>1+</option>
+                    <option value="2" {{ @$bath=='2'? "selected":"" }}>2+</option>
+                    <option value="3" {{ @$bath=='3'? "selected":"" }}>3+</option>
+                    <option value="4" {{ @$bath=='4'? "selected":"" }}>4+</option>
                     </select>
 
-                <label>Ambientes </label>
+                <label>Amb. </label>
                     <select name="ambience">
-                    <option value="0" {{ $ambience=='0'? "selected":"" }}>*</option>
-                    <option value="1" {{ $ambience=='1'? "selected":"" }}>1+</option>
-                    <option value="2" {{ $ambience=='2'? "selected":"" }}>2+</option>
-                    <option value="3" {{ $ambience=='3'? "selected":"" }}>3+</option>
-                    <option value="4" {{ $ambience=='4'? "selected":"" }}>4+</option>
-                    <option value="5" {{ $ambience=='5'? "selected":"" }}>5+</option>
-                    <option value="6" {{ $ambience=='6'? "selected":"" }}>6+</option>
+                    <option value="0" {{ @$ambience=='0'? "selected":"" }}>*</option>
+                    <option value="1" {{ @$ambience=='1'? "selected":"" }}>1+</option>
+                    <option value="2" {{ @$ambience=='2'? "selected":"" }}>2+</option>
+                    <option value="3" {{ @$ambience=='3'? "selected":"" }}>3+</option>
+                    <option value="4" {{ @$ambience=='4'? "selected":"" }}>4+</option>
+                    <option value="5" {{ @$ambience=='5'? "selected":"" }}>5+</option>
+                    <option value="6" {{ @$ambience=='6'? "selected":"" }}>6+</option>
                     </select>
 
-                <label>Habitaciones </label>
+                <label>Dorm. </label>
                     <select name="room">
-                    <option value="0" {{ $room=='0'? "selected":"" }}>*</option>
-                    <option value="1" {{ $room=='1'? "selected":"" }}>1+</option>
-                    <option value="2" {{ $room=='2'? "selected":"" }}>2+</option>
-                    <option value="3" {{ $room=='3'? "selected":"" }}>3+</option>
-                    <option value="4" {{ $room=='4'? "selected":"" }}>4+</option>
-                    <option value="5" {{ $room=='5'? "selected":"" }}>5+</option>
-                    <option value="6" {{ $room=='6'? "selected":"" }}>6+</option>
+                    <option value="0" {{ @$room=='0'? "selected":"" }}>*</option>
+                    <option value="1" {{ @$room=='1'? "selected":"" }}>1+</option>
+                    <option value="2" {{ @$room=='2'? "selected":"" }}>2+</option>
+                    <option value="3" {{ @$room=='3'? "selected":"" }}>3+</option>
+                    <option value="4" {{ @$room=='4'? "selected":"" }}>4+</option>
+                    <option value="5" {{ @$room=='5'? "selected":"" }}>5+</option>
+                    <option value="6" {{ @$room=='6'? "selected":"" }}>6+</option>
                     </select>
                 <button type="submit" value="Buscar" class="btn btn-green">Buscar</button>
                 
@@ -139,6 +139,9 @@
                     </li>
                     <li class="hasSub">
                         <a href="<?=URL::to('/')?>/admin/categories"><span class="navIcon icon-layers"></span><span class="navLabel">Categorías</span><span class="fa fa-angle-left arrowRight"></span></a>
+                    </li>
+                    <li class="hasSub">
+                        <a href="<?=URL::to('/')?>/admin/cities"><span class="navIcon icon-layers"></span><span class="navLabel">Ubicaciones</span><span class="fa fa-angle-left arrowRight"></span></a>
                     </li>
                      <li class="hasSub">
                         <a href="<?=URL::to('/')?>/"><span class="navIcon icon-eye"></span><span class="navLabel">Ir al Sitio</span><span class="fa fa-angle-left arrowRight"></span></a>

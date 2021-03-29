@@ -121,7 +121,7 @@
                     <input type="number" class="form-control" name="ambience_qty" min="1" value="{{ old('ambience_qty') || 1 }}" />
                 </div>
                 <div class="form-group">
-                    <label>Cantidad de Habitaciones</label>
+                    <label>Cantidad de Dormitorios</label>
                     <input type="number" class="form-control" name="room_qty" min="1" value="{{ old('room_qty') || 1 }}" />
                 </div>
                 <div class="form-group">

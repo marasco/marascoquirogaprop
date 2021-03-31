@@ -63,8 +63,8 @@
                                         @endif
                                         <td>
                                             <div class="btn-group">
-                                                <a href="<?=URL::to('/')?>/admin/edit/{{ $listing->id }}" class="btn btn-xs btn-round btn-o btn-green"><span class="fa fa-pencil"></span> Editar</a> 
                                                 @if (!$listing->trashed())
+                                                <a href="<?=URL::to('/')?>/admin/edit/{{ $listing->id }}" class="btn btn-xs btn-round btn-o btn-green"><span class="fa fa-pencil"></span> Editar</a> 
                                                 <a href="<?=URL::to('/')?>/admin/delete/{{ $listing->id }}" class="btn btn-xs btn-round btn-o btn-red"><span class="fa fa-trash"></span> Eliminar</a>  
                                                 @else
                                                 <a href="<?=URL::to('/')?>/admin/undelete/{{ $listing->id }}" class="btn btn-xs btn-round btn-o btn-green"><span class="fa fa-trash"></span> Restaurar</a>

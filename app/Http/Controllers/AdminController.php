@@ -238,7 +238,7 @@ class AdminController extends Controller
             $listing = new \App\Listing;
             $listing->property_code = $this->Unique();
         }
-        $listing->privacy_comment = @$request->privacy_comment;
+        $listing->privacy_comment = (string)@$request->privacy_comment;
         $listing->owner_data = @$request->owner_data;
         $listing->title = $request->title;
         $listing->short_desc = $request->short_desc;
@@ -272,11 +272,15 @@ class AdminController extends Controller
             if (!empty($firstImage) && !empty($firstImage->filename)){
                 error_log($firstImage->filename);
                 if (is_readable('uploads/'.$firstImage->filename)){
+                    try {
                     \Image::make('uploads/'.$firstImage->filename)->resize(null, 200, 
                         function ($constraint) {
                             $constraint->aspectRatio();
                         }
                     )->save('uploads/'.'thumb_'.$firstImage->filename);
+                    } catch (\Exception $e){
+
+                    }
                 }
             }
 

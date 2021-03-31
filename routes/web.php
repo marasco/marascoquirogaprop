@@ -23,6 +23,7 @@ Route::get('/admin/home', 'AdminController@getIndex');
 Route::get('/admin/index', 'AdminController@getIndex');
 Route::get('/admin/imagery', 'AdminController@getImagery');
 Route::get('/admin/create', 'AdminController@getCreate');
+Route::get('/admin/delete/{id}', 'AdminController@getDelete');
 
 Route::get('/admin/categories', 'AdminController@getCategories');
 Route::get('/admin/edit-category/{id}', 'AdminController@getEditCategory');

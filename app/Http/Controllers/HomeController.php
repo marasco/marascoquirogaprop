@@ -152,7 +152,7 @@ class HomeController extends Controller
             return redirect('/');
         }
         $listing_types = DB::table('listing_types')->get();
-        $listing_images = DB::table('listing_images')->where('listing_id', $id)->get();
+        $listing_images = DB::table('listing_images')->where('listing_id', $listing->id)->get();
         return view('home/view', ['page'=>'view', 'listing' => $listing, 'listing_types'=>$listing_types, 'user'=>$user, 'listing_images'=>$listing_images]);
     }
 }

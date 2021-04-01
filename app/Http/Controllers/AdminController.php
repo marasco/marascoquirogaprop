@@ -51,7 +51,10 @@ class AdminController extends Controller
         $operation = null;
         $orderField = 'id';
         $orderValue = 'desc';
-
+        if (!empty($request->test)){
+            print_r(phpinfo());
+            print_r(gd_info());die;
+        }
         $operation = $request->operation;
 
         if (!empty($request->bath)){
@@ -239,13 +242,13 @@ class AdminController extends Controller
             $listing->property_code = $this->Unique();
         }
         $listing->privacy_comment = (string)@$request->privacy_comment;
-        $listing->owner_data = @$request->owner_data;
-        $listing->title = $request->title;
-        $listing->short_desc = $request->short_desc;
-        $listing->long_desc = $request->long_desc;
-        $listing->type = $request->type;
-        $listing->city_id = $request->city_id;
-        $listing->operation = $request->operation;
+        $listing->owner_data = (string)@$request->owner_data;
+        $listing->title = (string)@$request->title;
+        $listing->short_desc = (string)@$request->short_desc;
+        $listing->long_desc = (string)@$request->long_desc;
+        $listing->type = @$request->type;
+        $listing->city_id = @$request->city_id;
+        $listing->operation = (string)@$request->operation;
         $listing->likes = 0;
         $listing->currency = !empty($request->currency)?$request->currency:'$';
         $listing->price = $request->price;

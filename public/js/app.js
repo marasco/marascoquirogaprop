@@ -266,7 +266,7 @@ if (typeof _defaultLat == 'undefined'){
 
         }
 
-      //  addMarkers(props, map);
+        //addMarkers(props, map);
         }
     }, 300);
     }

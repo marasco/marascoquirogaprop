@@ -58,12 +58,14 @@ class HomeController extends Controller
         $listing_types = DB::table('listing_types')->get();
         $cities = DB::table('cities')->get();
         $listings = \App\Listing::get()->sortByDesc('id')->take(36);
+        $all_listings = \App\Listing::get()->sortByDesc('id')->take(200);
          
         return view('home/index',[
             'user' => $user, 
             'listing_types' => $listing_types, 
             'cities' => $cities, 
-            'listings' => $listings
+            'listings' => $listings,
+            'all_listings' => $all_listings
             ]);
     }
 

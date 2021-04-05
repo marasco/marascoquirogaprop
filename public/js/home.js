@@ -18,7 +18,7 @@ function seeMoreItems(){
 }
 function loadMarkers(callback) {
     callback(window._mapItems);
-    console.log(_mapItems)
+    //console.log(_mapItems)
 }
 var addMarkers = function(props, map) {
     var showed_coords = new Array();
@@ -45,8 +45,8 @@ var addMarkers = function(props, map) {
             draggable: false,
             animation: google.maps.Animation.DROP,
         });
-        console.log('addMarker '+i)
-        console.log( prop.image )
+     //   console.log('addMarker '+i)
+      //  console.log( prop.image )
         var saleClass=prop.type.toLowerCase()=='venta'?'blueClass':'';
         var infoboxContent = 
         '<div class="infoW">' + 
@@ -183,7 +183,7 @@ function loadHomeMap() {
 (function($) {
     jQuery("#wowslider-container1").wowSlider({effect:"slices",prev:"",next:"",duration:15*100,delay:40*100,width:960,height:360,autoPlay:true,playPause:true,stopOnHover:false,loop:true,bullets:true,caption:true,captionEffect:"move",controls:true,onBeforeStep:0,images:0});
     "use strict";
-//    loadHomeMap();
+    loadHomeMap();
     if (!(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch)) {
         $('body').addClass('no-touch');
     }

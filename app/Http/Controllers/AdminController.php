@@ -189,9 +189,9 @@ class AdminController extends Controller
             $request->data['file']->move($destinationPath, $fileName);
 
             $listingImages = new \App\ListingImage;
-            if (!empty($listing_id)){
+            //if (!empty($listing_id)){
                 $listingImages->listing_id = $listing_id;
-            }
+            //}
             $listingImages->filename = $fileName;
             $listingImages->save();
 

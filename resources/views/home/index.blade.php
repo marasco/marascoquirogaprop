@@ -4,20 +4,31 @@
 <?php 
 $map_listings = array(); 
 $sliding = null;
+// for slides
 foreach ($listings as $item) {
     $showPrice = ($item->price==0)?'Oportunidad':$item->currency.' '.number_format($item->price,0,',','.'); 
     $imageToShow = URL::to('/'). "/images/prop/1-1.png";
     $images = $item->Images()->get();
     $operation = ($item->operation=='sale')?'VENTA':'ALQUILER';
     $markerIcon = ($item->operation=='sale')?'marker-green.png':'marker-yellow.png';
-    if (!empty($images[0]) && !empty($images[0]['filename'])){
+    if (!empty($images[0]) && !empty($images[0]['filename'])) {
         $imageToShow = URL::to('/').'/uploads/'.$images[0]['filename'];
         $sliding.= '
         <li><div class="wow-image" style="background-image:url('.$imageToShow.')"
 " alt="'.$item->title.'" title="'.$item->title.'" id="wows1_0">'.$item->short_desc.'</div<</li>
 ';
     }
-
+}
+// for map
+foreach ($all_listings as $item) {
+    $showPrice = ($item->price==0)?'Oportunidad':$item->currency.' '.number_format($item->price,0,',','.'); 
+    $imageToShow = URL::to('/'). "/images/prop/1-1.png";
+    $images = $item->Images()->get();
+    $operation = ($item->operation=='sale')?'VENTA':'ALQUILER';
+    $markerIcon = ($item->operation=='sale')?'marker-green.png':'marker-yellow.png';
+    if (!empty($images[0]) && !empty($images[0]['filename'])) {
+        $imageToShow = URL::to('/').'/uploads/'.$images[0]['filename'];
+    }
     $map_listings[] = array(
         'id' => $item->id,
         'title' => $item->title,
@@ -29,6 +40,7 @@ foreach ($listings as $item) {
         'markerIcon' => $markerIcon
         );
 }
+
 $map_items = json_encode($map_listings);
 ?>
 
@@ -47,7 +59,6 @@ $map_items = json_encode($map_listings);
         <div class="ws_images">
             <ul>
             <?=$sliding?>
-            
             </ul>
         </div>
     </div>
@@ -134,6 +145,7 @@ $map_items = json_encode($map_listings);
                 </a>
             </div>
         </div>
+        <div id="home-map" class="use-map"></div>
         <a id="last"></a>
         <div class="col-xs-12 backTitle"><h1 class="osLight">Últimas publicaciones</h1></div>
         <div class="row pb40">

@@ -262,7 +262,7 @@ $map_items = json_encode($map_listings);
                     
                     <div class="form-group">
                         <div class="col-xs-12 pull-right">
-                            <a href="javascript:void(0)" onclick="javascript:document.forms[0].submit()" class="btn btn-o btn-yellow">Enviar</a>
+                            <a href="javascript:void(0)" onclick="javascript:document.forms[1].submit()" class="btn btn-o btn-yellow">Enviar</a>
                         </div>
                     </div>
                 </form>

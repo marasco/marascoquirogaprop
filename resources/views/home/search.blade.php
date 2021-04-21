@@ -12,8 +12,9 @@ foreach ($listings as $item) {
     $markerIcon = ($item->operation=='sale')?'marker-green.png':'marker-yellow.png';
     if (!empty($images[0]) && !empty($images[0]['filename'])){
         $imageToShow = URL::to('/').'/uploads/thumb_'.$images[0]['filename'];
+        $imageToShow2 = URL::to('/').'/uploads/'.$images[0]['filename'];
         $sliding.= '
-        <li><div style="background-image:url('.$imageToShow.')"
+        <li><div style="background-image:url('.$imageToShow.'),url('.$imageToShow2.')"
 " alt="'.$item->title.'" title="'.$item->title.'" id="wows1_0">'.$item->short_desc.'</div<</li>
 ';
     }
@@ -144,12 +145,13 @@ $map_items = json_encode($map_listings);
                     $operation = ($item->operation=='sale')?'VENTA':'ALQUILER';
                     if (!empty($images[0]) && !empty($images[0]['filename'])){
                         $imageToShow = URL::to('/').'/uploads/thumb_'.$images[0]['filename'];
+                        $imageToShow2 = URL::to('/').'/uploads/'.$images[0]['filename'];
                     }
                     ?>
                     <a href="{{ URL::to('/home/view/'). '/'.$item->id }}" class="property">
                     <div class="col-xs-12 property-item" id="property-div-{{ $item->id }}">
 
-                        <div class="property-image" style="background-image: url({{ $imageToShow }});" alt="{{ $item->title }} ">
+                        <div class="property-image" style="background-image: url({{ $imageToShow }}), url({{ $imageToShow2 }});" alt="{{ $item->title }} ">
                             <div class="figType property-operation">{{ $operation }}</div>
                         </div>
                         <div class="property-data">
